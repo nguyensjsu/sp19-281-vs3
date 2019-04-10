@@ -34,14 +34,14 @@ Parameters for Success
 | itemAmount         | Float  | Amount of the item                 |
 | itemCalorieContent | String | Calorie contents of item           |
 | itemImagePath      | String | Represents the URL of item's image |
-| statusCode         | String | Code representing success response |
+| statusCode         | int    | Code representing success response |
 
 Parameters for Error
 
 | Parameter          | Type   | Description                        |
 | ------------------ | ------ | ---------------------------------- |
 | errorMessage       | String | Error specific message to user     |
-| statusCode         | String | Code representing error response   |
+| statusCode         | int    | Code representing error response   |
 
 ### 2. Get list of items present in the menu (Accessible to admin as well as any user)
 
@@ -71,14 +71,14 @@ Parameters for Error
 | Parameter          | Type   | Description                        |
 | ------------------ | ------ | ---------------------------------- |
 | errorMessage       | String | Error specific message to user     |
-| statusCode         | String | Code representing error response   |
+| statusCode         | int    | Code representing error response   |
 
 ### 3. Get a particular item from menu based on selected item ID (Accessible to admin as well as any user)
 
 **Request**
 
 ```
-GET /menu/item/:itemId
+GET /menu/item/{itemId}
 
 ```
 
@@ -101,14 +101,14 @@ Parameters for Success
 | itemAmount         | Float  | Amount of the item                 |
 | itemCalorieContent | String | Calorie contents of item           |
 | itemImagePath      | String | Represents the URL of item's image |
-| statusCode         | String | Code representing success response |
+| statusCode         | int    | Code representing success response |
 
 Parameters for Error
 
 | Parameter          | Type   | Description                        |
 | ------------------ | ------ | ---------------------------------- |
 | errorMessage       | String | Error specific message to user     |
-| statusCode         | String | Code representing error response   |
+| statusCode         | int    | Code representing error response   |
 
 
 ### 4. Edit a particular item from menu (Accessible only to admin)
@@ -143,21 +143,21 @@ Parameters for Success
 | itemAmount         | Float  | Amount of the item                 |
 | itemCalorieContent | String | Calorie contents of item           |
 | itemImagePath      | String | Represents the URL of item's image |
-| statusCode         | String | Code representing success response |
+| statusCode         | int    | Code representing success response |
 
 Parameters for Error
 
 | Parameter          | Type   | Description                        |
 | ------------------ | ------ | ---------------------------------- |
 | errorMessage       | String | Error specific message to user     |
-| statusCode         | String | Code representing error response   |
+| statusCode         | int    | Code representing error response   |
 
 ### 5. Delete a particular item from menu (Accessible only to admin)
 
 **Request**
 
 ```
-Delete /menu/item/:itemId
+Delete /menu/item/{itemId}
 ```
 
 Parameters
@@ -172,12 +172,12 @@ Parameters for Success
 
 | Parameter    | Type    | Description                         |
 | ------------ | ------- | ----------------------------------- |
-| statusCode   | boolean | Item deletion success message       |
-| statusMessage| String  | Code representing success response  |
+| statusMessage| String  | Item deletion success message       |
+| statusCode   | int     | Code representing success response  |
 
 Parameters for Error
 
-| Parameter          | Type   | Description                        |
-| ------------------ | ------ | ---------------------------------- |
-| errorMessage       | String | Error specific message to user     |
-| statusCode         | String | Code representing error response   |
+| Parameter     | Type   | Description                         |
+| ------------- | ------ | ----------------------------------- |
+| errorMessage  | String | Error specific message to user      |
+| statusCode    | int    | Code representing error response    |
