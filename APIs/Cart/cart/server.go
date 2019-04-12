@@ -54,12 +54,64 @@ func (c *Client) Ping() (string, error) {
 func initRoutes(mx *mux.Router, formatter *render.Render) {
 
 	mx.HandleFunc("/ping", PingHandler(formatter)).Methods("GET")
+	mx.HandleFunc("/cart", getCartHandler(formatter)).Methods("GET")
 	
 }
 
 func PingHandler(formatter *render.Render) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
 		formatter.JSON(w, http.StatusOK, struct{ Test string }{"API Cart running!"})
+	}
+}
+
+// Handle new order request
+func newOrderHandler(formatter *render.Render) http.HandlerFunc {
+	return func(w http.ResponseWriter, req *http.Request) {
+
+		var newCart Cart
+		uuid, _ := uuid.NewV4()
+		fmt.Println(req.Body)
+		decoder := json.NewDecoder(req.Body)
+		fmt.Println(decoder)
+
+		// err := decoder.Decode(&newCart)
+		// if err != nil {
+		// 	ErrorWithJSON(w, "Incorrect body", http.StatusBadRequest)
+		// 	fmt.Println("[HANDLER DEBUG] ", err.Error())
+		// 	return
+		// }
+
+		// newCart.Id = uuid.String()
+		// cartItems := newCart.Items
+
+		// reqbody, _ := json.Marshal(newCart)
+
+		// c := NewClient(elbcart)
+		// val_resp, err := c.CreateOrder(uuid.String(), string(reqbody))
+
+		// if err != nil {
+		// 	fmt.Println("[HANDLER DEBUG] ", err.Error())
+		// 	formatter.JSON(w, http.StatusBadRequest, err)
+		// } else {
+		// 	formatter.JSON(w, http.StatusOK, val_resp)
+		// }
+	}
+}
+
+// Handle new order request
+func getCartHandler(formatter *render.Render) http.HandlerFunc {
+	return func(w http.ResponseWriter, req *http.Request) {
+
+		var newCart Cart
+		uuid, _ := uuid.NewV4()
+		fmt.Println(req.Body)
+		decoder := json.NewDecoder(req.Body)
+		fmt.Println(decoder)
+
+
+
+
+		
 	}
 }
 
