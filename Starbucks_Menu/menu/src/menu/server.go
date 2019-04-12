@@ -17,7 +17,7 @@ import (
 	"os"
 )
 
-var database_server = os.Getenv("mongodb")
+var database_server = os.Getenv("127.0.0.1:27017")
 var database = os.Getenv("cmpe281")
 var collection = os.Getenv("Menu")
 
@@ -63,5 +63,47 @@ func failOnError(err error, msg string) {
 func pingHandler(formatter *render.Render) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
 		formatter.JSON(w, http.StatusOK, struct{ Test string }{"API version 1.0 alive!"})
+	}
+}
+
+func createItemHandler(formatter *render.Render) http.HandlerFunc {
+	return func(response http.ResponseWriter, request *http.Request) {
+		var menuItem MenuItem
+		_ = json.NewDecoder(request.Body).Decode(&menuItem)
+    	fmt.Println("Item Payload ", menuItem)
+    	uuid := uuid.NewV4()
+    	menuItem.itemId = uuid.String()
+    	session, err := mgo.Dial(database_server)
+        if err != nil {
+            formatter.JSON(response, http.StatusInternalServerError, "Internal Server Error")
+            return
+        }
+       defer session.Close()
+
+       mongo_collection := session.DB(database).C(collection)
+
+       var menu Menu;
+       err = mongo_collection.Find(bson.M{"itemId" : menuItem.itemId}).One(&menu)
+       if err != nil {
+              fmt.Println("error: ", err)
+             	menu.itemId = menuItem.itemId
+             	menu.itemName = menuItem.itemName
+							menu.itemSummary = menuItem.itemSummary
+							menu.itemDescription = menuItem.itemDescription
+							menu.itemAmount = menuItem.itemAmount
+							menu.itemCalorieContent = menuItem.itemCalorieContent
+
+            error := mongo_collection.Insert(menu)
+            fmt.Println("error: ", error)
+            if error != nil {
+                formatter.JSON(response, http.StatusInternalServerError, "Internal Server Error")
+                return
+            }
+
+        }else{
+              formatter.JSON(response, http.StatusInternalServerError, "Internal Server Error")
+              return
+        }
+		formatter.JSON(response, http.StatusOK, menu)
 	}
 }
