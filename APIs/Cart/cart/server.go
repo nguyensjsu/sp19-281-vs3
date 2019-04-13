@@ -102,14 +102,25 @@ func newOrderHandler(formatter *render.Render) http.HandlerFunc {
 func getCartHandler(formatter *render.Render) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
 
-		var newCart Cart
-		uuid, _ := uuid.NewV4()
-		fmt.Println(req.Body)
-		decoder := json.NewDecoder(req.Body)
-		fmt.Println(decoder)
-
-
-
+				params := mux.Vars(req)
+				var uuid string = params["id"]
+				// fmt.Println( "Order Params ID: ", uuid )
+		
+				if uuid == "" {
+					formatter.JSON(w, http.StatusBadRequest, "Invalid Request. Order ID Missing.")
+				} else {
+		
+		//			c := NewClient(elbcart)
+		
+					ord := c.GetOrder(uuid)
+		
+					if ord.Id == "" {
+						formatter.JSON(w, http.StatusBadRequest, "")
+					} else {
+						fmt.Println("Order Details: ", ord)
+						formatter.JSON(w, http.StatusOK, ord)
+					}
+				}
 
 		
 	}
