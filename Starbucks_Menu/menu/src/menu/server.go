@@ -66,6 +66,8 @@ func pingHandler(formatter *render.Render) http.HandlerFunc {
 	}
 }
 
+// API for creating an item in the menu
+
 func createItemHandler(formatter *render.Render) http.HandlerFunc {
 	return func(response http.ResponseWriter, request *http.Request) {
 		var menuItem MenuItem
@@ -82,18 +84,18 @@ func createItemHandler(formatter *render.Render) http.HandlerFunc {
 
        mongo_collection := session.DB(database).C(collection)
 
-       var menu Menu;
-       err = mongo_collection.Find(bson.M{"itemId" : menuItem.itemId}).One(&menu)
+       var item Item;
+       err = mongo_collection.Find(bson.M{"itemId" : menuItem.itemId}).One(&item)
        if err != nil {
               fmt.Println("error: ", err)
-             	menu.itemId = menuItem.itemId
-             	menu.itemName = menuItem.itemName
-							menu.itemSummary = menuItem.itemSummary
-							menu.itemDescription = menuItem.itemDescription
-							menu.itemAmount = menuItem.itemAmount
-							menu.itemCalorieContent = menuItem.itemCalorieContent
+             	item.itemId = menuItem.itemId
+             	item.itemName = menuItem.itemName
+							item.itemSummary = menuItem.itemSummary
+							item.itemDescription = menuItem.itemDescription
+							item.itemAmount = menuItem.itemAmount
+							item.itemCalorieContent = menuItem.itemCalorieContent
 
-            error := mongo_collection.Insert(menu)
+            error := mongo_collection.Insert(item)
             fmt.Println("error: ", error)
             if error != nil {
                 formatter.JSON(response, http.StatusInternalServerError, "Internal Server Error")
@@ -104,9 +106,11 @@ func createItemHandler(formatter *render.Render) http.HandlerFunc {
               formatter.JSON(response, http.StatusInternalServerError, "Internal Server Error")
               return
         }
-		formatter.JSON(response, http.StatusOK, menu)
+		formatter.JSON(response, http.StatusOK, item)
 	}
 }
+
+// API for getting an item from the menu
 
 func getItem(formatter *render.Render) http.HandlerFunc {
 	return func(response http.ResponseWriter, request *http.Request) {
@@ -127,5 +131,40 @@ func getItem(formatter *render.Render) http.HandlerFunc {
             return
         }
 		formatter.JSON(response, http.StatusOK, result)
+	}
+}
+
+// API for updating an item from the menu
+
+func updateItemHandler(formatter *render.Render) http.HandlerFunc {
+	return func(response http.ResponseWriter, request *http.Request) {
+		var menuItem MenuItem
+		_ = json.NewDecoder(request.Body).Decode(&menuItem)
+    	fmt.Println("Item Payload ", menuItem)
+    	session, err := mgo.Dial(database_server)
+        if err != nil {
+            formatter.JSON(response, http.StatusInternalServerError, "Internal Server Error")
+            return
+        }
+        defer session.Close()
+       mongo_collection := session.DB(database).C(collection)
+
+       	var item Item;
+        err = mongo_collection.Find(bson.M{"itemId" : menuItem.itemId}).One(&item)
+        if err != nil {
+            fmt.Println("error: ", err)
+            formatter.JSON(response, http.StatusNotFound, "No item found with given id !!!")
+        	return
+        }else{
+			  error := mongo_collection.Update(bson.M{"itemId": item.itemId}, bson.M{"$set": bson.M{"itemName": item.itemName,
+					"itemSummary": item.itemSummary,"itemDescription": item.itemDescription,"itemAmount": item.itemAmount,
+					"itemCalorieContent": item.itemCalorieContent}})
+        	if error != nil {
+        		fmt.Println("error: ", error)
+                formatter.JSON(response, http.StatusInternalServerError, "Internal Server Error")
+                return
+        	}
+        }
+		formatter.JSON(response, http.StatusOK, item)
 	}
 }
