@@ -3,45 +3,68 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/BurntSushi/toml" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/Masterminds/semver" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/armon/consul-api" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/blang/semver" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/cockroachdb/cockroach-go" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/codegangsta/inject" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/codegangsta/negroni" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/coreos/etcd" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/coreos/go-systemd" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/coreos/pkg" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/cpuguy83/go-md2man" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/dustin/go-humanize" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/fatih/color" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/fatih/structs" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/fsnotify/fsnotify" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gin-contrib/sse" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gin-gonic/gin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/go-chi/chi" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/go-martini/martini" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/go-sql-driver/mysql" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/go-stack/stack" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/attrs" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/buffalo" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/buffalo-docker" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/buffalo-plugins" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/buffalo-pop" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/clara" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/depgen" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/envy" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/events" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/fizz" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/flect" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/genny" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/gitgen" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/github_flavored_markdown" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/gogen" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/licenser" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/logger" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/makr" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/mapi" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/meta" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/nulls" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/packd" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/packr" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/plush" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/plushgen" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/pop" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/release" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/shoulders" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/syncx" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/tags" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/validate" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/x" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/godbus/dbus" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gofrs/uuid" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/goji/param" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/golang/protobuf" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gorilla/context" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gorilla/mux" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gorilla/securecookie" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gorilla/sessions" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/hashicorp/hcl" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/inconshreveable/log15" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/jackc/pgx" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/jmoiron/sqlx" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/joho/godotenv" vcs="Git" />
@@ -49,7 +72,10 @@
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/justinas/alice" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/karrick/godirwalk" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/kballard/go-shellquote" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/kr/fs" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/lib/pq" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/magiconair/properties" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/markbates/deplist" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/markbates/going" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/markbates/grift" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/markbates/inflect" vcs="Git" />
@@ -58,115 +84,54 @@
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/markbates/safe" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/markbates/sigtx" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/martini-contrib/render" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/mattn/go-colorable" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/mattn/go-isatty" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/microcosm-cc/bluemonday" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/mitchellh/go-homedir" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/mitchellh/mapstructure" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/monoculum/formam" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/oxtoacart/bpool" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/pelletier/go-toml" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/pkg/errors" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/pkg/sftp" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/pressly/chi" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/rogpeppe/go-internal" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/rs/cors" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/rs/xid" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/rs/zerolog" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/satori/go.uuid" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/serenize/snaker" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/sergi/go-diff" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/shopspring/decimal" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/sirupsen/logrus" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/sourcegraph/annotate" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/sourcegraph/syntaxhighlight" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/spf13/afero" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/spf13/cast" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/spf13/cobra" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/spf13/jwalterweatherman" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/spf13/pflag" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/spf13/viper" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/stretchr/testify" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/ugorji/go" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/unrolled/render" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/xordataexchange/crypt" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/zenazn/goji" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/go.etcd.io/etcd" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/go.uber.org/atomic" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/go.uber.org/multierr" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/go.uber.org/zap" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/golang.org/x/crypto" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/golang.org/x/net" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/golang.org/x/sync" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/golang.org/x/sys" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/golang.org/x/text" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/golang.org/x/tools" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/gopkg.in/errgo.v2" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/gopkg.in/go-playground/validator.v8" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/gopkg.in/inconshreveable/log15.v2" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/gopkg.in/mgo.v2" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/gopkg.in/tomb.v2" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/gopkg.in/yaml.v2" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/BurntSushi/toml" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/blang/semver" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/cockroachdb/cockroach-go" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/codegangsta/inject" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/codegangsta/negroni" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/dustin/go-humanize" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/fatih/color" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/fatih/structs" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/fsnotify/fsnotify" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/gin-contrib/sse" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/gin-gonic/gin" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/go-martini/martini" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/go-sql-driver/mysql" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/gobuffalo/buffalo" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/gobuffalo/buffalo-plugins" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/gobuffalo/envy" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/gobuffalo/events" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/gobuffalo/fizz" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/gobuffalo/flect" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/gobuffalo/genny" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/gobuffalo/github_flavored_markdown" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/gobuffalo/gogen" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/gobuffalo/logger" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/gobuffalo/makr" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/gobuffalo/mapi" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/gobuffalo/meta" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/gobuffalo/nulls" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/gobuffalo/packd" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/gobuffalo/plush" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/gobuffalo/pop" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/gobuffalo/syncx" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/gobuffalo/tags" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/gobuffalo/validate" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/gobuffalo/x" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/gofrs/uuid" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/golang/protobuf" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/gorilla/context" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/gorilla/mux" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/gorilla/securecookie" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/gorilla/sessions" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/jackc/pgx" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/jmoiron/sqlx" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/joho/godotenv" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/julienschmidt/httprouter" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/justinas/alice" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/karrick/godirwalk" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/kballard/go-shellquote" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/lib/pq" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/markbates/going" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/markbates/grift" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/markbates/inflect" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/markbates/oncer" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/markbates/refresh" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/markbates/safe" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/markbates/sigtx" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/martini-contrib/render" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/mattn/go-isatty" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/microcosm-cc/bluemonday" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/mitchellh/go-homedir" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/monoculum/formam" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/oxtoacart/bpool" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/pkg/errors" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/pressly/chi" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/rogpeppe/go-internal" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/rs/cors" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/satori/go.uuid" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/serenize/snaker" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/sergi/go-diff" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/sirupsen/logrus" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/sourcegraph/annotate" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/sourcegraph/syntaxhighlight" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/spf13/cobra" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/spf13/pflag" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/ugorji/go" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/unrolled/render" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/github.com/zenazn/goji" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/golang.org/x/crypto" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/golang.org/x/net" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/golang.org/x/sync" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/golang.org/x/sys" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/gopkg.in/go-playground/validator.v8" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/gopkg.in/mgo.v2" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapii/src/gopkg.in/yaml.v2" vcs="Git" />
   </component>
 </project>

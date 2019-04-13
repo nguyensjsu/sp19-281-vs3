@@ -5,4 +5,4 @@ ADD . /app/
 WORKDIR /app
 ENV GOPATH /app
 RUN cd /app ; go install paymentsapi
-CMD ["/app/bin/payment"]
+CMD ["/app/bin/paymentsapi"]

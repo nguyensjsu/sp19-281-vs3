@@ -1,16 +1,18 @@
 package main
 
 import (
-	//"encoding/json"
+	"encoding/json"
+	"log"
+	"math"
 	"fmt"
 	//"log"
-//	"math"
+	//	"math"
 	"net/http"
 	"github.com/codegangsta/negroni"
 	"github.com/gorilla/mux"
 	"github.com/unrolled/render"
 	"github.com/rs/cors"
-	//"github.com/satori/go.uuid"
+	"github.com/satori/go.uuid"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 )
@@ -18,8 +20,12 @@ import (
 
 
 //Mongo config
-var mongodb_server = "127.0.0.1:27017"
-//	"admin:cmpe281@10.0.1.14:27017,10.0.1.246:27017,10.0.1.192:27017,10.0.1.148:27017,10.0.1.171:27017"
+//var mongodb_server = "127.0.0.1:27017"
+
+//var mongodb_server = 	 "admin:cmpe281@10.0.1.14:27017,10.0.1.246:27017,10.0.1.192:27017,10.0.1.148:27017,10.0.1.171:27017"
+
+//VPC Peer
+var mongodb_server = "admin:cmpe281@10.0.1.167:27017,10.0.1.61:27017,10.0.1.41:27017,172.0.1.66:27017,172.0.1.221:27017"
 var mongodb_database 			= "payments"
 var mongodb_wallet_collection   = "wallet"
 var mongodb_orders_collection = "order"
@@ -47,12 +53,12 @@ func initRoutes(mx *mux.Router, formatter *render.Render) {
 	mx.HandleFunc("/orders", getOrdersHandler(formatter)).Methods("GET")
 	//mx.HandleFunc("/payment", paymentHandler(formatter)).Methods("POST")
 	mx.HandleFunc("/orders/{username}", getOrdersByUserHandler(formatter)).Methods("GET")
-	//mx.HandleFunc("/payment/delete/id", deletePaymentByIdHandler(formatter)).Methods("DELETE")
-	//mx.HandleFunc("/payments/delete/user", deletePaymentsByUserHandler(formatter)).Methods("DELETE")
+	//mx.HandleFunc("/order/id", deletePaymentByIdHandler(formatter)).Methods("DELETE")
+	//mx.HandleFunc("/order/user", deletePaymentsByUserHandler(formatter)).Methods("DELETE")
 	mx.HandleFunc("/wallet/{username}", getWalletHandler(formatter)).Methods("GET")
-	//mx.HandleFunc("/wallet", addWalletHandler(formatter)).Methods("POST")
+	mx.HandleFunc("/wallet", addWalletHandler(formatter)).Methods("POST")
 	//mx.HandleFunc("/wallet/add", addMoneyToWalletHandler(formatter)).Methods("PUT")
-	//mx.HandleFunc("/wallet/pay", payWalletHandler(formatter)).Methods("PUT")
+	mx.HandleFunc("/wallet/pay", payWalletHandler(formatter)).Methods("PUT")
 }
 
 // API Ping Handler
@@ -118,6 +124,7 @@ func getOrdersHandler(formatter *render.Render) http.HandlerFunc {
 		}
 	}
 }
+
 // API Orders By User Handler - Get all orders from a specified user
 func getOrdersByUserHandler(formatter *render.Render) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
@@ -141,6 +148,91 @@ func getOrdersByUserHandler(formatter *render.Render) http.HandlerFunc {
 		} else {
 			fmt.Println("All purchases: ", orders)
 			formatter.JSON(w, http.StatusOK, orders)
+		}
+	}
+
+
+}
+// API Add Wallet Handler - Create Wallet for a specified user
+func addWalletHandler(formatter *render.Render) http.HandlerFunc {
+	return func(w http.ResponseWriter, req *http.Request) {
+
+		decoder := json.NewDecoder(req.Body)
+		var body Wallet
+		err := decoder.Decode(&body)
+		fmt.Println("body:", req.Body)
+		if err != nil {
+			fmt.Println("Error parsing the request's body: ", err)
+		}
+
+		session, err := mgo.Dial(mongodb_server)
+
+		if err != nil {
+			panic(err)
+		}
+
+		defer session.Close()
+		session.SetMode(mgo.Monotonic, true)
+		c := session.DB(mongodb_database).C(mongodb_wallet_collection)
+		entry := Wallet{body.Username, body.Amount}
+		err = c.Insert(entry)
+
+		if err != nil {
+			formatter.JSON(w, http.StatusNoContent, struct{ Result string }{"No wallet for this user"})
+		} else {
+			jData, _ := json.Marshal(entry)
+			w.WriteHeader(http.StatusOK)
+			w.Header().Set("Content-Type", "application/json")
+			w.Write(jData)
+		}
+	}
+}
+
+// API Pay Wallet Handler - Pay using the wallet for a specified user
+func payWalletHandler(formatter *render.Render) http.HandlerFunc {
+	return func(w http.ResponseWriter, req *http.Request) {
+
+		decoder := json.NewDecoder(req.Body)
+		var body Wallet
+		err := decoder.Decode(&body)
+
+		if err != nil {
+			fmt.Println("Error parsing the request's body: ", err)
+		}
+
+		session, err := mgo.Dial(mongodb_server)
+
+		if err != nil {
+			panic(err)
+		}
+
+		defer session.Close()
+		session.SetMode(mgo.Monotonic, true)
+		c := session.DB(mongodb_database).C(mongodb_wallet_collection)
+
+		var currentWallet bson.M
+		err = c.Find(bson.M{"username": body.Username}).One(&currentWallet)
+
+		if (err != nil) {
+			formatter.JSON(w, http.StatusOK, struct{ Result string }{"No wallet for this user"})
+		} else {
+			currentAmount := currentWallet["amount"].(float64)
+			query := bson.M{"username": body.Username}
+			newAmount := currentAmount - body.Amount
+			newAmount = math.Floor(newAmount*100) / 100
+			change := bson.M{"$set": bson.M{"amount": newAmount}}
+			err = c.Update(query, change)
+
+			if err != nil {
+				log.Fatal(err)
+			} else {
+				fmt.Print("Wallet now has $", newAmount, "\n")
+				_ = c.Find(bson.M{"username": body.Username}).One(&currentWallet)
+				jData, _ := json.Marshal(currentWallet)
+				w.WriteHeader(http.StatusOK)
+				w.Header().Set("Content-Type", "application/json")
+				w.Write(jData)
+			}
 		}
 	}
 }
