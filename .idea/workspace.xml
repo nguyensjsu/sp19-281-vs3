@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f31175b-69a6-4c2b-ba55-cd33b7eee16b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/APIs/Payments/goapi/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/bin/paymentsapi" beforeDir="false" afterPath="$PROJECT_DIR$/APIs/Payments/goapi/bin/paymentsapi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/src/go.etcd.io/etcd" beforeDir="false" afterPath="$PROJECT_DIR$/APIs/Payments/goapi/src/go.etcd.io/etcd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/src/go.etcd.io/etcd/.github/ISSUE_TEMPLATE.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/src/go.etcd.io/etcd/.github/PULL_REQUEST_TEMPLATE.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/src/go.etcd.io/etcd/.gitignore" beforeDir="false" />
@@ -2364,7 +2361,6 @@
       <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/src/go.etcd.io/etcd/wal/walpb/record.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/src/go.etcd.io/etcd/wal/walpb/record.pb.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/src/go.etcd.io/etcd/wal/walpb/record.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/paymentsapi" beforeDir="false" afterPath="$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/paymentsapi" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/server.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -2378,10 +2374,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/server.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="214" lean-forward="true" selection-start-line="214" selection-end-line="214" />
+            <state relative-caret-position="555">
+              <caret line="333" selection-start-line="333" selection-end-line="391" />
               <folding>
                 <element signature="e#14#300#0" expanded="true" />
+                <element signature="n#!!block;n#getWalletHandler#0" />
+                <element signature="n#!!block;n#getOrdersHandler#0" />
+                <element signature="n#!!block;n#getOrdersByUserHandler#0" />
+                <element signature="n#!!block;n#addWalletHandler#0" />
+                <element signature="n#!!block;n#payWalletHandler#0" />
+                <element signature="n#!!block;n#addMoneyToWalletHandler#0" />
+                <element signature="n#!!block;n#paymentHandler#0" />
               </folding>
             </state>
           </provider>
@@ -2453,26 +2456,37 @@
             <path>
               <item name="teamVS3" type="b2602c69:ProjectViewProjectNode" />
               <item name="teamVS3" type="462c0819:PsiDirectoryNode" />
-              <item name="APIs" type="462c0819:PsiDirectoryNode" />
-              <item name="Payments" type="462c0819:PsiDirectoryNode" />
-              <item name="goapi" type="462c0819:PsiDirectoryNode" />
+              <item name="Frontend" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="teamVS3" type="b2602c69:ProjectViewProjectNode" />
               <item name="teamVS3" type="462c0819:PsiDirectoryNode" />
-              <item name="APIs" type="462c0819:PsiDirectoryNode" />
-              <item name="Payments" type="462c0819:PsiDirectoryNode" />
-              <item name="goapi" type="462c0819:PsiDirectoryNode" />
+              <item name="Frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamVS3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teamVS3" type="462c0819:PsiDirectoryNode" />
+              <item name="Frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="teamVS3" type="b2602c69:ProjectViewProjectNode" />
               <item name="teamVS3" type="462c0819:PsiDirectoryNode" />
-              <item name="APIs" type="462c0819:PsiDirectoryNode" />
-              <item name="Payments" type="462c0819:PsiDirectoryNode" />
-              <item name="goapi" type="462c0819:PsiDirectoryNode" />
+              <item name="Frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="paymentsapi" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamVS3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teamVS3" type="462c0819:PsiDirectoryNode" />
+              <item name="Frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Payments" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="teamVS3" type="b2602c69:ProjectViewProjectNode" />
@@ -2634,12 +2648,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/frontend/src/Main.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/frontend/src/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/server.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="214" lean-forward="true" selection-start-line="214" selection-end-line="214" />
+        <state relative-caret-position="555">
+          <caret line="333" selection-start-line="333" selection-end-line="391" />
           <folding>
             <element signature="e#14#300#0" expanded="true" />
+            <element signature="n#!!block;n#getWalletHandler#0" />
+            <element signature="n#!!block;n#getOrdersHandler#0" />
+            <element signature="n#!!block;n#getOrdersByUserHandler#0" />
+            <element signature="n#!!block;n#addWalletHandler#0" />
+            <element signature="n#!!block;n#payWalletHandler#0" />
+            <element signature="n#!!block;n#addMoneyToWalletHandler#0" />
+            <element signature="n#!!block;n#paymentHandler#0" />
           </folding>
         </state>
       </provider>
