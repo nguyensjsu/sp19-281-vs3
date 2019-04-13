@@ -107,3 +107,25 @@ func createItemHandler(formatter *render.Render) http.HandlerFunc {
 		formatter.JSON(response, http.StatusOK, menu)
 	}
 }
+
+func getItem(formatter *render.Render) http.HandlerFunc {
+	return func(response http.ResponseWriter, request *http.Request) {
+		params := mux.Vars(request)
+		var itemId string = params["itemId"]
+		fmt.Println( "Item ID: ", itemId )
+		session, err := mgo.Dial(database_server)
+        if err != nil {
+            formatter.JSON(response, http.StatusInternalServerError, "Internal Server Error")
+            return
+        }
+        defer session.Close()
+        mongo_collection := session.DB(database).C(collection)
+        var result bson.M
+        err = mongo_collection.Find(bson.M{"itemId" : itemId}).One(&result)
+        if err != nil {
+            formatter.JSON(response, http.StatusNotFound, "No item found with given id !!!")
+            return
+        }
+		formatter.JSON(response, http.StatusOK, result)
+	}
+}
