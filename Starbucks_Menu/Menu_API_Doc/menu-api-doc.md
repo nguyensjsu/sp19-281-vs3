@@ -18,6 +18,7 @@ POST /menu/item
 | itemDescription    | String | Detail Description of item        |
 | itemAmount         | Float  | Amount of the item                |
 | itemCalorieContent | String | Calorie contents of item          |
+| itemAvailable      | Boolean| Displays if item is available     |
 
 *MongoDB generates unique id on each new entry which is assigned to itemID*
 
@@ -33,6 +34,7 @@ Parameters for Success
 | itemDescription    | String | Detail Description of item         |
 | itemAmount         | Float  | Amount of the item                 |
 | itemCalorieContent | String | Calorie contents of item           |
+| itemAvailable      | Boolean| Displays if item is available      |
 | itemImagePath      | String | Represents the URL of item's image |
 | statusCode         | int    | Code representing success response |
 
@@ -63,6 +65,7 @@ Parameters for Success
 | itemDescription    | String | Detail Description of item         |
 | itemAmount         | Float  | Amount of the item                 |
 | itemCalorieContent | String | Calorie contents of item           |
+| itemAvailable      | Boolean| Displays if item is available      |
 | itemImagePath      | String | Represents the URL of item's image |
 | statusCode         | String | Code representing success response |
 
@@ -100,6 +103,7 @@ Parameters for Success
 | itemDescription    | String | Detail Description of item         |
 | itemAmount         | Float  | Amount of the item                 |
 | itemCalorieContent | String | Calorie contents of item           |
+| itemAvailable      | Boolean| Displays if item is available      |
 | itemImagePath      | String | Represents the URL of item's image |
 | statusCode         | int    | Code representing success response |
 
@@ -142,6 +146,7 @@ Parameters for Success
 | itemDescription    | String | Detail Description of item         |
 | itemAmount         | Float  | Amount of the item                 |
 | itemCalorieContent | String | Calorie contents of item           |
+| itemAvailable      | Boolean| Displays if item is available      |
 | itemImagePath      | String | Represents the URL of item's image |
 | statusCode         | int    | Code representing success response |
 
