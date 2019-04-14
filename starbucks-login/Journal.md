@@ -1,4 +1,5 @@
-### MongoDB Sharding : 
+
+###MongoDB Sharding : 
 
 **Launch EC2 Free-Tier Instance**
 - AMI: Amazon Linux AMI
