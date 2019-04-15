@@ -74,27 +74,6 @@ func newOrderHandler(formatter *render.Render) http.HandlerFunc {
 		decoder := json.NewDecoder(req.Body)
 		fmt.Println(decoder)
 
-		// err := decoder.Decode(&newCart)
-		// if err != nil {
-		// 	ErrorWithJSON(w, "Incorrect body", http.StatusBadRequest)
-		// 	fmt.Println("[HANDLER DEBUG] ", err.Error())
-		// 	return
-		// }
-
-		// newCart.Id = uuid.String()
-		// cartItems := newCart.Items
-
-		// reqbody, _ := json.Marshal(newCart)
-
-		// c := NewClient(elbcart)
-		// val_resp, err := c.CreateOrder(uuid.String(), string(reqbody))
-
-		// if err != nil {
-		// 	fmt.Println("[HANDLER DEBUG] ", err.Error())
-		// 	formatter.JSON(w, http.StatusBadRequest, err)
-		// } else {
-		// 	formatter.JSON(w, http.StatusOK, val_resp)
-		// }
 	}
 }
 
@@ -126,3 +105,22 @@ func getCartHandler(formatter *render.Render) http.HandlerFunc {
 	}
 }
 
+func getOrderHandler(formatter *render.Render) http.HandlerFunc {
+	return func(w http.ResponseWriter, req *http.Request) {
+
+		params := mux.Vars(req)
+		var userid string = params["id"]	
+		fmt.Println( "Order Params ID: ", userid )
+
+		if userid == "" {
+			formatter.JSON(w, http.StatusBadRequest, "Invalid Request. Order ID Missing.")
+		} else {
+			c := NewClient(elbcart)
+
+			ord := c.GetOrder(userid)
+
+				fmt.Println("Order Details: ", ord)
+				formatter.JSON(w, http.StatusOK, ord)
+			}
+		}
+	}
