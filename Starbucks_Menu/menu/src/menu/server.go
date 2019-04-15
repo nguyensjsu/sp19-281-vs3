@@ -12,8 +12,6 @@ import (
 	"github.com/gorilla/handlers"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
-	"net"
-	"strings"
 	"os"
 )
 
@@ -45,7 +43,7 @@ func initRoutes(router *mux.Router, formatter *render.Render) {
 	router.HandleFunc("/ping", pingHandler(formatter)).Methods("GET")
 	router.HandleFunc("/menu/item", createItemHandler(formatter)).Methods("POST")
 	router.HandleFunc("/menu/item/{itemId}", getItem(formatter)).Methods("GET")
-	router.HandleFunc("/menu/items", getItemList(formatter)).Methods("GET")
+	// router.HandleFunc("/menu/items", getItemList(formatter)).Methods("GET")
 	router.HandleFunc("/menu/item/{itemId}", updateItemHandler(formatter)).Methods("PUT")
 	router.HandleFunc("/menu/item/{itemId}", deleteItemHandler(formatter)).Methods("DELETE")
 }
@@ -70,10 +68,10 @@ func pingHandler(formatter *render.Render) http.HandlerFunc {
 
 func createItemHandler(formatter *render.Render) http.HandlerFunc {
 	return func(response http.ResponseWriter, request *http.Request) {
-		var menuItem MenuItem
+		var menuItem menuItem
 		_ = json.NewDecoder(request.Body).Decode(&menuItem)
     	fmt.Println("Item Payload ", menuItem)
-    	uuid := uuid.NewV4()
+    	uuid,_	 := uuid.NewV4()
     	menuItem.itemId = uuid.String()
     	session, err := mgo.Dial(database_server)
         if err != nil {
@@ -137,7 +135,7 @@ func getItem(formatter *render.Render) http.HandlerFunc {
 
 func updateItemHandler(formatter *render.Render) http.HandlerFunc {
 	return func(response http.ResponseWriter, request *http.Request) {
-		var menuItem MenuItem
+		var menuItem menuItem
 		_ = json.NewDecoder(request.Body).Decode(&menuItem)
     	fmt.Println("Item Payload ", menuItem)
     	session, err := mgo.Dial(database_server)
@@ -157,7 +155,7 @@ func updateItemHandler(formatter *render.Render) http.HandlerFunc {
         }else{
 			  error := mongo_collection.Update(bson.M{"itemId": item.itemId}, bson.M{"$set": bson.M{"itemName": item.itemName,
 					"itemSummary": item.itemSummary,"itemDescription": item.itemDescription,"itemAmount": item.itemAmount,
-					"itemCalorieContent": item.itemCalorieContent, "itemAvailable" = item.itemAvailable}})
+					"itemCalorieContent": item.itemCalorieContent, "itemAvailable" : item.itemAvailable}})
         	if error != nil {
         		fmt.Println("error: ", error)
                 formatter.JSON(response, http.StatusInternalServerError, "Internal Server Error")
@@ -171,9 +169,9 @@ func updateItemHandler(formatter *render.Render) http.HandlerFunc {
 
 // API to delete an item from menu
 
-func deleteMenuItemHandler(formatter *render.Render) http.HandlerFunc {
+func deleteItemHandler(formatter *render.Render) http.HandlerFunc {
 	return func(response http.ResponseWriter, request *http.Request) {
-		var menuItem MenuItem
+		var menuItem deleteMenuItem
 		_ = json.NewDecoder(request.Body).Decode(&menuItem)
     	fmt.Println("Item Payload ", menuItem)
     	session, err := mgo.Dial(database_server)
