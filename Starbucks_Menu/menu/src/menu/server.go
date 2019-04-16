@@ -43,7 +43,7 @@ func initRoutes(router *mux.Router, formatter *render.Render) {
 	router.HandleFunc("/ping", pingHandler(formatter)).Methods("GET")
 	router.HandleFunc("/menu/item", createItemHandler(formatter)).Methods("POST")
 	router.HandleFunc("/menu/item/{itemId}", getItem(formatter)).Methods("GET")
-	// router.HandleFunc("/menu/items", getItemList(formatter)).Methods("GET")
+	router.HandleFunc("/menu/items", getItemList(formatter)).Methods("GET")
 	router.HandleFunc("/menu/item/{itemId}", updateItemHandler(formatter)).Methods("PUT")
 	router.HandleFunc("/menu/item/{itemId}", deleteItemHandler(formatter)).Methods("DELETE")
 }
@@ -104,6 +104,27 @@ func createItemHandler(formatter *render.Render) http.HandlerFunc {
               return
         }
 		formatter.JSON(response, http.StatusOK, item)
+	}
+}
+
+// API for getting list of all items in the menu
+
+func getItemList(formatter *render.Render) http.HandlerFunc {
+	return func(response http.ResponseWriter, request *http.Request) {
+		session, err := mgo.Dial(database_server)
+        if err != nil {
+            formatter.JSON(response, http.StatusInternalServerError, "Internal Server Error")
+            return
+        }
+        defer session.Close()
+        mongo_collection := session.DB(database).C(collection)
+        var result bson.M
+        err = mongo_collection.Find(bson.M{}).One(&result)
+        if err != nil {
+            formatter.JSON(response, http.StatusNotFound, "No item found!!!")
+            return
+        }
+		formatter.JSON(response, http.StatusOK, result)
 	}
 }
 
