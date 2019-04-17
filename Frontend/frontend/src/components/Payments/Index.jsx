@@ -29,7 +29,21 @@ class Payment extends Component {
   }
 
   render() {
-    return <div />;
+    return (
+      <div>
+        <div>
+          <span style={{ fontSize: 25, fontWeight: 500 }}>
+            My Card:{" "}
+            <span style={{ fontWeight: 700 }}>${this.state.wallet}</span>
+          </span>
+          <span style={{ margin: 20 }}>
+            <button onClick={this.pay} className="btn btn-primary">
+              Pay from Card
+            </button>
+          </span>
+        </div>
+      </div>
+    );
   }
 }
 
