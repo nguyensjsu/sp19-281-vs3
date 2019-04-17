@@ -1,37 +1,39 @@
+/*
+	Cart API in Go
+	Uses  Riak KV
+*/
+
 package main
 
-import(
-	"net/http"
-)
 
-type Client struct {
-	Endpoint string
-	*http.Client
-}
-
-type CartItem struct {
-
-	Name 	    string	    `json:"name"`
-	Price       int             `json:"price"`
-    Size        string          `json:"size"`
-    Count	    int		    `json:"count"`
-
-}
-
-type Cart struct {
-
-	UserID      string  		`json:"userid"`
-	ProductID   string  		`json:"productid"`
-	CartItem    CartItem		`json:"cartItems"`
+type ErrorMessage struct {
+	message string `json:"message"`
 }
 
 
-type Keys struct{
-	Keys 		[]string 
+// type CartPayload struct {
+//     Username string `json:"username"`              
+// 	Items []Items `json:"items"`
+// 	TotalAmount int `json:"items`
+// }
+
+
+// type Items struct {
+//     Name string `json:"drink_name"`
+// 	Amount int `json:"drink_rate"`
+//     Count int `json:"drink_quantity"`
+// }
+
+type Beverage struct {
+	DrinkName		string 	`json:"drink_name" bson:"drink_name"`
+	DrinkQuantity	int 	`json:"drink_quantity" bson:"drink_quantity"`
+	Rate			float64 `json:"drink_rate" bson:"drink_rate"`
 }
 
-type OrderSummary struct{
-	UserID 		string		`json:"userid"`
-	Order_count	int 		`json:"orderCount"`	
+type Order struct {
+	Id 			string 	`json:"_id" bson:"_id"`
+	Username 	string 	`json:"username" bson:"username"`
+	TotalItems 	int 	`json:"totalitems" bson:"totalitems"`
+	CartTotal 	float64 `json:"totalamount" bson:"totalamount"`
+	Beverages 		[]Beverage  `json:"drinks" bson:"drinks"`
 }
-
