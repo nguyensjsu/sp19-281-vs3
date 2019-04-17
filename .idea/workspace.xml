@@ -2361,7 +2361,6 @@
       <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/src/go.etcd.io/etcd/wal/walpb/record.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/src/go.etcd.io/etcd/wal/walpb/record.pb.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/src/go.etcd.io/etcd/wal/walpb/record.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectJournal.md" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectJournal.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -2374,14 +2373,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/server.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="58" column="73" lean-forward="true" selection-start-line="58" selection-start-column="73" selection-end-line="58" selection-end-column="73" />
+            <state relative-caret-position="368">
+              <caret line="304" column="9" lean-forward="true" selection-start-line="304" selection-start-column="9" selection-end-line="304" selection-end-column="9" />
               <folding>
                 <element signature="e#14#300#0" expanded="true" />
                 <element signature="n#!!block;n#getOrdersHandler#0" />
                 <element signature="n#!!block;n#addWalletHandler#0" />
                 <element signature="n#!!block;n#addMoneyToWalletHandler#0" />
-                <element signature="n#!!block;n#paymentHandler#0" />
                 <element signature="n#!!block;n#deletePaymentsByUserHandler#0" />
               </folding>
             </state>
@@ -2391,8 +2389,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/types.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="14" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="14" />
+            <state relative-caret-position="105">
+              <caret line="7" selection-start-line="7" selection-end-line="19" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -2457,6 +2455,23 @@
               <item name="APIs" type="462c0819:PsiDirectoryNode" />
               <item name="Payments" type="462c0819:PsiDirectoryNode" />
               <item name="goapi" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamVS3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teamVS3" type="462c0819:PsiDirectoryNode" />
+              <item name="APIs" type="462c0819:PsiDirectoryNode" />
+              <item name="Payments" type="462c0819:PsiDirectoryNode" />
+              <item name="goapi" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="teamVS3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="teamVS3" type="462c0819:PsiDirectoryNode" />
+              <item name="APIs" type="462c0819:PsiDirectoryNode" />
+              <item name="Payments" type="462c0819:PsiDirectoryNode" />
+              <item name="goapi" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="paymentsapi" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="teamVS3" type="b2602c69:ProjectViewProjectNode" />
@@ -2611,13 +2626,6 @@
     <entry file="file://$PROJECT_DIR$/APIs/Payments/goapi/src/main.go" />
     <entry file="file://$PROJECT_DIR$/APIs/Payments/goapi/src/types.go" />
     <entry file="file://$PROJECT_DIR$/APIs/Payments/Dockerfile" />
-    <entry file="file://$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/types.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="14" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Frontend/frontend/src/Main.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -2637,16 +2645,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/types.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" selection-start-line="7" selection-end-line="19" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/server.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="58" column="73" lean-forward="true" selection-start-line="58" selection-start-column="73" selection-end-line="58" selection-end-column="73" />
+        <state relative-caret-position="368">
+          <caret line="304" column="9" lean-forward="true" selection-start-line="304" selection-start-column="9" selection-end-line="304" selection-end-column="9" />
           <folding>
             <element signature="e#14#300#0" expanded="true" />
             <element signature="n#!!block;n#getOrdersHandler#0" />
             <element signature="n#!!block;n#addWalletHandler#0" />
             <element signature="n#!!block;n#addMoneyToWalletHandler#0" />
-            <element signature="n#!!block;n#paymentHandler#0" />
             <element signature="n#!!block;n#deletePaymentsByUserHandler#0" />
           </folding>
         </state>
