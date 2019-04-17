@@ -11,12 +11,6 @@ type ErrorMessage struct {
 }
 
 
-// type CartPayload struct {
-//     Username string `json:"username"`              
-// 	Items []Items `json:"items"`
-// 	TotalAmount int `json:"items`
-// }
-
 
 // type Items struct {
 //     Name string `json:"drink_name"`
