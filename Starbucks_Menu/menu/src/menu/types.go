@@ -2,25 +2,23 @@ package main
 
 // Menu Item structure
 type Item struct {
-
 	itemId							string
 	itemName		    		string
-	itemSummary 				int
+	itemSummary 				string
 	itemDescription 		string
-	itemAmount		    	int
-	itemCalorieContent	int
-	itemImagePath   		string
-	itemAvailable				bool
+	itemAmount		    	float32
+	itemCalorieContent	string
+	// itemAvailable				bool
 }
 
-type menuItem struct {
+type MenuItem struct {
 
 	itemId							string
 	itemName		    		string
-	itemSummary 				int
+	itemSummary 				string
 	itemDescription 		string
-	itemAmount		    	int
-	itemCalorieContent	int
+	itemAmount		    	float32
+	itemCalorieContent	string
 	itemImagePath   		string
 	itemAvailable				bool
 }
