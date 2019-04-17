@@ -72,92 +72,37 @@ func pingHandler(formatter *render.Render) http.HandlerFunc {
 }
 
 // API for creating an item in the menu
-
-// func createItemHandler(formatter *render.Render) http.HandlerFunc {
-// 	return func(response http.ResponseWriter, request *http.Request) {
-// 		var menuItem MenuItem
-// 		_ = json.NewDecoder(request.Body).Decode(&menuItem)
-//     	fmt.Println("Item Payload on create Item handler", menuItem)
-//     	uuid,_	 := uuid.NewV4()
-//     	menuItem.itemId = uuid.String()
-//     	session, err := mgo.Dial(database_server)
-//         if err != nil {
-//             formatter.JSON(response, http.StatusInternalServerError, "Internal Server Error")
-//             return
-//         }
-//        defer session.Close()
-//
-//        mongo_collection := session.DB(database).C(collection)
-//
-//        var item Item;
-//        err = mongo_collection.Find(bson.M{"itemId" : menuItem.itemId}).One(&item)
-//        if err != nil {
-//               fmt.Println("error: ", err)
-//              	item.itemId = menuItem.itemId
-//              	item.itemName = menuItem.itemName
-// 							item.itemSummary = menuItem.itemSummary
-// 							item.itemDescription = menuItem.itemDescription
-// 							item.itemAmount = menuItem.itemAmount
-// 							item.itemCalorieContent = menuItem.itemCalorieContent
-// 							item.itemAvailable = true
-//             error := mongo_collection.Insert(item)
-//             fmt.Println("error: ", error)
-//             if error != nil {
-//                 formatter.JSON(response, http.StatusInternalServerError, "Internal Server Error")
-//                 return
-//             }
-//         }else{
-//               formatter.JSON(response, http.StatusInternalServerError, "Internal Server Error")
-//               return
-//         }
-// 		formatter.JSON(response, http.StatusOK, item)
-// 	}
-// }
-
-
 func createItemHandler(formatter *render.Render) http.HandlerFunc {
-	return func(w http.ResponseWriter, req *http.Request) {
+	return func(response http.ResponseWriter, request *http.Request) {
+		var menuItem MenuItem
+		_ = json.NewDecoder(request.Body).Decode(&menuItem)
+    	fmt.Println("Item Payload on create Item handler", menuItem)
+    	uuid,_	 := uuid.NewV4()
+    	menuItem.ItemId = uuid.String()
+    	session, err := mgo.Dial(database_server)
+        if err != nil {
+            formatter.JSON(response, http.StatusInternalServerError, "Internal Server Error")
+            return
+        }
+       defer session.Close()
 
-		// var menuItem MenuItem
+       mongo_collection := session.DB(database).C(collection)
 
-		decoder := json.NewDecoder(req.Body)
-		var t Item
-		err := decoder.Decode(&t)
-		if err != nil {
-			fmt.Println("Error parsing the request's body: ", err)
-		} else {
-				fmt.Println("Item Payload on create Item handler", t)
-		}
-
-		session, err := mgo.Dial(database_server)
-		if err != nil {
-			panic(err)
-		}
-
-		defer session.Close()
-		session.SetMode(mgo.Monotonic, true)
-		c := session.DB(database_server).C(collection)
-
-		uuid, _ := uuid.NewV4()
-		entry := Item{uuid.String(),
-			t.itemName,
-			t.itemSummary,
-			t.itemDescription,
-			t.itemAmount,
-			t.itemCalorieContent,
-		}
-		err = c.Insert(entry)
-
-		if err != nil {
-			fmt.Println("Error while inserting purchase: ", err)
-			formatter.JSON(w, http.StatusInternalServerError,"Internal Server Error")
-			return
-		} else {
-			jData, _ := json.Marshal(entry)
-			w.WriteHeader(http.StatusOK)
-			w.Header().Set("Content-Type", "application/json")
-			w.Write(jData)
-		}
+       var item Item;
+       item.ItemId = menuItem.ItemId
+       item.ItemName = menuItem.ItemName
+			 item.ItemSummary = menuItem.ItemSummary
+			 item.ItemDescription = menuItem.ItemDescription
+			 item.ItemAmount = menuItem.ItemAmount
+			 item.ItemCalorieContent = menuItem.ItemCalorieContent
+			 item.ItemAvailable = true
+       error := mongo_collection.Insert(item)
+       fmt.Println("Error while inserting a document: ", error)
+       if error != nil {
+            formatter.JSON(response, http.StatusInternalServerError, "Error while inserting a document")
+            return
+       }
+		formatter.JSON(response, http.StatusOK, item)
 	}
 }
 
@@ -187,7 +132,7 @@ func getItemList(formatter *render.Render) http.HandlerFunc {
 func getItem(formatter *render.Render) http.HandlerFunc {
 	return func(response http.ResponseWriter, request *http.Request) {
 		params := mux.Vars(request)
-		var itemId string = params["itemId"]
+		var itemId string = params["ItemId"]
 		fmt.Println( "Item ID: ", itemId )
 		session, err := mgo.Dial(database_server)
         if err != nil {
@@ -197,7 +142,7 @@ func getItem(formatter *render.Render) http.HandlerFunc {
         defer session.Close()
         mongo_collection := session.DB(database).C(collection)
         var result bson.M
-        err = mongo_collection.Find(bson.M{"itemId" : itemId}).One(&result)
+        err = mongo_collection.Find(bson.M{"ItemId" : itemId}).One(&result)
         if err != nil {
             formatter.JSON(response, http.StatusNotFound, "No item found with given id !!!")
             return
@@ -222,15 +167,15 @@ func updateItemHandler(formatter *render.Render) http.HandlerFunc {
        mongo_collection := session.DB(database).C(collection)
 
        	var item Item;
-        err = mongo_collection.Find(bson.M{"itemId" : menuItem.itemId}).One(&item)
+        err = mongo_collection.Find(bson.M{"ItemId" : menuItem.ItemId}).One(&item)
         if err != nil {
             fmt.Println("error: ", err)
             formatter.JSON(response, http.StatusNotFound, "No item found with given id !!!")
         	return
         }else{
-			  error := mongo_collection.Update(bson.M{"itemId": item.itemId}, bson.M{"$set": bson.M{"itemName": item.itemName,
-					"itemSummary": item.itemSummary,"itemDescription": item.itemDescription,"itemAmount": item.itemAmount,
-					"itemCalorieContent": item.itemCalorieContent}})
+			  error := mongo_collection.Update(bson.M{"ItemId": item.ItemId}, bson.M{"$set": bson.M{"ItemName": item.ItemName,
+					"ItemSummary": item.ItemSummary,"ItemDescription": item.ItemDescription,"ItemAmount": item.ItemAmount,
+					"ItemCalorieContent": item.ItemCalorieContent}})
         	if error != nil {
         		fmt.Println("error: ", error)
                 formatter.JSON(response, http.StatusInternalServerError, "Internal Server Error")
@@ -246,7 +191,7 @@ func updateItemHandler(formatter *render.Render) http.HandlerFunc {
 
 func deleteItemHandler(formatter *render.Render) http.HandlerFunc {
 	return func(response http.ResponseWriter, request *http.Request) {
-		var menuItem deleteMenuItem
+		var menuItem DeleteMenuItem
 		_ = json.NewDecoder(request.Body).Decode(&menuItem)
     	fmt.Println("Item Payload ", menuItem)
     	session, err := mgo.Dial(database_server)
@@ -258,13 +203,13 @@ func deleteItemHandler(formatter *render.Render) http.HandlerFunc {
         mongo_collection := session.DB(database).C(collection)
 
        	var item Item;
-        err = mongo_collection.Find(bson.M{"itemId" : menuItem.itemId}).One(&item)
+        err = mongo_collection.Find(bson.M{"ItemId" : menuItem.ItemId}).One(&item)
         if err != nil {
             fmt.Println("error: ", err)
             formatter.JSON(response, http.StatusNotFound, "No item found with given id !!!")
         	return
         }else{
-        	error := mongo_collection.Update(bson.M{"itemId": item.itemId}, bson.M{"$set": bson.M{"itemAvailable": false}})
+        	error := mongo_collection.Update(bson.M{"ItemId": item.ItemId}, bson.M{"$set": bson.M{"ItemAvailable": false}})
         	if error != nil {
         		fmt.Println("error: ", error)
                 formatter.JSON(response, http.StatusInternalServerError, "Internal Server Error")
