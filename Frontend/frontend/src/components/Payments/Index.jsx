@@ -11,11 +11,10 @@ class Payment extends Component {
 
   componentDidMount() {
     let PAYMENT_HOST_ELB = "127.0.0.1";
-    //   "Payments-EKS-2070687438.us-west-2.elb.amazonaws.com";
 
     let PORT = 3000;
     let username = "sojan";
-    // sessionStorage.getItem("username");
+
     axios
       .get(`http://${PAYMENT_HOST_ELB}:${PORT}/wallet/${username}`)
       .then(response => {
@@ -26,6 +25,31 @@ class Payment extends Component {
       .catch(err => {
         console.log(err);
       });
+  }
+
+  pay() {
+    let PAYMENT_HOST_ELB = "127.0.0.1";
+
+    let PORT = 3000;
+    let data = {
+      username: "sojan",
+      amount: this.state.cart_total
+    };
+    axios
+      .put(`http://${PAYMENT_HOST_ELB}:${PORT}/wallet/pay`, data)
+      .then(response => {
+        console.log("Status Code POST Wallet:", response.status);
+        console.log("response from POST Wallet:", response);
+        this.setState({
+          wallet: response.data.amount
+        });
+      });
+    console.log("cart", this.state.cart);
+    data = {
+      username: sessionStorage.getItem("username"),
+      items: this.state.cart,
+      cart_total: this.state.cart_total
+    };
   }
 
   render() {
