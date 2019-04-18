@@ -22,7 +22,8 @@ import (
 
 
 
-var database_server = "127.0.0.1:27017"
+// var database_server = "127.0.0.1:27017"
+var database_server = "surabhi-mongodb"
 var database 			= "cmpe281"
 var collection = "Menu"
 
