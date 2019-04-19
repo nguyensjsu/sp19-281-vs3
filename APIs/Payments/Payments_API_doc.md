@@ -36,8 +36,6 @@ PUT /wallet/add
 
 **Request Body**
 
-Parameters for Success
-
 | Parameter          | Type   | Description                        |
 | ------------------ | ------ | ---------------------------------- |
 | username           | String | Username      |
