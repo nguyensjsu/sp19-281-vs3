@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0f31175b-69a6-4c2b-ba55-cd33b7eee16b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APIs/Payments/Payments_API_doc.md" beforeDir="false" afterPath="$PROJECT_DIR$/APIs/Payments/Payments_API_doc.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/src/go.etcd.io/etcd" beforeDir="false" afterPath="$PROJECT_DIR$/APIs/Payments/goapi/src/go.etcd.io/etcd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/src/go.etcd.io/etcd/.github/ISSUE_TEMPLATE.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/src/go.etcd.io/etcd/.github/PULL_REQUEST_TEMPLATE.md" beforeDir="false" />
@@ -2362,8 +2363,6 @@
       <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/src/go.etcd.io/etcd/wal/walpb/record.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/src/go.etcd.io/etcd/wal/walpb/record.pb.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/src/go.etcd.io/etcd/wal/walpb/record.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/server.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectJournal.md" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectJournal.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -2376,8 +2375,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/server.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-21">
-              <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+            <state relative-caret-position="283">
+              <caret line="239" column="81" lean-forward="true" selection-start-line="239" selection-start-column="7" selection-end-line="239" selection-end-column="81" />
               <folding>
                 <element signature="e#14#300#0" expanded="true" />
                 <element signature="n#!!block;n#getOrdersHandler#0" />
@@ -2657,8 +2656,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/server.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-21">
-          <caret line="62" lean-forward="true" selection-start-line="62" selection-end-line="62" />
+        <state relative-caret-position="283">
+          <caret line="239" column="81" lean-forward="true" selection-start-line="239" selection-start-column="7" selection-end-line="239" selection-end-column="81" />
           <folding>
             <element signature="e#14#300#0" expanded="true" />
             <element signature="n#!!block;n#getOrdersHandler#0" />
