@@ -81,6 +81,32 @@ func (c *Client) addItems(key string, value Order) (Order, error) {
 	return ord, nil
 }
 
+func (c *Client) deleteCart(key string) (ErrorMessage) {
+	var ord_nil = ErrorMessage {}
+	req, _  := http.NewRequest("DELETE", c.Endpoint + "/buckets/cart/keys/"+key+"?returnbody=true", nil )
+	resp, err := c.Do(req)
+	fmt.Println(resp.StatusCode)
+	
+	defer resp.Body.Close()	
+	body, err := ioutil.ReadAll(resp.Body)
+	fmt.Println("KEY VALUE",key)
+	
+	if err != nil {
+		fmt.Println("[RIAK DEBUG] ===> " + err.Error())
+		ord_nil.message = "internal Error occurred"
+		return ord_nil
+	}
+	if resp.StatusCode != 204  {
+		ord_nil.message = "Key not found!"
+		return ord_nil
+	}
+
+	if debug { fmt.Println("[RIAK DEBUG] GET: " + c.Endpoint + "/buckets/cart/keys/"+key +" => " + string(body)) }
+	
+	return ord_nil
+
+}
+
 
 // NewServer configures and returns a Server.
 func NewServer() *negroni.Negroni {
@@ -209,7 +235,40 @@ func addItemsToCartHandler(formatter *render.Render) http.HandlerFunc {
 }
 
 
+// API Add Items to cart
+func addItemsToCartHandler(formatter *render.Render) http.HandlerFunc {
+	return func(w http.ResponseWriter, req *http.Request) {
+		setupResponse(&w, req)
+		if (*req).Method == "OPTIONS" {
+			fmt.Println("PREFLIGHT Request")
+			return
+		}
+		var cartPayload Order
+		if err := json.NewDecoder(req.Body).Decode(&cartPayload); err != nil {
+			fmt.Println(" Error: ", err)
+			formatter.JSON(w, http.StatusBadRequest, "Invalid request payload")
+			return
+		}
+		fmt.Println("Adding Items to Cart: ", cartPayload)
 
+		var uuid string = cartPayload.Username+"_cart";
+		fmt.Println( "Order Params ID: ", uuid )
+		//value := "Order Processed"
+
+		if cartPayload.Username == ""  {
+			formatter.JSON(w, http.StatusBadRequest, "Invalid Request. Order ID Missing.")
+		} else {
+			c1 := NewClient(server1)
+			ord, err := c1.addItems(uuid, cartPayload)
+			if err != nil {
+				log.Fatal(err)
+				formatter.JSON(w, http.StatusBadRequest, err)
+			} else {
+				formatter.JSON(w, http.StatusOK, ord)
+			}
+		}
+	}
+}
 
 /*
 
