@@ -19,19 +19,6 @@ import (
 	"github.com/unrolled/render"
 )
 
-/*
-	Set Localhost Environment:
-	
-		export MONGO_SERVER="localhost"
-		export MONGO_DB="cmpe281"
-		export MONGO_COL="gumball"
-
-		export RIAK1="http://localhost:7000"
-		export RIAK2="http://localhost:7001"
-		export RIAK3="http://localhost:7002"
-
-*/
-
 
 
 /* Riak REST Client */
@@ -205,7 +192,6 @@ func addItemsToCartHandler(formatter *render.Render) http.HandlerFunc {
 
 		var uuid string = cartPayload.Username+"_cart";
 		fmt.Println( "Order Params ID: ", uuid )
-		//value := "Order Processed"
 
 		if cartPayload.Username == ""  {
 			formatter.JSON(w, http.StatusBadRequest, "Invalid Request. Order ID Missing.")

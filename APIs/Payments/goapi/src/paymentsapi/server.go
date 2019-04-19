@@ -31,7 +31,7 @@ var mongodb_wallet_collection   = "wallet"
 var mongodb_orders_collection = "order"
 // NewServer configures and returns a server
 func NewServer() *negroni.Negroni {
-	formatter := render.New(render.Options{
+	formatter := re	nder.New(render.Options{
 		IndentJSON: true,
 	})
 	corsObj := cors.New(cors.Options{
@@ -302,7 +302,7 @@ func paymentHandler(formatter *render.Render) http.HandlerFunc {
 			for _, item := range t.Beverages {
 				totalItems += item.DrinkQuantity
 			}
-		}
+		}	
 
 		session, err := mgo.Dial(mongodb_server)
 		if err != nil {

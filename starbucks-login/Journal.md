@@ -31,4 +31,4 @@ Install the mogodb packages
         sudo mkdir -p /data/db
         sudo chown -R mongod:mongod /data/db
 	
-	
+![Alt Text](https://github.com/nguyensjsu/sp19-281-vs3/blob/master/starbucks-login/Screenshots/shardupload.jpeg)
