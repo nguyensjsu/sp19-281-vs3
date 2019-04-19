@@ -23,7 +23,7 @@ import (
 
 
 // var database_server = "127.0.0.1:27017"
-var database_server = "surabhi-mongodb"
+var database_server = "mongodb://admin:admin@34.212.134.227/cmpe281"
 var database 			= "cmpe281"
 var collection = "Menu"
 
@@ -82,6 +82,7 @@ func createItemHandler(formatter *render.Render) http.HandlerFunc {
     	menuItem.ItemId = uuid.String()
     	session, err := mgo.Dial(database_server)
         if err != nil {
+						fmt.Println( "Error while connecting to mongo: ", err )
             formatter.JSON(response, http.StatusInternalServerError, "Internal Server Error")
             return
         }
@@ -113,6 +114,7 @@ func getItemList(formatter *render.Render) http.HandlerFunc {
 	return func(response http.ResponseWriter, request *http.Request) {
 		session, err := mgo.Dial(database_server)
         if err != nil {
+						fmt.Println( "Error while connecting to mongo: ", err )
             formatter.JSON(response, http.StatusInternalServerError, "Internal Server Error")
             return
         }
@@ -138,6 +140,7 @@ func getItem(formatter *render.Render) http.HandlerFunc {
 		fmt.Println( "Item ID: ", itemId )
 		session, err := mgo.Dial(database_server)
         if err != nil {
+						fmt.Println( "Error while connecting to mongo: ", err )
             formatter.JSON(response, http.StatusInternalServerError, "Internal Server Error")
             return
         }
@@ -167,6 +170,7 @@ func updateItemHandler(formatter *render.Render) http.HandlerFunc {
 
     	session, err := mgo.Dial(database_server)
         if err != nil {
+						fmt.Println( "Error while connecting to mongo: ", err )
             formatter.JSON(response, http.StatusInternalServerError, "Internal Server Error")
             return
         }
@@ -215,6 +219,7 @@ func deleteItemHandler(formatter *render.Render) http.HandlerFunc {
 
     	session, err := mgo.Dial(database_server)
         if err != nil {
+						fmt.Println( "Error while connecting to mongo: ", err )
             formatter.JSON(response, http.StatusInternalServerError, "Internal Server Error")
             return
         }
