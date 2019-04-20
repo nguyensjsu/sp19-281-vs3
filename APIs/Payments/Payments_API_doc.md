@@ -26,3 +26,34 @@ Parameters for Error
 | errorMessage       | String | Error specific message to user     |
 | statusCode         | int    | Code representing error response   |
 
+### 2. Add Money to Wallet- Add money to the wallet for a specified user
+
+**Request**
+
+```
+PUT /wallet/add
+```
+
+**Request Body**
+
+| Parameter          | Type   | Description                        |
+| ------------------ | ------ | ---------------------------------- |
+| username           | String | Username      |
+| amount    | Float | amount in the wallet     |
+
+**Response**
+
+Parameters for Success
+
+| Parameter          | Type   | Description                        |
+| ------------------ | ------ | ---------------------------------- |
+| username           | String | Username      |
+| amount    | Float | updated amount in the wallet     |
+
+
+Parameters for Error
+
+| Parameter          | Type   | Description                        |
+| ------------------ | ------ | ---------------------------------- |
+| errorMessage       | String | Error specific message to user     |
+| statusCode         | int    | Code representing error response   |

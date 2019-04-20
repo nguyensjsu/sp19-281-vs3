@@ -32,3 +32,17 @@ Install the mogodb packages
         sudo chown -R mongod:mongod /data/db
 	
 ![Alt Text](https://github.com/nguyensjsu/sp19-281-vs3/blob/master/starbucks-login/Screenshots/shardupload.jpeg)
+
+
+The sharded database setup looks like this -
+
+The config servers :
+![](https://github.com/nguyensjsu/sp19-281-vs3/blob/master/starbucks-login/Screenshots/GroupProjectSS01.png)
+
+The data shards : 
+The top row in the Screeshot shows shard 01 and the lower row are the two nodes of shard 02. 
+
+![](https://github.com/nguyensjsu/sp19-281-vs3/blob/master/starbucks-login/Screenshots/GroupProjectSS02.png)
+
+The Query router mongos :
+![](https://github.com/nguyensjsu/sp19-281-vs3/blob/master/starbucks-login/Screenshots/GroupProjectSS03.png)
