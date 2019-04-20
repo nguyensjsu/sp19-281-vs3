@@ -1,0 +1,54 @@
+
+.card-container {
+  position: absolute;
+  width: 200%;
+  margin-left: 200px;
+  margin-top: 100px;
+  display: float;
+  margin-bottom: 200px;
+}
+
+.MenuDesc{
+  float: center;
+  padding-left: 60px;
+  margin-left: 300px;
+  width: 800px;
+  margin-top: 50px;
+  font-family: "Lato",cursive , Helvetica,Arial,sans-serif;
+  font-size: 20px;
+}
+.MenuImage{
+  float: left;
+  height: 220px;
+  width: 350px;
+}
+.menudetails{
+  margin-top: 100px;
+    display: inline;
+}
+.MenuDetailsImage{
+  height: 200px;
+  width: 350px;
+}
+.MenuDescription{
+  width: 280px;
+}
+.ItemName{
+  color: green;
+}
+.MenuDetailsImage1{
+  height: 200px;
+  width: 350px;
+  float: left;
+  display: inline;
+  margin-top: 10px;
+  padding-bottom: 10px;
+  position: relative;
+}
+.menuheading{
+  color: black;
+  font-family: inherit;
+  stretch: 100%;
+  font-weight: 400;
+  font-family: Verdana, Geneva, sans-serif
+}
