@@ -46,3 +46,13 @@ The top row in the Screeshot shows shard 01 and the lower row are the two nodes 
 
 The Query router mongos :
 ![](https://github.com/nguyensjsu/sp19-281-vs3/blob/master/starbucks-login/Screenshots/GroupProjectSS03.png)
+
+
+Step 2 :
+ Get the API running , locally tested with mongo container running on docker test results -
+ 
+ 1. Signup - 
+ ![](https://github.com/nguyensjsu/sp19-281-vs3/blob/master/starbucks-login/Screenshots/Signuplocally.png)
+ 
+ Mongo container 
+ ![](https://github.com/nguyensjsu/sp19-281-vs3/blob/master/starbucks-login/Screenshots/containermongo.png)
