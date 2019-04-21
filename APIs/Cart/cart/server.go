@@ -81,6 +81,30 @@ func (c *Client) addItems(key string, value Order) (Order, error) {
 	return ord, nil
 }
 
+func (c *Client) getCart(key string) (Order, error) {
+	var ord_nil = Order {}
+	resp, err := c.Get(c.Endpoint + "/buckets/cart/keys/"+key )
+	fmt.Println(resp.StatusCode)
+	if err != nil {
+		fmt.Println("[RIAK DEBUG] ===> " + err.Error())
+		return ord_nil, err
+	}
+	if resp.StatusCode != 200 {
+		return ord_nil, errors.New("Key not found..")
+		
+		//return ord_nil, err
+	}
+	defer resp.Body.Close()
+	body, err := ioutil.ReadAll(resp.Body)
+	if debug { fmt.Println("[RIAK DEBUG] GET: " + c.Endpoint + "/buckets/cart/keys/"+key +" => " + string(body)) }
+	var ord = Order { }
+	if err := json.Unmarshal(body, &ord); err != nil {
+		fmt.Println("RIAK DEBUG] JSON unmarshaling failed: %s", err)
+		return ord_nil, err
+	}
+	return ord, nil
+}
+
 func (c *Client) deleteCart(key string) (ErrorMessage) {
 	var ord_nil = ErrorMessage {}
 	req, _  := http.NewRequest("DELETE", c.Endpoint + "/buckets/cart/keys/"+key+"?returnbody=true", nil )
