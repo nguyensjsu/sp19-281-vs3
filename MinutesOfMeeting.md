@@ -1,7 +1,7 @@
 # Minutes of Meeting
 
 ## Meeting 1:
-	
+
 **Date**: 07-Apr-19
 
 **Time**: 2:00 P.M. - 4:00 P.M.
@@ -12,12 +12,11 @@
 
 ### Discussion Summary
 
--  Discussed various possible applications that could be build with pros and cons.
--  Decided on the various modules that need to be implemented. 
--  Discussed on how we will maintain progress report and meeting details for every week.
+- Discussed various possible applications that could be build with pros and cons.
+- Decided on the various modules that need to be implemented.
+- Discussed on how we will maintain progress report and meeting details for every week.
 
-
-## Meet 2:
+## Meeting 2:
 
 **Date** : 14-Apr-19
 
@@ -30,8 +29,23 @@
 ## Summary
 
 - Decided on the databases to work with on separate modules.
-- The separate individual functionality architecture was finalized. 
+- The separate individual functionality architecture was finalized.
 - Decided on which requests would be allowed for each individual module.
 - Each member shared status with the rest of the team.
 - Discussed on possible test scenarios for exchanging data between API's
 
+## Meeting 3:
+
+**Date** : 20-Apr-19
+
+**Time** : 12:30 P.M. - 2:30 P.M.
+
+**Place** : MLK Library
+
+**Attendees**: All team members.
+
+## Summary
+
+- Followed up on each member's task.
+- Discussed on the front end modules to be developed
+- Explored various wow factors that can be implemented in project

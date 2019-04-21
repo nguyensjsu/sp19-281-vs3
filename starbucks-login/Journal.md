@@ -56,3 +56,12 @@ Step 2 :
  
  Mongo container 
  ![](https://github.com/nguyensjsu/sp19-281-vs3/blob/master/starbucks-login/Screenshots/containermongo.png)
+ 
+ 2. login -
+ ![](https://github.com/nguyensjsu/sp19-281-vs3/blob/master/starbucks-login/Screenshots/login.png)
+ 
+ 3. logout -
+ ![](https://github.com/nguyensjsu/sp19-281-vs3/blob/master/starbucks-login/Screenshots/logoutLocally.png)
+ 
+ 4. ping -
+ ![](https://github.com/nguyensjsu/sp19-281-vs3/blob/master/starbucks-login/Screenshots/APIping.png)
