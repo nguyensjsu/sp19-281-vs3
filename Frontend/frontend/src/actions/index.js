@@ -1,5 +1,5 @@
 export const createMenu = (menudetails) => {
-  console.log(userDetail);
+  console.log(menudetails);
     return {
         type: 'CREATE_MENU',
         data: menudetails
@@ -9,6 +9,12 @@ export const getMenu = (menudetails) => {
     return {
         type: 'GET_MENU',
         data: menudetails
+    }
+};
+export const getMenuType = (itemType) => {
+    return {
+        type: 'GET_MENU_TYPE',
+        data: itemType
     }
 };
 export const updateMenu = (menudetails) => {

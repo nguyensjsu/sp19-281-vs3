@@ -14,6 +14,11 @@ export default function (state = initialState, action) {
               return Object.assign({}, state, {
               MenuDetails : action.data
             })
+            case 'GET_MENU_TYPE':
+              console.log("Get Menu item of type", action.data);
+              return Object.assign({}, state, {
+              MenuDetails : action.data
+            })
             case 'UPDATE_MENU':
               console.log("Update Menu", action.data);
               return Object.assign({}, state, {
