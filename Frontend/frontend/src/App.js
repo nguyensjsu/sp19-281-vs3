@@ -1,22 +1,26 @@
-import React, { Component } from 'react';
-import { Route, withRouter, Switch } from 'react-router-dom';
-import {connect} from 'react-redux';
-import './App.css';
+import React, { Component } from "react";
+import { Route, withRouter, Switch } from "react-router-dom";
+import { connect } from "react-redux";
+import "./App.css";
 import Payments from "./components/Payments/Index";
 import MenuPage from "./components/Menu/menupage.js";
 
 class App extends Component {
-
   render() {
     return (
       <div className="App">
-          <Switch>
-            <Route exact path="/payments" component={Payments} />
-            <Route exact path="/menu" component={MenuPage} />
-          </Switch>
+        <Switch>
+          <Route exact path="/payments" component={Payments} />
+          <Route exact path="/menu" component={MenuPage} />
+        </Switch>
       </div>
     );
   }
 }
 
-export default withRouter(connect(null, null)(App));
+export default withRouter(
+  connect(
+    null,
+    null
+  )(App)
+);
