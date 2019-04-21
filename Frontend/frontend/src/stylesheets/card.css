@@ -1,8 +1,8 @@
 
 .card-container {
   position: absolute;
-  width: 200%;
-  margin-left: 200px;
+  width: 100%;
+  margin-left: 10px;
   margin-top: 100px;
   display: float;
   margin-bottom: 200px;
@@ -24,7 +24,7 @@
 }
 .menudetails{
   margin-top: 100px;
-    display: inline;
+  display: inline;
 }
 .MenuDetailsImage{
   height: 200px;
@@ -50,5 +50,8 @@
   font-family: inherit;
   stretch: 100%;
   font-weight: 400;
-  font-family: Verdana, Geneva, sans-serif
+  font-family: Verdana, Geneva, sans-serif;
+  margin-left: -850px;
+  position: relative;
+
 }

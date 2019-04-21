@@ -200,6 +200,36 @@ func optionsHandler(formatter *render.Render) http.HandlerFunc {
 	}
 }
 
+
+//API to get cart details
+func getCartHandler(formatter *render.Render) http.HandlerFunc {
+	return func(w http.ResponseWriter, req *http.Request) {
+		setupResponse(&w, req)
+		if (*req).Method == "OPTIONS" {
+			fmt.Println("PREFLIGHT Request")
+			return
+		}
+		params := mux.Vars(req)
+		var key string = params["key"]
+		fmt.Println("ID : ", key)
+		if key == ""  {
+			formatter.JSON(w, http.StatusBadRequest, "Invalid Request. Cart Key Missing.")
+		} else {
+			c1 := NewClient(server1)
+			ord, err := c1.getCart(key+"_cart")
+			fmt.Println(ord)
+			//fmt.Println("Key ---> : ", err != nil)
+			if err != nil {
+				fmt.Println("err : ", err)
+				formatter.JSON(w, http.StatusBadRequest, struct{ Test string }{"Cart not found!"})
+			} else {
+				formatter.JSON(w, http.StatusOK, ord)
+			}
+		}
+
+	}
+}
+
 // API Add Items to cart
 func addItemsToCartHandler(formatter *render.Render) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
