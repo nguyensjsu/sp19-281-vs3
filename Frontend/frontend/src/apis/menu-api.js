@@ -9,7 +9,7 @@ import {getMenuType} from './../actions/index';
 import {kongAPI} from '../actions/urlConstant';
 
 // const api = kongAPI;
-const api = "localhost:3001";
+const api = "http://localhost:3001";
 const headers = {
     'Accept': 'application/json'
 };
@@ -52,6 +52,7 @@ export const getMenuItem = function(menuID) {
   };
 };
 export const getMenuItemList = function(itemType) {
+  console.log("Payload sent to backend",itemType)
   return (dispatch) => {
         fetch(`${api}/menu/items/${itemType}`, {
             method: 'GET',

@@ -9,6 +9,7 @@ import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import {BrowserRouter} from 'react-router-dom';
 import allreducers from './reducers/index'
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 const middlewares = applyMiddleware(logger, thunk);
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
@@ -16,6 +17,7 @@ const store = createStore(
     allreducers,
     compose(
         middlewares,
+        devTools
     )
 );
 
