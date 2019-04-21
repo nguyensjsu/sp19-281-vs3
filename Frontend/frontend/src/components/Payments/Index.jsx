@@ -6,7 +6,10 @@ import uniqid from "uniqid";
 class Payment extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      orderCount: 0,
+      orderPrice: 0
+    };
   }
 
   componentDidMount() {
@@ -55,7 +58,7 @@ class Payment extends Component {
   render() {
     return (
       <div>
-        <div>
+        {/* <div>
           <span style={{ fontSize: 25, fontWeight: 500 }}>
             My Card:{" "}
             <span style={{ fontWeight: 700 }}>${this.state.wallet}</span>
@@ -65,6 +68,107 @@ class Payment extends Component {
               Pay from Card
             </button>
           </span>
+        </div> */}
+        <div
+          className="row justify-content-center"
+          style={{ marginTop: "10%" }}
+        >
+          <div className="col-md-6" style={{ border: "1px solid grey" }}>
+            <p>Customer Name : {this.state.name}</p>
+            <p>Order Count : {this.state.orderCount}</p>
+            {/* {orderPrice != null ? ( */}
+            <p>Order Price : {this.state.orderPrice}</p>) : ( "" )}
+            <button
+              type="button"
+              onClick={this.getBill}
+              className="btn btn-primary float-left mb-1"
+            >
+              Create Payment
+            </button>
+            <button
+              type="button"
+              onClick={this.getOrderDetails}
+              className="btn btn-primary float-right mb-1"
+            >
+              Order Details
+            </button>
+          </div>
+        </div>
+        <div className="row justify-content-center mt-3">
+          <div
+            className="col-md-6"
+            style={{
+              border: "1px solid grey"
+              //     display: isBillGenerated ? "" : "none"
+            }}
+          >
+            <form>
+              <div className="form-group">
+                <label htmlFor="cardnumber">Card No</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="cardnumber"
+                  name="cardnumber"
+                  placeholder="Enter Card Number"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="name">Name</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="name"
+                  name="name"
+                  placeholder="Enter Your Name"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="amount">Amount</label>
+                <input
+                  type="text"
+                  onChange={this.amountHandler}
+                  className="form-control"
+                  id="amount"
+                  name="amount"
+                  placeholder="Enter Amount"
+                  value={this.state.amount}
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="expirydate">Expiry Date</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="expirydate"
+                  name="expirydate"
+                  placeholder="MM/YY"
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="cvv">CVV</label>
+                <input
+                  type="password"
+                  className="form-control"
+                  id="cvv"
+                  name="cvv"
+                  placeholder="CVV"
+                />
+              </div>
+
+              <button
+                type="button"
+                onClick={this.onSubmitHandler}
+                className="btn btn-primary float-center mb-2"
+              >
+                Submit
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     );
