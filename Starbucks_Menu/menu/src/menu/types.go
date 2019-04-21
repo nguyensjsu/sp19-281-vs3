@@ -3,6 +3,7 @@ package main
 // Menu Item structure
 type Item struct {
 	ItemId							string
+	ItemType						string
 	ItemName		    		string
 	ItemSummary 				string
 	ItemDescription 		string
@@ -14,6 +15,7 @@ type Item struct {
 type MenuItem struct {
 
 	ItemId							string
+	ItemType						string
 	ItemName		    		string
 	ItemSummary 				string
 	ItemDescription 		string

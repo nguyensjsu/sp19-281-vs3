@@ -16,10 +16,12 @@ import (
 	"github.com/rs/cors"
 )
 
-// var database_server = "127.0.0.1:27017"
-var database_server = "mongodb://admin:admin@10.0.1.33:27017/cmpe281_project"
-var database 			= "cmpe281_project"
-var collection = "menu"
+var database_server = "127.0.0.1:27017"
+// var database_server = "mongodb://admin:admin@10.0.1.33:27017/cmpe281_project"
+// var database 			= "cmpe281_project"
+// var collection = "menu"
+var database 			= "cmpe281"
+var collection = "Menu"
 
 
 // MenuServer configures and returns a MenuServer instance.
@@ -45,7 +47,7 @@ func initRoutes(router *mux.Router, formatter *render.Render) {
 	router.HandleFunc("/ping", pingHandler(formatter)).Methods("GET")
 	router.HandleFunc("/menu/item", createItemHandler(formatter)).Methods("POST")
 	router.HandleFunc("/menu/item/{itemId}", getItem(formatter)).Methods("GET")
-	router.HandleFunc("/menu/items", getItemList(formatter)).Methods("GET")
+	router.HandleFunc("/menu/items/{itemType}", getItemList(formatter)).Methods("GET")
 	router.HandleFunc("/menu/item/{itemId}", updateItemHandler(formatter)).Methods("PUT")
 	router.HandleFunc("/menu/item/{itemId}", deleteItemHandler(formatter)).Methods("DELETE")
 }
@@ -86,6 +88,7 @@ func createItemHandler(formatter *render.Render) http.HandlerFunc {
 
        var item Item;
        item.ItemId = menuItem.ItemId
+			 item.ItemType = menuItem.ItemType
        item.ItemName = menuItem.ItemName
 			 item.ItemSummary = menuItem.ItemSummary
 			 item.ItemDescription = menuItem.ItemDescription
@@ -106,6 +109,11 @@ func createItemHandler(formatter *render.Render) http.HandlerFunc {
 
 func getItemList(formatter *render.Render) http.HandlerFunc {
 	return func(response http.ResponseWriter, request *http.Request) {
+		params := mux.Vars(request)
+		fmt.Println( "itemType params: ", params )
+		var itemType string = params["itemType"]
+		fmt.Println( "Item TYPE: ", itemType )
+
 		session, err := mgo.Dial(database_server)
         if err != nil {
 						fmt.Println( "Error while connecting to mongo: ", err )
@@ -115,7 +123,7 @@ func getItemList(formatter *render.Render) http.HandlerFunc {
         defer session.Close()
         mongo_collection := session.DB(database).C(collection)
         var result []bson.M
-        err = mongo_collection.Find(bson.M{"itemavailable" : true}).All(&result)
+        err = mongo_collection.Find(bson.M{"itemavailable" : true , "itemtype" : itemType}).All(&result)
         if err != nil {
             formatter.JSON(response, http.StatusNotFound, "No item found!!!")
             return
@@ -141,7 +149,7 @@ func getItem(formatter *render.Render) http.HandlerFunc {
         defer session.Close()
         mongo_collection := session.DB(database).C(collection)
         var result bson.M
-        err = mongo_collection.Find(bson.M{"itemid" : itemId}).One(&result)
+        err = mongo_collection.Find(bson.M{"itemid" : itemId,"itemavailable": true}).One(&result)
 				fmt.Println( "Item ID error: ", err )
         if err != nil {
             formatter.JSON(response, http.StatusNotFound, "No item found with given id !!!")
@@ -180,13 +188,14 @@ func updateItemHandler(formatter *render.Render) http.HandlerFunc {
 							}else{
 							if item.ItemId == itemId {
 								item.ItemName = menuItem.ItemName
+								item.ItemType = menuItem.ItemType
 								item.ItemSummary = menuItem.ItemSummary
 								item.ItemDescription = menuItem.ItemDescription
 								item.ItemAmount = menuItem.ItemAmount
 								item.ItemCalorieContent = menuItem.ItemCalorieContent
 							}
 								error := mongo_collection.Update(bson.M{"itemid": item.ItemId}, bson.M{"$set": bson.M{"itemname": item.ItemName,
-									"itemsummary": item.ItemSummary,"itemdescription": item.ItemDescription,"itemamount": item.ItemAmount,
+									"itemtype": item.ItemType,"itemsummary": item.ItemSummary,"itemdescription": item.ItemDescription,"itemamount": item.ItemAmount,
 									"itemcalorieContent": item.ItemCalorieContent}})
 
 								if error != nil {
