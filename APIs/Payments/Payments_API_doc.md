@@ -57,3 +57,42 @@ Parameters for Error
 | ------------------ | ------ | ---------------------------------- |
 | errorMessage       | String | Error specific message to user     |
 | statusCode         | int    | Code representing error response   |
+
+### 3. Insert new order after payment
+
+**Request**
+
+```
+Post /payment
+```
+
+**Request Body**
+
+| Parameter          | Type   | Description                        |
+| ------------------ | ------ | ---------------------------------- |
+| username           | String | Username      |
+| totalitems           | Int | Total number of items      |
+| totalamount    | Float | amount in the wallet     |
+| drinks           | Array | Array of drinks      |
+
+**Response**
+
+Parameters for Success
+
+| Parameter          | Type   | Description                        |
+| ------------------ | ------ | ---------------------------------- |
+| id           | String | Payment id      |
+ username           | String | Username      |
+| totalitems           | Int | Total number of items      |
+| totalamount    | Float | amount in the wallet     |
+| drinks           | Array | Array of drinks      |
+
+
+Parameters for Error
+
+| Parameter          | Type   | Description                        |
+| ------------------ | ------ | ---------------------------------- |
+| errorMessage       | String | Error specific message to user     |
+| statusCode         | int    | Code representing error response   |
+
+
