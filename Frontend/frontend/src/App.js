@@ -10,26 +10,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-<<<<<<< HEAD
           <Switch>
             <Route exact path="/payments" component={Payments} />
             <Route exact path="/menu" component={MenuPage} />
             <Route exact path="/menu/items" component={ItemSearch} />
           </Switch>
-=======
-        <Switch>
-          <Route exact path="/payments" component={Payments} />
-          <Route exact path="/menu" component={MenuPage} />
-        </Switch>
->>>>>>> ad5c196ce238c882f73591de76bfd31e7fd49632
       </div>
     );
   }
 }
 
 export default withRouter(
-  connect(
-    null,
-    null
-  )(App)
+  connect(null,null)(App)
 );
