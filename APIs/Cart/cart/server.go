@@ -81,6 +81,32 @@ func (c *Client) addItems(key string, value Order) (Order, error) {
 	return ord, nil
 }
 
+func (c *Client) deleteCart(key string) (ErrorMessage) {
+	var ord_nil = ErrorMessage {}
+	req, _  := http.NewRequest("DELETE", c.Endpoint + "/buckets/cart/keys/"+key+"?returnbody=true", nil )
+	resp, err := c.Do(req)
+	fmt.Println(resp.StatusCode)
+	
+	defer resp.Body.Close()	
+	body, err := ioutil.ReadAll(resp.Body)
+	fmt.Println("KEY VALUE",key)
+	
+	if err != nil {
+		fmt.Println("[RIAK DEBUG] ===> " + err.Error())
+		ord_nil.message = "internal Error occurred"
+		return ord_nil
+	}
+	if resp.StatusCode != 204  {
+		ord_nil.message = "Key not found!"
+		return ord_nil
+	}
+
+	if debug { fmt.Println("[RIAK DEBUG] GET: " + c.Endpoint + "/buckets/cart/keys/"+key +" => " + string(body)) }
+	
+	return ord_nil
+
+}
+
 func (c *Client) getCart(key string) (Order, error) {
 	var ord_nil = Order {}
 	resp, err := c.Get(c.Endpoint + "/buckets/cart/keys/"+key )
