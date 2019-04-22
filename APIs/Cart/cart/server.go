@@ -192,7 +192,7 @@ func setupResponse(w *http.ResponseWriter, req *http.Request) {
 // API Routes
 func initRoutes(mx *mux.Router, formatter *render.Render) {
 	mx.HandleFunc("/cart/add", addItemsToCartHandler(formatter)).Methods("PUT")
-	//mx.HandleFunc("/cart/{key}", getCartHandler(formatter)).Methods("GET")
+	mx.HandleFunc("/cart/{key}", getCartHandler(formatter)).Methods("GET")
 	//mx.HandleFunc("/cart/{key}", deleteCartHandler(formatter)).Methods("DELETE")
 	//mx.HandleFunc("/cart", optionsHandler(formatter)).Methods("OPTIONS")
 	//mx.HandleFunc("/checkout/{userid}", CheckoutCartHandler(formatter)).Methods("GET")

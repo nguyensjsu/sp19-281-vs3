@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 import axios from "axios";
 import uniqid from "uniqid";
 
@@ -98,5 +99,11 @@ class Payment extends Component {
     );
   }
 }
+const mapStateToProps = state => {
+  return {};
+};
 
-export default Payment;
+export default connect(
+  mapStateToProps,
+  null
+)(Payment);
