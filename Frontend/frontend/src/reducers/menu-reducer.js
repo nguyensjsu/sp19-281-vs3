@@ -1,5 +1,6 @@
 const initialState = {
-        MenuDetails:{}
+        MenuDetails:{},
+        CartDetails:[]
 };
 
 export default function (state = initialState, action) {
@@ -29,6 +30,11 @@ export default function (state = initialState, action) {
               return Object.assign({}, state, {
               MenuDetails : action.data
             })
+            case 'ADD_CART':
+              console.log("Add item to cart", action.data);
+              return { ...state,
+                        CartDetails: state.CartDetails.concat(action.data)
+                    }
           default:
             return state;
   }

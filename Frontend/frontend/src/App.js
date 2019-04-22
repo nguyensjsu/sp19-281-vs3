@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import './App.css';
 import Payments from "./components/Payments/Index";
 import MenuPage from "./components/Menu/menupage.js";
+import ItemSearch from "./components/Menu/itemsearch.js";
 
 class App extends Component {
 
@@ -13,6 +14,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/payments" component={Payments} />
             <Route exact path="/menu" component={MenuPage} />
+            <Route exact path="/menu/items" component={ItemSearch} />
           </Switch>
       </div>
     );

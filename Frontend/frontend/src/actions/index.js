@@ -29,3 +29,9 @@ export const deleteMenu = (menudetails) => {
         data: menudetails
     }
 };
+export const addCart = (menudetails) => {
+    return {
+        type: 'ADD_CART',
+        data: menudetails
+    }
+};

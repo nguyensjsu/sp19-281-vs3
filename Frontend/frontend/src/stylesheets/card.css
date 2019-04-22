@@ -34,7 +34,7 @@
   width: 280px;
 }
 .ItemName{
-  color: green;
+  color: #0C725E;
 }
 .MenuDetailsImage1{
   height: 200px;
@@ -54,4 +54,90 @@
   margin-left: -850px;
   position: relative;
 
+}
+
+
+.table-menu{
+  width: 100%;
+  border-spacing: 10px;
+}
+
+.menu-item-div{
+  margin: 3% 10% 2% 10%;
+  width:75%;
+}
+
+.table-menu th{
+  border-bottom: 3px solid #0B6352;
+  text-align: center;
+  padding: 5px;
+}
+
+.menu-table-header-row{
+  min-height: 100px;
+
+
+}
+
+.menu-table-item-row{
+  min-height: 100px;
+
+
+}
+.menu-table-item-col{
+  text-align: left;
+  width: 35%;
+}
+
+.menu-home{
+    padding: 20px 80px 50px 70px;
+}
+
+.order-table-total-text{
+  text-align: right;
+  font-weight: bold;
+  border-top: 5px solid black;
+
+}
+.order-table-total-amount{
+  text-align: left;
+  font-weight: bold;
+  border-top: 5px solid black;
+}
+// css example
+span {
+  content: "\002B";
+}
+#page-numbers {
+  list-style: none;
+  display: flex;
+  position: relative;
+  color: #0B6352;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 0px;
+  font-weight: bold;
+}
+
+#page-numbers > li {
+  margin-right: 0.3em;
+  margin-top: 0px;
+  color: #0B6352;
+  user-select: none;
+  cursor: pointer;
+  font-size: 18px;
+  position: relative;
+  text-decoration: underline;
+  padding-left: 200px;
+}
+.btn-class {
+  background: #1C6C5C none repeat scroll 0 0;
+  border-color: #1C6C5C;
+  color: #3CE1BF;
+  font-size: 17px;
+  width: 130px;
+  height: 40px;
+  margin-left: -520px;
+  border-radius: 20px;
+  margin-bottom: 20px;
 }

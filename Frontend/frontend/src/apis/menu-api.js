@@ -1,19 +1,22 @@
 /*
 	Client REST API calls to menu microservice
 */
+import { createBrowserHistory } from 'history';
 import {createMenu} from './../actions/index';
 import {getMenu} from './../actions/index';
 import {updateMenu} from './../actions/index';
 import {deleteMenu} from './../actions/index';
 import {getMenuType} from './../actions/index';
+import {addCart} from './../actions/index';
 import {kongAPI} from '../actions/urlConstant';
+
 
 // const api = kongAPI;
 const api = "http://localhost:3001";
 const headers = {
     'Accept': 'application/json'
 };
-
+export const history = createBrowserHistory();
 export const createMenuItem = function(menudetails){
   return (dispatch) => {
     fetch(`${api}/menu/item`, {
@@ -62,6 +65,7 @@ export const getMenuItemList = function(itemType) {
         }).then(result=>{
             console.log("result",result)
             dispatch(getMenuType(result));
+            history.push('/menu/items')
         }).catch(error => {
             console.log("getMenuItem list Error !!!");
             return error;
@@ -106,5 +110,10 @@ export const deleteMenuItem = function(menuId) {
          console.log("deleteMenuItem Error !!!");
          return error;
     });
+ };
+};
+export const updateCart = function(menudetails) {
+  return (dispatch) => {
+          dispatch(addCart(menudetails));
  };
 };
