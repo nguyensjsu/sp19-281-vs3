@@ -76,7 +76,6 @@
 .menu-table-header-row{
   min-height: 100px;
 
-
 }
 
 .menu-table-item-row{
@@ -117,6 +116,7 @@ span {
   font-size: 18px;
   margin-top: 0px;
   font-weight: bold;
+  margin-left: 400px;
 }
 
 #page-numbers > li {
@@ -128,16 +128,17 @@ span {
   font-size: 18px;
   position: relative;
   text-decoration: underline;
-  padding-left: 200px;
+  padding-right: 40px;
+
 }
 .btn-class {
-  background: #1C6C5C none repeat scroll 0 0;
-  border-color: #1C6C5C;
-  color: #3CE1BF;
+  background: #0D9582 none repeat scroll 0 0;
+  border-color: #0D9582;
+  color: black;
   font-size: 17px;
   width: 130px;
   height: 40px;
-  margin-left: -520px;
+  margin-left: -320px;
   border-radius: 20px;
   margin-bottom: 20px;
 }

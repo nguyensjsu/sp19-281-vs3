@@ -3,3 +3,8 @@
 ##### Menu HomePage:
 
 ![menu](Screenshots/MenuPage.png)
+
+
+##### Item Detail Page:
+
+![menu](Screenshots/ItemDetailPage.png)
