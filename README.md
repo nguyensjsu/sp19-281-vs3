@@ -4,7 +4,10 @@
 
 ![menu](Screenshots/MenuPage.png)
 
-
 ##### Item Detail Page:
 
 ![menu](Screenshots/ItemDetailPage.png)
+
+##### Admin Add Item Page:
+
+![menu](Screenshots/AddItemAdmin.png)
