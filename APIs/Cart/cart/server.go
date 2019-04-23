@@ -251,6 +251,37 @@ func optionsHandler(formatter *render.Render) http.HandlerFunc {
 }
 
 
+// API to delete cart
+func deleteCartHandler(formatter *render.Render) http.HandlerFunc {
+	return func(w http.ResponseWriter, req *http.Request) {
+		setupResponse(&w, req)
+		if (*req).Method == "OPTIONS" {
+			fmt.Println("PREFLIGHT Request")
+			return
+		}
+		params := mux.Vars(req)
+		var ord_err = ErrorMessage{}
+		var key string = params["key"]
+		fmt.Println("Key : ", key)
+		if key == ""  {
+			formatter.JSON(w, http.StatusBadRequest, "Invalid Request. Cart Key Missing.")
+		} else {
+			c1 := NewClient(server1)
+			ord := c1.deleteCart(key+"_cart")
+			if ord != ord_err {
+				
+				fmt.Println("NOT SUCCESSFULL")
+				formatter.JSON(w, http.StatusBadRequest, struct{ Message string }{ ord.message })
+
+			}else{
+				ord.message = "Deleted Cart Successfully!"
+				fmt.Println("SUCCESSFULL")
+				formatter.JSON(w, http.StatusOK, struct{ Message string }{ ord.message })
+			}
+		}
+	}
+}
+
 //API to get cart details
 func getCartHandler(formatter *render.Render) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
