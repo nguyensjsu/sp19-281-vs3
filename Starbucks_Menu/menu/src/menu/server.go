@@ -162,14 +162,17 @@ func getItem(formatter *render.Render) http.HandlerFunc {
 // API for updating an item from the menu
 func updateItemHandler(formatter *render.Render) http.HandlerFunc {
 	return func(response http.ResponseWriter, request *http.Request) {
+		if (*request).Method == "OPTIONS" {
+			fmt.Println("PREFLIGHT Request")
+			return
+		}
 		var menuItem MenuItem
 		_ = json.NewDecoder(request.Body).Decode(&menuItem)
 
     	fmt.Println("Item Payload ", menuItem)
-			params := mux.Vars(request)
-			fmt.Println( "Item ID params: ", params )
-			var itemId string = params["itemId"]
-
+			// params := mux.Vars(request)
+			var itemId string = menuItem.ItemId
+			fmt.Println( "Item ID params: ", menuItem.ItemId )
     	session, err := mgo.Dial(database_server)
         if err != nil {
 						fmt.Println( "Error while connecting to mongo: ", err )
@@ -193,10 +196,11 @@ func updateItemHandler(formatter *render.Render) http.HandlerFunc {
 								item.ItemDescription = menuItem.ItemDescription
 								item.ItemAmount = menuItem.ItemAmount
 								item.ItemCalorieContent = menuItem.ItemCalorieContent
+								item.ItemAvailable = true
 							}
 								error := mongo_collection.Update(bson.M{"itemid": item.ItemId}, bson.M{"$set": bson.M{"itemname": item.ItemName,
 									"itemtype": item.ItemType,"itemsummary": item.ItemSummary,"itemdescription": item.ItemDescription,"itemamount": item.ItemAmount,
-									"itemcalorieContent": item.ItemCalorieContent}})
+									"itemcalorieContent": item.ItemCalorieContent,"itemavailable" : true }})
 
 								if error != nil {
 									fmt.Println("error: ", error)
@@ -219,7 +223,7 @@ func deleteItemHandler(formatter *render.Render) http.HandlerFunc {
 			params := mux.Vars(request)
 			fmt.Println( "Item ID params: ", params )
 			var itemId string = params["itemId"]
-
+			fmt.Println( "Item ID params: ", itemId )
     	session, err := mgo.Dial(database_server)
         if err != nil {
 						fmt.Println( "Error while connecting to mongo: ", err )

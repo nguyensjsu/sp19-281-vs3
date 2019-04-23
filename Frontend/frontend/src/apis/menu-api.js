@@ -76,8 +76,9 @@ export const getMenuItemList = function(itemType) {
     };
   };
 export const updateMenuItem = function(menudetails) {
+  console.log("menuId in update API", menudetails)
   return (dispatch) => {
-    fetch(`${api}/menu/item/${menudetails}`, {
+    fetch(`${api}/menu/item/${menudetails.itemId}`, {
           method: 'PUT',
           headers: {
               ...headers,
@@ -97,6 +98,7 @@ export const updateMenuItem = function(menudetails) {
    };
 };
 export const deleteMenuItem = function(menuId) {
+  console.log("menuId in delete API",menuId)
   return (dispatch) => {
     fetch(`${api}/menu/item/${menuId}`, {
          method: 'DELETE',
@@ -109,7 +111,7 @@ export const deleteMenuItem = function(menuId) {
           return res.json();
      }).then(result=>{
           console.log("result",result)
-          // dispatch(deleteMenu(result));
+          dispatch(deleteMenu(result));
           alert("Item Deleted Successfully.!!")
           history.push('/menu')
      }).catch(error => {

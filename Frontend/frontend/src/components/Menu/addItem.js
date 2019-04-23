@@ -18,7 +18,6 @@ class AddItem extends Component {
       ItemName:'',
       ItemSummary: '',
       ItemDescription: '',
-      ItemAmount: '',
       ItemCalorieContent: [],
       ItemAmount: 0
 		}

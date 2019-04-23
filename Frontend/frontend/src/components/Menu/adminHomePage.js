@@ -1,22 +1,26 @@
 import React,{ Component } from 'react';
 import { Button } from 'reactstrap';
 import axios from 'axios';
-import { Route, withRouter,Redirect } from 'react-router-dom';
+import { Route, withRouter,Redirect,Link } from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {getMenuItemList} from './../../apis/menu-api';
+import {deleteMenuItem} from './../../apis/menu-api';
 import './../../stylesheets/card.css';
-import AddItem from './addItem';
+import AddItem from './updateItem';
+import UpdateItem from './addItem';
+import {getMenuItem} from './../../apis/menu-api';
 import 'tachyons';
 
 class AdminHomePage extends Component {
 	constructor(){
 		super();
-		this.itemDetails={
-			itemType:''
-		}
+		this.itemId='';
+		this.clickHandler = this.clickHandler.bind(this);
 }
-
+clickHandler=()=> {
+     this.props.getMenuItemList("Drink");
+		 this.props.history.push('/menu/items');
+}
 	render() {
 		return (
       <div className="card-container">
@@ -29,9 +33,23 @@ class AdminHomePage extends Component {
          <br></br>
          <div className = "menudetails">
          <div className='bg-light-orange dib br1 pa1 ma1  bw1'>
-             <button type="button" onClick={() =>this.props.history.push('/additem')} className="btn btn-class add">Add Item</button>
-             <button type="button" onClick={() =>this.props.getMenuItemList()} className="btn btn-class update">Update/Delete Item</button>
-          </div>
+				  <table>
+						<tbody>
+						<tr>
+						 <label>Enter Item Id</label>
+						 </tr>
+						 <tr>
+							 <input className="itemInputText" type="text" id="amount" name="amount"
+							 onChange={(event) => { this.itemId= event.target.value}}/>
+							 <Link to = '/updateitem'><button type="button" onClick={() =>this.props.getMenuItem(this.itemId)} className="btn btn-class update">Update Item</button></Link>
+	             <button type="button" onClick={()=>this.props.deleteMenuItem(this.itemId)} className="btn btn-class delete">Delete Item</button>
+						 </tr>
+						 <tr>
+						 		<button type="button" onClick={() =>this.props.history.push('/additem')} className="btn btn-class add">Add Item</button>
+						 </tr>
+						 </tbody>
+					</table>
+					</div>
           </div>
     </div>
 			);
@@ -40,6 +58,6 @@ class AdminHomePage extends Component {
 
 function matchDispatchToProps(dispatch){
     console.log("Dispatch",dispatch);
-    return bindActionCreators({getMenuItemList: getMenuItemList}, dispatch);
+    return bindActionCreators({getMenuItem: getMenuItem, deleteMenuItem: deleteMenuItem}, dispatch);
 }
 export default connect(null, matchDispatchToProps)(AdminHomePage);
