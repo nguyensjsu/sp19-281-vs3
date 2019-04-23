@@ -59,7 +59,7 @@ class ItemSearch extends Component {
                       {renderPageNumbers}
                     </ul>
                     <button type="button" onClick={() =>this.props.history.push('/menu')} className="btn btn-class">Menu</button>
-                    <button type="button" onClick={() =>this.props.history.push('/cart')} className="btn btn-class">Checkout</button>
+                    <button type="button" onClick={() =>this.props.history.push('/menu')} className="btn btn-class">Checkout</button>
               </div>
         );
 	  }

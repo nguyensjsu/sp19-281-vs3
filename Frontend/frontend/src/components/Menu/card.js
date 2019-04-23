@@ -1,15 +1,23 @@
 import React,{ Component } from 'react';
-import { Route, withRouter } from 'react-router-dom';
+import { Route, withRouter,Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
+import { createBrowserHistory } from 'history';
 import './../../stylesheets/card.css';
 import 'tachyons';
 import {updateCart} from './../../apis/menu-api';
+import {updateMenuItem} from './../../apis/menu-api';
+import {deleteMenuItem} from './../../apis/menu-api';
 
 class Card extends Component {
   constructor(){
     super();
-    this.value=Math.random()*10;
+    this.ownerFlag= false;
+    this.updatePage = this.updatePage.bind(this);
+  }
+  updatePage(event){
+    event.preventDefault();
+    this.history.push('/menu');
   }
   displayMenu(){
       return(
@@ -43,10 +51,21 @@ class Card extends Component {
             </td>
             <td className = "menu-table-item-col">$ {item.itemamount}</td>
             <td className = "menu-table-item-col">
-            <span onClick={()=>{this.props.updateCart(item)}}
-                  style={{display:"block", margin:0, padding:0, border:0,fontSize:30,color:"#0B6352",cursor:"pointer"}}>
-                  &#43;
-            </span>
+            {
+              this.ownerFlag == true ? <span style={{display:"block", margin:0, padding:10, border:0,fontSize:30,color:"#0B6352",cursor:"pointer"}}>
+              <span onClick={() =>this.props.deleteMenuItem(item.itemid)} className="deletespan">&#215;</span>
+                <Link
+                  to={{ pathname: "/menu", state: "" }}
+                  className="updatespan"
+                ><span>&#8513;</span>
+                </Link>
+
+              </span> : <span onClick={()=>{this.props.updateCart(item)}}
+                    style={{display:"block", margin:0, padding:0, border:0,fontSize:30,color:"#0B6352",cursor:"pointer"}}>
+                    &#43;
+              </span>
+            }
+
             </td>
         </tr>
       )
@@ -69,6 +88,6 @@ function mapStateToProps(state) {
   }
 function matchDispatchToProps(dispatch){
     console.log("Dispatch",dispatch);
-    return bindActionCreators({updateCart: updateCart}, dispatch);
+    return bindActionCreators({updateCart: updateCart,updateMenuItem: updateMenuItem, deleteMenuItem: deleteMenuItem}, dispatch);
 }
 export default connect(mapStateToProps,matchDispatchToProps)(Card);

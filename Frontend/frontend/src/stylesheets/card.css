@@ -32,9 +32,11 @@
 }
 .MenuDescription{
   width: 280px;
+    text-align: left;
 }
 .ItemName{
   color: #0C725E;
+  text-align: left;
 }
 .MenuDetailsImage1{
   height: 200px;
@@ -53,7 +55,7 @@
   font-family: Verdana, Geneva, sans-serif;
   margin-left: -850px;
   position: relative;
-
+  text-align: left;
 }
 
 
@@ -103,7 +105,6 @@
   font-weight: bold;
   border-top: 5px solid black;
 }
-// css example
 span {
   content: "\002B";
 }
@@ -132,13 +133,80 @@ span {
 
 }
 .btn-class {
+  background-color: #0B6352;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  margin-left: 100px;
+  margin-right: auto;
+  width: 200px;
+}
+.adminbutton{
+  position: relative;
+  margin-left: 100px;
+}
+.update {
+  margin-left: 180px;
+}
+.minus-button{
+  color:black;
   background: #0D9582 none repeat scroll 0 0;
   border-color: #0D9582;
+}
+.deletespan{
+  content: "\00D7";
+}
+.updatespan{
+  content: "\2141";
+  padding-left: 10px;
+  text-decoration: none;
+  color: #0D9582;
+}
+.add{
+  width: 300px;
+  margin-top: 40px;
+  font-weight: bold;
+}
+.update{
+  width: 300px;
+  margin-top: 40px;
+  font-weight: bold;
+}
+.adminheading{
+  margin-top: 0px;
   color: black;
-  font-size: 17px;
-  width: 130px;
-  height: 40px;
-  margin-left: -320px;
-  border-radius: 20px;
-  margin-bottom: 20px;
+  font-family: inherit;
+  stretch: 100%;
+  font-weight: 400;
+  font-family: Verdana, Geneva, sans-serif;
+  margin-left: 150px;
+  position: relative;
+  text-align: left;
+}
+.itemInputText {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+.item_button {
+  background-color: #0B6352;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  margin-left: 100px;
+  margin-right: auto;
+  width: 200px;
 }

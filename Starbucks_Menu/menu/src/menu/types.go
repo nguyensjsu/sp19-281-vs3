@@ -7,7 +7,7 @@ type Item struct {
 	ItemName		    		string
 	ItemSummary 				string
 	ItemDescription 		string
-	ItemAmount		    	float64
+	ItemAmount		    	float64	`json:",string"`
 	ItemCalorieContent	[]ItemCalorie
 	ItemAvailable				bool
 }
@@ -19,7 +19,7 @@ type MenuItem struct {
 	ItemName		    		string
 	ItemSummary 				string
 	ItemDescription 		string
-	ItemAmount		    	float64
+	ItemAmount		    	float64	`json:",string"`
 	ItemCalorieContent	[]ItemCalorie
 	ItemImagePath   		string
 	ItemAvailable				bool

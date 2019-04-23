@@ -18,6 +18,7 @@ const headers = {
 };
 export const history = createBrowserHistory();
 export const createMenuItem = function(menudetails){
+  console.log("Payload sent to backend",menudetails)
   return (dispatch) => {
     fetch(`${api}/menu/item`, {
         method: 'POST',
@@ -31,6 +32,8 @@ export const createMenuItem = function(menudetails){
     }).then(result=>{
          console.log("result",result)
          dispatch(createMenu(result));
+         alert("Item Successfully Added in the Menu");
+         history.push('/menu')
     }).catch(error => {
         console.log("This is error");
         return error;
@@ -86,6 +89,7 @@ export const updateMenuItem = function(menudetails) {
       }).then(result=>{
            console.log("result",result)
            dispatch(updateMenu(result));
+           history.push('/menu')
       }).catch(error => {
            console.log("updateMenuItem Error !!!");
            return error;
@@ -105,7 +109,9 @@ export const deleteMenuItem = function(menuId) {
           return res.json();
      }).then(result=>{
           console.log("result",result)
-          dispatch(deleteMenu(result));
+          // dispatch(deleteMenu(result));
+          alert("Item Deleted Successfully.!!")
+          history.push('/menu')
      }).catch(error => {
          console.log("deleteMenuItem Error !!!");
          return error;
