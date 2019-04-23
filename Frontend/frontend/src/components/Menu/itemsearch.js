@@ -48,19 +48,29 @@ class ItemSearch extends Component {
     });
     return (
     		  <div className="card-header">
-              <div className="tile-container">
-                 {
-                  currentItem.map((items) => {
-                      return(<Card items={items}/> );
-                    })
-                 }
-              </div>
-                    <ul id="page-numbers" className="pagination-style">
-                      {renderPageNumbers}
-                    </ul>
-                    <button type="button" onClick={() =>this.props.history.push('/menu')} className="btn btn-class">Menu</button>
-                    <button type="button" onClick={() =>this.props.history.push('/cart')} className="btn btn-class">Checkout</button>
-              </div>
+          <div className = "menu-item-div">
+             <table className="table-menu">
+               <tbody>
+                 <tr className = "menu-table-header-row">
+                   <th  className = "menu-table-item-col">Name</th>
+                   <th  className = "menu-table-item-col">Description</th>
+                   <th  className = "menu-table-item-col">Calories</th>
+                   <th  className = "menu-table-item-col">Price</th>
+                 </tr>
+                 </tbody>
+               </table>
+               {
+                currentItem.map((items) => {
+                    return(<Card items={items}/> );
+                  })
+               }
+               <ul id="page-numbers" className="pagination-style">
+                 {renderPageNumbers}
+               </ul>
+               <button type="button" onClick={() =>this.props.history.push('/menu')} className="btn btn-class">Menu</button>
+               <button type="button" onClick={() =>this.props.history.push('/menu')} className="btn btn-class">Checkout</button>
+           </div>
+          </div>
         );
 	  }
 	}

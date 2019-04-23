@@ -5,7 +5,9 @@ import "./App.css";
 import Payments from "./components/Payments/Index";
 import MenuPage from "./components/Menu/menupage.js";
 import ItemSearch from "./components/Menu/itemsearch.js";
-
+import AdminHomePage from "./components/Menu/adminHomePage.js";
+import AddItem from "./components/Menu/addItem.js";
+import UpdateItem from "./components/Menu/updateItem.js";
 class App extends Component {
   render() {
     return (
@@ -14,6 +16,9 @@ class App extends Component {
             <Route exact path="/payments" component={Payments} />
             <Route exact path="/menu" component={MenuPage} />
             <Route exact path="/menu/items" component={ItemSearch} />
+            <Route exact path="/admin" component={AdminHomePage} />
+            <Route exact path="/additem" component={AddItem} />
+            <Route exact path="/updateitem" component={UpdateItem} />
           </Switch>
       </div>
     );
