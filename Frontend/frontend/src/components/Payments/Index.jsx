@@ -95,6 +95,28 @@ class Payment extends Component {
             </button>
           </div>
         </div>
+        <div className="row justify-content-center mt-3">
+          <div
+            className="col-md-6"
+            style={{
+              border: "1px solid grey"
+              //     display: isBillGenerated ? "" : "none"
+            }}
+          >
+            <form>
+              <div className="form-group">
+                <label htmlFor="cardnumber">Card No</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="cardnumber"
+                  name="cardnumber"
+                  placeholder="Enter Card Number"
+                />
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     );
   }
