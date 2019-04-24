@@ -16,12 +16,12 @@ import (
 	"github.com/rs/cors"
 )
 
-var database_server = "127.0.0.1:27017"
-// var database_server = "mongodb://admin:admin@10.0.1.33:27017/cmpe281_project"
-// var database 			= "cmpe281_project"
-// var collection = "menu"
-var database 			= "cmpe281"
-var collection = "Menu"
+// var database_server = "127.0.0.1:27017"
+// var database_server = "mongodb://admin:admin@10.0.2.247:27017/cmpe281_project"
+var database_server = "mongodb://admin:admin@10.0.2.247:27017/cmpe281_project"
+var database 			= "cmpe281_project"
+var collection = "menu"
+
 
 
 // MenuServer configures and returns a MenuServer instance.
