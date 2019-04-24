@@ -30,7 +30,6 @@ class Cart extends Component {
   componentDidMount() {
     let CART_ELB = "cartelb2-1994013311.us-east-1.elb.amazonaws.com";
 
-    let PORT = 3000;
     let username = "sojan";
 
     axios
