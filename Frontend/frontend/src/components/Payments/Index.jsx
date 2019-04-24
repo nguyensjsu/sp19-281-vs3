@@ -37,6 +37,57 @@ class Payment extends Component {
     };
 
     console.log("DATA", data);
+
+    axios
+      .get("http://cartelb2-1994013311.us-east-1.elb.amazonaws.com/cart/sojan")
+      .then(async response => {
+        console.log("cart data", JSON.stringify(response.data));
+
+        this.setState({
+          Cart: response.data
+        });
+
+        // console.log(
+        //   "this.state.Properties.length",
+        //   this.state.Properties.length
+        // );
+        // for (let i = 0; i < this.state.Properties.length; i++) {
+        //   const data = { id: this.state.Properties[i].properties.prop_id };
+        //   console.log("inside", this.state.Properties[i].properties.prop_id);
+
+        //   // await axios
+        //   //   .post("http://localhost:3001/getPropertyImg", data)
+        //   //   .then(async response => {
+        //   //     console.log(JSON.stringify(response.data));
+        //   //     photos.push(response.data);
+        //   //     this.setState({
+        //   //       PropertyPhotos: photos
+        //   //     });
+        //   //     console.log("response imagee", JSON.stringify(photos));
+        //   //     console.log("photos.length", JSON.stringify(photos.length));
+        //   //     console.log(
+        //   //       "PropertyPhotos",
+        //   //       JSON.stringify(this.state.PropertyPhotos)
+        //   //     );
+        //   //   });
+        // }
+        var finalProperties = [];
+        // this.state.Properties.forEach(property => {
+        //   this.state.PropertyPhotos.forEach(photo => {
+        //     //  console.log("this.state.Propertyyy", property);
+        //     //console.log("this.state.photoo", photo);
+        //     if (photo.propid === property.properties.prop_id) {
+        //       property.photo = photo.img;
+
+        //       console.log("this.state.Propertyyy", JSON.stringify(property));
+        //       finalProperties.push(property);
+        //     }
+        //   });
+        // });
+        // this.setState({
+        //   Properties: finalProperties
+        // });
+      });
   }
 
   pay() {
@@ -65,6 +116,7 @@ class Payment extends Component {
   }
 
   render() {
+    console.log("properties", this.state.Cart);
     return (
       <div>
         {/* <div>
