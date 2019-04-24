@@ -38,6 +38,7 @@
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/gitgen" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/github_flavored_markdown" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/gogen" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/helpers" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/licenser" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/logger" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/makr" vcs="Git" />
@@ -132,6 +133,7 @@
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/gopkg.in/inconshreveable/log15.v2" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/gopkg.in/mgo.v2" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/gopkg.in/tomb.v2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/gopkg.in/yaml.v1" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/gopkg.in/yaml.v2" vcs="Git" />
   </component>
 </project>
