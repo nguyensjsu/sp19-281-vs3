@@ -38,6 +38,7 @@
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/gitgen" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/github_flavored_markdown" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/gogen" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/helpers" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/licenser" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/logger" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/github.com/gobuffalo/makr" vcs="Git" />
