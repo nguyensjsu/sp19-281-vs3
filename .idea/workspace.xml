@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0f31175b-69a6-4c2b-ba55-cd33b7eee16b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/bin/paymentsapi" beforeDir="false" afterPath="$PROJECT_DIR$/APIs/Payments/goapi/bin/paymentsapi" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/src/go.etcd.io/etcd" beforeDir="false" afterPath="$PROJECT_DIR$/APIs/Payments/goapi/src/go.etcd.io/etcd" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/src/go.etcd.io/etcd/.github/ISSUE_TEMPLATE.md" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/src/go.etcd.io/etcd/.github/PULL_REQUEST_TEMPLATE.md" beforeDir="false" />
@@ -2361,7 +2364,11 @@
       <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/src/go.etcd.io/etcd/wal/walpb/record.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/src/go.etcd.io/etcd/wal/walpb/record.pb.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/src/go.etcd.io/etcd/wal/walpb/record.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/paymentsapi" beforeDir="false" afterPath="$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/paymentsapi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/types.go" beforeDir="false" afterPath="$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/types.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Frontend/frontend/src/components/Payments/Index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/frontend/src/components/Payments/Index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/frontend/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/frontend/src/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -2371,11 +2378,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/server.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="376" column="22" selection-start-line="376" selection-start-column="22" selection-end-line="376" selection-end-column="22" />
+            <state relative-caret-position="-1941">
+              <caret line="58" column="27" lean-forward="true" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="27" />
               <folding>
                 <element signature="e#14#300#0" expanded="true" />
                 <element signature="n#!!block;n#getOrdersHandler#0" />
@@ -2387,11 +2394,20 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Frontend/frontend/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/types.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" selection-start-line="7" selection-end-line="19" selection-end-column="1" />
+            <state relative-caret-position="165">
+              <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -2401,6 +2417,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>paymentHandler</find>
+      <find>nder</find>
     </findStrings>
   </component>
   <component name="GOROOT" path="/usr/local/Cellar/go/1.12.1/libexec" />
@@ -2413,9 +2430,9 @@
         <option value="$PROJECT_DIR$/APIs/Payments/goapi/src/main.go" />
         <option value="$PROJECT_DIR$/APIs/Payments/goapi/src/server.go" />
         <option value="$PROJECT_DIR$/APIs/Payments/goapi/src/types.go" />
-        <option value="$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/types.go" />
         <option value="$PROJECT_DIR$/APIs/Payments/Dockerfile" />
         <option value="$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/server.go" />
+        <option value="$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/types.go" />
       </list>
     </option>
   </component>
@@ -2443,36 +2460,6 @@
               <item name="teamVS3" type="b2602c69:ProjectViewProjectNode" />
               <item name="teamVS3" type="462c0819:PsiDirectoryNode" />
               <item name="APIs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="teamVS3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="teamVS3" type="462c0819:PsiDirectoryNode" />
-              <item name="APIs" type="462c0819:PsiDirectoryNode" />
-              <item name="Payments" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="teamVS3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="teamVS3" type="462c0819:PsiDirectoryNode" />
-              <item name="APIs" type="462c0819:PsiDirectoryNode" />
-              <item name="Payments" type="462c0819:PsiDirectoryNode" />
-              <item name="goapi" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="teamVS3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="teamVS3" type="462c0819:PsiDirectoryNode" />
-              <item name="APIs" type="462c0819:PsiDirectoryNode" />
-              <item name="Payments" type="462c0819:PsiDirectoryNode" />
-              <item name="goapi" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="teamVS3" type="b2602c69:ProjectViewProjectNode" />
-              <item name="teamVS3" type="462c0819:PsiDirectoryNode" />
-              <item name="APIs" type="462c0819:PsiDirectoryNode" />
-              <item name="Payments" type="462c0819:PsiDirectoryNode" />
-              <item name="goapi" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="paymentsapi" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="teamVS3" type="b2602c69:ProjectViewProjectNode" />
@@ -2510,7 +2497,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="40" y="69" width="1400" height="802" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49859154" visible="true" weight="0.26804122" />
       <window_info id="Structure" order="1" sideWeight="0.50140846" side_tool="true" weight="0.26067746" />
@@ -2649,15 +2635,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/types.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="19" selection-end-column="1" />
+        <state relative-caret-position="165">
+          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/server.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="376" column="22" selection-start-line="376" selection-start-column="22" selection-end-line="376" selection-end-column="22" />
+        <state relative-caret-position="-1941">
+          <caret line="58" column="27" lean-forward="true" selection-start-line="58" selection-start-column="19" selection-end-line="58" selection-end-column="27" />
           <folding>
             <element signature="e#14#300#0" expanded="true" />
             <element signature="n#!!block;n#getOrdersHandler#0" />
@@ -2665,6 +2651,13 @@
             <element signature="n#!!block;n#addMoneyToWalletHandler#0" />
             <element signature="n#!!block;n#deletePaymentsByUserHandler#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Frontend/frontend/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>

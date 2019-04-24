@@ -132,6 +132,7 @@
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/gopkg.in/inconshreveable/log15.v2" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/gopkg.in/mgo.v2" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/gopkg.in/tomb.v2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/gopkg.in/yaml.v1" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/APIs/Payments/goapi/src/gopkg.in/yaml.v2" vcs="Git" />
   </component>
 </project>

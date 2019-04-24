@@ -20,18 +20,19 @@ import (
 
 
 //Mongo config
-var mongodb_server = "127.0.0.1:27017"
+//var mongodb_server = "127.0.0.1:27017"
 
 //var mongodb_server = 	 "admin:cmpe281@10.0.1.14:27017,10.0.1.246:27017,10.0.1.192:27017,10.0.1.148:27017,10.0.1.171:27017"
 
 //VPC Peer
-//var mongodb_server = "admin:cmpe281@10.0.1.167:27017,10.0.1.61:27017,10.0.1.41:27017,172.0.1.66:27017,172.0.1.221:27017"
+var mongodb_server = "admin:cmpe281@10.0.1.167:27017,10.0.1.61:27017,10.0.1.41:27017,172.0.1.66:27017,172.0.1.221:27017"
 var mongodb_database 			= "payments"
 var mongodb_wallet_collection   = "wallet"
 var mongodb_orders_collection = "order"
+
 // NewServer configures and returns a server
 func NewServer() *negroni.Negroni {
-	formatter := re	nder.New(render.Options{
+	formatter := render.New(render.Options{
 		IndentJSON: true,
 	})
 	corsObj := cors.New(cors.Options{
