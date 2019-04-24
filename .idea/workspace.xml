@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0f31175b-69a6-4c2b-ba55-cd33b7eee16b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/paymentsapi" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/types.go" beforeDir="false" afterPath="$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/types.go" afterDir="false" />
-    </list>
+    <list default="true" id="0f31175b-69a6-4c2b-ba55-cd33b7eee16b" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,8 +38,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/types.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            <state relative-caret-position="300">
+              <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
             </state>
           </provider>
         </entry>
@@ -292,8 +289,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/types.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        <state relative-caret-position="300">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
