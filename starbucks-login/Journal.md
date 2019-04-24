@@ -65,3 +65,14 @@ Step 2 :
  
  4. ping -
  ![](https://github.com/nguyensjsu/sp19-281-vs3/blob/master/starbucks-login/Screenshots/APIping.png)
+ 
+ 
+ After locally testing the API, next step is to deployed on to the cloud. The API has been set up on a docker container on an EC2 instance while the sharded database is in the subnet. 
+ When tested from outside, the following results are obtained.
+ 
+ 1. Signing up a new user
+ ![](https://github.com/nguyensjsu/sp19-281-vs3/blob/master/starbucks-login/Screenshots/curlCommandToCodeInstance.png)
+ 
+ 2. How the sharded database looks like -
+ ![](https://github.com/nguyensjsu/sp19-281-vs3/blob/master/starbucks-login/Screenshots/shardFInalsetup.png)
+ In the Screenshot above , the data inserted is being routed to the data shards and the data is stored based on the shard key.
