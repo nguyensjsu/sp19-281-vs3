@@ -49,3 +49,19 @@
 - Followed up on each member's task.
 - Discussed on the front end modules to be developed
 - Explored various wow factors that can be implemented in project
+
+## Meeting 4:
+
+**Date** : 01-May-19
+
+**Time** : 11:00 A.M. - 3:00 P.M.
+
+**Place** : MLK Library
+
+**Attendees**: All team members.
+
+## Summary
+
+- Discussed and checked various APIs and their working.
+- Tested all API modules and tried to identify potential bugs while integrating.
+- Debated on load balancing and front end enhancements.
