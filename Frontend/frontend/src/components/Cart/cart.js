@@ -10,14 +10,27 @@ class Cart extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      orderCount: 10,
-      totalAmount: 0
+      orderCount: 10
     };
   }
 
   updateCart = e => {
     console.log("Update Cart");
     console.log(this.state.cart);
+
+    let CART_ELB = "cart-elb-662553320.us-east-1.elb.amazonaws.com";
+
+    let UpdatedCart = this.state.cart;
+
+    axios
+      .put(`http://${CART_ELB}/cart/add`, UpdatedCart)
+      .then(response => {
+        console.log("Status Code :", response);
+        console.log("Data updated");
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   deleteItem = index => {
