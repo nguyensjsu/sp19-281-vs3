@@ -5,6 +5,7 @@ import axios from "axios";
 import uniqid from "uniqid";
 import Drink from "../Drink/Drink";
 import * as PAYMENT_HOST_ELB from "../../Helpers/helper";
+
 import "./Payments.css";
 class Payment extends Component {
   constructor(props) {
@@ -134,9 +135,15 @@ class Payment extends Component {
           <button onClick={this.pay} class="btn btn-update">
             Pay from Card
           </button>
-          <button onClick={this.pay} class="btn btn-update">
+          <Link
+            to="/cardpay"
+            className="btn btn-update"
+            data-wdio="nextButton"
+            data-effect="ripple"
+            // onClick={this.handleSubmit}
+          >
             Reload Card
-          </button>
+          </Link>
         </div>
       </div>
     );

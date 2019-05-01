@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import * as PAYMENT_HOST_ELB from "../../Helpers/helper";
-class Card extends Component {
+class CardPayment extends Component {
   constructor() {
     super();
     this.state = {
@@ -182,4 +182,4 @@ class Card extends Component {
   }
 }
 
-export default Card;
+export default CardPayment;
