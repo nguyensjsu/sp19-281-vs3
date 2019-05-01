@@ -3,7 +3,8 @@ import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import axios from "axios";
 import uniqid from "uniqid";
-
+import Drink from "../Drink/Drink";
+import * as PAYMENT_HOST_ELB from "../../Helpers/helper";
 class Payment extends Component {
   constructor(props) {
     super(props);
@@ -14,13 +15,12 @@ class Payment extends Component {
   }
 
   componentDidMount() {
-    let PAYMENT_HOST_ELB =
-      "payments-elb-1248343795.us-west-2.elb.amazonaws.com";
+    // let PAYMENT_HOST_ELB =
 
     let username = "sojan";
 
     axios
-      .get(`http://${PAYMENT_HOST_ELB}/wallet/${username}`)
+      .get(`http://${PAYMENT_HOST_ELB.Payments_ELB}/wallet/${username}`)
       .then(response => {
         console.log("Status Code GET Wallet:", response);
         this.setState({ wallet: response.data[0].amount });
@@ -39,67 +39,25 @@ class Payment extends Component {
     console.log("DATA", data);
 
     axios
-      .get("http://cartelb2-1994013311.us-east-1.elb.amazonaws.com/cart/sojan")
+      .get(`http://${PAYMENT_HOST_ELB.Cart_ELB}/${username}`)
       .then(async response => {
         console.log("cart data", JSON.stringify(response.data));
 
         this.setState({
-          Cart: response.data
+          Cart: response.data.drinks,
+          displaylist: true
         });
-
-        // console.log(
-        //   "this.state.Properties.length",
-        //   this.state.Properties.length
-        // );
-        // for (let i = 0; i < this.state.Properties.length; i++) {
-        //   const data = { id: this.state.Properties[i].properties.prop_id };
-        //   console.log("inside", this.state.Properties[i].properties.prop_id);
-
-        //   // await axios
-        //   //   .post("http://localhost:3001/getPropertyImg", data)
-        //   //   .then(async response => {
-        //   //     console.log(JSON.stringify(response.data));
-        //   //     photos.push(response.data);
-        //   //     this.setState({
-        //   //       PropertyPhotos: photos
-        //   //     });
-        //   //     console.log("response imagee", JSON.stringify(photos));
-        //   //     console.log("photos.length", JSON.stringify(photos.length));
-        //   //     console.log(
-        //   //       "PropertyPhotos",
-        //   //       JSON.stringify(this.state.PropertyPhotos)
-        //   //     );
-        //   //   });
-        // }
-        var finalProperties = [];
-        // this.state.Properties.forEach(property => {
-        //   this.state.PropertyPhotos.forEach(photo => {
-        //     //  console.log("this.state.Propertyyy", property);
-        //     //console.log("this.state.photoo", photo);
-        //     if (photo.propid === property.properties.prop_id) {
-        //       property.photo = photo.img;
-
-        //       console.log("this.state.Propertyyy", JSON.stringify(property));
-        //       finalProperties.push(property);
-        //     }
-        //   });
-        // });
-        // this.setState({
-        //   Properties: finalProperties
-        // });
       });
   }
 
   pay() {
-    let PAYMENT_HOST_ELB = "127.0.0.1";
-
-    let PORT = 3000;
+    // let PORT = 3000;
     let data = {
       username: "sojan",
       amount: this.state.cart_total
     };
     axios
-      .put(`http://${PAYMENT_HOST_ELB}:${PORT}/wallet/pay`, data)
+      .put(`http://${PAYMENT_HOST_ELB.Payments_ELB}/wallet/pay`, data)
       .then(response => {
         console.log("Status Code POST Wallet:", response.status);
         console.log("response from POST Wallet:", response);
@@ -117,122 +75,42 @@ class Payment extends Component {
 
   render() {
     console.log("properties", this.state.Cart);
-    return (
-      <div>
-        {/* <div>
-          <span style={{ fontSize: 25, fontWeight: 500 }}>
-            My Card:{" "}
-            <span style={{ fontWeight: 700 }}>${this.state.wallet}</span>
-          </span>
-          <span style={{ margin: 20 }}>
-            <button onClick={this.pay} className="btn btn-primary">
-              Pay from Card
-            </button>
-          </span>
-        </div> */}
-        <div
-          className="row justify-content-center"
-          style={{ marginTop: "10%" }}
-        >
-          <div className="col-md-6" style={{ border: "1px solid grey" }}>
-            <p>Customer Name : {this.state.name}</p>
-            <p>Order Count : {this.state.orderCount}</p>
-            {/* {orderPrice != null ? ( */}
-            <p>Order Price : {this.state.orderPrice}</p>) : ( "" )}
-            <button
-              type="button"
-              onClick={this.getBill}
-              className="btn btn-primary float-left mb-1"
-            >
-              Create Payment
-            </button>
-            <button
-              type="button"
-              onClick={this.getOrderDetails}
-              className="btn btn-primary float-right mb-1"
-            >
-              Order Details
-            </button>
+    if (this.state.displaylist) {
+      return (
+        <div>
+          <div>
+            {this.state.Cart.map((property, index) => {
+              return (
+                <Drink
+                  headline={property.drink_name}
+                  key={property.prop_id}
+                  value={property.prop_id}
+                  bath={property.drink_quantity}
+                  bed={property.drink_rate}
+                  unit={property.drink_quantity}
+                  clicked={this.handleClick}
+                  houseType={property.houseType}
+                  capacity={property.capacity}
+                  rate={property.rate}
+                  imgsrc={"data:image/png;base64," + property.photo}
+                />
+              );
+            })}
           </div>
+          <button onClick={this.pay} className="btn btn-primary">
+            Pay from Wallet
+          </button>
         </div>
-        <div className="row justify-content-center mt-3">
-          <div
-            className="col-md-6"
-            style={{
-              border: "1px solid grey"
-              //     display: isBillGenerated ? "" : "none"
-            }}
-          >
-            <form>
-              <div className="form-group">
-                <label htmlFor="cardnumber">Card No</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="cardnumber"
-                  name="cardnumber"
-                  placeholder="Enter Card Number"
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="name">Name</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="name"
-                  name="name"
-                  placeholder="Enter Your Name"
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="amount">Amount</label>
-                <input
-                  type="text"
-                  onChange={this.amountHandler}
-                  className="form-control"
-                  id="amount"
-                  name="amount"
-                  placeholder="Enter Amount"
-                  value={this.state.amount}
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="expirydate">Expiry Date</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="expirydate"
-                  name="expirydate"
-                  placeholder="MM/YY"
-                />
-              </div>
-
-              <div className="form-group">
-                <label htmlFor="cvv">CVV</label>
-                <input
-                  type="password"
-                  className="form-control"
-                  id="cvv"
-                  name="cvv"
-                  placeholder="CVV"
-                />
-              </div>
-
-              <button
-                type="button"
-                onClick={this.onSubmitHandler}
-                className="btn btn-primary float-center mb-2"
-              >
-                Submit
-              </button>
-            </form>
-          </div>
+      );
+    } else
+      return (
+        <div>
+          <p>No orders found</p>
+          <button onClick={this.pay} className="btn btn-primary">
+            Pay from Card
+          </button>
         </div>
-      </div>
-    );
+      );
   }
 }
 const mapStateToProps = state => {
