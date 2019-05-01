@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import axios from "axios";
+
 import uniqid from "uniqid";
 import "./Cart.css";
 
@@ -19,17 +20,50 @@ class Cart extends Component {
     console.log(this.state.cart);
   };
 
-  decrement = name => {
-    console.log(this.state.cart.drinks.length);
+  deleteItem = index => {
+    console.log(index);
   };
 
-  increment = name => {
-    console.log(name);
+  decrement = index => {
+    console.log(index);
+    let UpdatedCart = this.state.cart;
+    if (UpdatedCart.drinks[index].drink_quantity > 0) {
+      let newtotalAmt = 0;
+
+      UpdatedCart.drinks[index].drink_quantity--;
+
+      UpdatedCart.drinks.map(drink => {
+        newtotalAmt += drink.drink_rate * drink.drink_quantity;
+      });
+
+      UpdatedCart.totalamount = newtotalAmt;
+
+      this.setState({
+        cart: UpdatedCart,
+        totalAmount: newtotalAmt
+      });
+    }
+  };
+
+  increment = index => {
+    console.log(index);
+    let UpdatedCart = this.state.cart;
+    let newtotalAmt = 0;
+    UpdatedCart.drinks[index].drink_quantity++;
+    UpdatedCart.drinks.map(drink => {
+      newtotalAmt += drink.drink_rate * drink.drink_quantity;
+    });
+
+    UpdatedCart.totalamount = newtotalAmt;
+
+    this.setState({
+      cart: UpdatedCart,
+      totalAmount: newtotalAmt
+    });
   };
 
   componentDidMount() {
-    let CART_ELB = "cartelb2-1994013311.us-east-1.elb.amazonaws.com";
-
+    let CART_ELB = "cart-elb-662553320.us-east-1.elb.amazonaws.com";
     let username = "sojan";
 
     axios
@@ -54,7 +88,7 @@ class Cart extends Component {
     let details = null;
 
     if (this.state.cart != null && this.state.cart != undefined) {
-      details = this.state.cart.drinks.map(drink => {
+      details = this.state.cart.drinks.map((drink, index) => {
         return (
           <div class="layout-inline row">
             <div class="col col-pro layout-inline">
@@ -70,27 +104,28 @@ class Cart extends Component {
             </div>
 
             <div class="col col-qty layout-inline">
-              <a
-                onClick={() => this.decrement(drink.drink_name)}
-                class="qty qty-minus"
-              >
+              <a onClick={() => this.decrement(index)} class="qty qty-minus">
                 -
               </a>
               <input type="numeric" value={drink.drink_quantity} />
-              <a
-                onClick={this.increment(drink.drink_name)}
-                class="qty qty-plus"
-              >
+              <a onClick={() => this.increment(index)} class="qty qty-plus">
                 +
               </a>
             </div>
 
-            <div class="col col-vat col-numeric">
-              <p>£2.95</p>
-            </div>
             <div class="col col-total col-numeric">
               {" "}
-              <p> £182.95</p>
+              <p> ${drink.drink_rate * drink.drink_quantity}</p>
+            </div>
+            <div class="col col-vat col-numeric">
+              <button
+                type="button"
+                onClick={() => this.deleteItem(index)}
+                class="close"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
           </div>
         );
@@ -100,27 +135,17 @@ class Cart extends Component {
     return (
       <div class="container">
         <div class="heading">
-          <h1>
-            <span class="shopper">s</span> Shopping Cart
-          </h1>
-
-          <a href="this." class="visibility-cart transition is-open">
-            X
-          </a>
+          <h1>Shopping Cart</h1>
         </div>
 
         <div class="cart transition is-open">
-          <a href="#" class="btn btn-update">
-            Update cart
-          </a>
-
           <div class="table">
             <div class="layout-inline row th">
               <div class="col col-pro">DRINK</div>
               <div class="col col-price align-center ">Price</div>
               <div class="col col-qty align-center">QTY</div>
-              <div class="col">VAT</div>
               <div class="col">Total</div>
+              <div class="col">Delete</div>
             </div>
 
             {details}
