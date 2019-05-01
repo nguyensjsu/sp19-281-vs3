@@ -5,6 +5,7 @@ import axios from "axios";
 import uniqid from "uniqid";
 import Drink from "../Drink/Drink";
 import * as PAYMENT_HOST_ELB from "../../Helpers/helper";
+import "./Payments.css";
 class Payment extends Component {
   constructor(props) {
     super(props);
@@ -45,6 +46,7 @@ class Payment extends Component {
 
         this.setState({
           Cart: response.data.drinks,
+          totalAmount: response.data.totalamount,
           displaylist: true
         });
       });
@@ -74,43 +76,70 @@ class Payment extends Component {
   }
 
   render() {
-    console.log("properties", this.state.Cart);
-    if (this.state.displaylist) {
-      return (
-        <div>
-          <div>
-            {this.state.Cart.map((property, index) => {
-              return (
-                <Drink
-                  headline={property.drink_name}
-                  key={property.prop_id}
-                  value={property.prop_id}
-                  bath={property.drink_quantity}
-                  bed={property.drink_rate}
-                  unit={property.drink_quantity}
-                  clicked={this.handleClick}
-                  houseType={property.houseType}
-                  capacity={property.capacity}
-                  rate={property.rate}
-                  imgsrc={"data:image/png;base64," + property.photo}
-                />
-              );
-            })}
+    let details = null;
+
+    if (this.state.Cart != null && this.state.Cart != undefined) {
+      details = this.state.Cart.map((drink, index) => {
+        return (
+          <div class="layout-inline row">
+            <div class="col col-pro layout-inline">
+              <p>{drink.drink_name}</p>
+            </div>
+
+            <div class="col col-price col-numeric align-center ">
+              <p>${drink.drink_rate}</p>
+            </div>
+
+            <div class="col col-qty layout-inline">{drink.drink_quantity}</div>
+
+            <div class="col col-total col-numeric">
+              {" "}
+              <p> ${drink.drink_rate * drink.drink_quantity}</p>
+            </div>
+            <div class="col col-vat col-numeric" />
           </div>
-          <button onClick={this.pay} className="btn btn-primary">
-            Pay from Wallet
-          </button>
+        );
+      });
+    }
+
+    return (
+      <div class="container">
+        <div class="heading">
+          <h1>Your Order</h1>
         </div>
-      );
-    } else
-      return (
-        <div>
-          <p>No orders found</p>
-          <button onClick={this.pay} className="btn btn-primary">
+
+        <div class="cart transition is-open">
+          <div class="table">
+            <div class="layout-inline row th">
+              <div class="col col-pro">DRINK</div>
+              <div class="col col-price align-center ">Price</div>
+              <div class="col col-qty align-center">QTY</div>
+              <div class="col">Total</div>
+            </div>
+
+            {details}
+
+            <div class="tf">
+              <div class="row layout-inline">
+                <div class="col">
+                  <p>Total</p>
+                </div>
+                <div class="col">
+                  <p>${this.state.totalAmount}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button onClick={this.pay} class="btn btn-update">
             Pay from Card
           </button>
+          <button onClick={this.pay} class="btn btn-update">
+            Reload Card
+          </button>
         </div>
-      );
+      </div>
+    );
   }
 }
 const mapStateToProps = state => {
