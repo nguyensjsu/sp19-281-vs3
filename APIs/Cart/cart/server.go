@@ -219,7 +219,7 @@ func setupResponse(w *http.ResponseWriter, req *http.Request) {
 func initRoutes(mx *mux.Router, formatter *render.Render) {
 	mx.HandleFunc("/cart/add", addItemsToCartHandler(formatter)).Methods("PUT")
 	mx.HandleFunc("/cart/{key}", getCartHandler(formatter)).Methods("GET")
-	//mx.HandleFunc("/cart/{key}", deleteCartHandler(formatter)).Methods("DELETE")
+	mx.HandleFunc("/cart/{key}", deleteCartHandler(formatter)).Methods("DELETE")
 	//mx.HandleFunc("/cart", optionsHandler(formatter)).Methods("OPTIONS")
 	//mx.HandleFunc("/checkout/{userid}", CheckoutCartHandler(formatter)).Methods("GET")
 	mx.HandleFunc("/ping", pingHandler(formatter)).Methods("GET")
@@ -380,18 +380,6 @@ func addItemsToCartHandler(formatter *render.Render) http.HandlerFunc {
 		}
 	}
 }
-
-/*
-
--- Setup Riak Bucket
-
-riak ping
-riak-admin test
-riak-admin bucket-type create gumball '{"props":{"search_index":"orders"}}'
-riak-admin bucket-type activate gumball
-
-
-*/
 
   
 

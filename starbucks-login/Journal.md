@@ -76,3 +76,6 @@ Step 2 :
  2. How the sharded database looks like -
  ![](https://github.com/nguyensjsu/sp19-281-vs3/blob/master/starbucks-login/Screenshots/shardFInalsetup.png)
  In the Screenshot above , the data inserted is being routed to the data shards and the data is stored based on the shard key.
+ 
+ 3. User logging off and logging in 
+ ![](https://github.com/nguyensjsu/sp19-281-vs3/blob/master/starbucks-login/Screenshots/Screenshot%20from%202019-04-25%2001-38-39.png)
