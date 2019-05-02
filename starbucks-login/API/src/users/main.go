@@ -14,7 +14,7 @@ import (
 )
 
 // cookie handling
-
+// var adminFlag bool = false
 var cookieHandler = securecookie.New(
 	securecookie.GenerateRandomKey(64),
 	securecookie.GenerateRandomKey(32))
@@ -105,6 +105,7 @@ type User struct {
     User_id string `bson:"user_id" json:"user_id"`
     UserName string `bson:"username" json:"username"`
     Password string `bson:"password" json:"password"`
+		AdminFlag bool
 }
 
 var db *mgo.Database
