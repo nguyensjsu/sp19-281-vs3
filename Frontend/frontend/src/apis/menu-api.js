@@ -120,8 +120,25 @@ export const deleteMenuItem = function(menuId) {
     });
  };
 };
-export const updateCart = function(menudetails) {
+export const updateCart = function(cartdetails) {
+  console.log("cart details in update cart API", cartdetails)
   return (dispatch) => {
-          dispatch(addCart(menudetails));
- };
+    fetch(`http://cart-elb-662553320.us-east-1.elb.amazonaws.com/cart/add`, {
+          method: 'PUT',
+          headers: {
+              ...headers,
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(cartdetails)
+      }).then(res => {
+          return res.json();
+      }).then(result=>{
+           console.log("result",result)
+           dispatch(addCart(cartdetails));
+           // history.push('/menu')
+      }).catch(error => {
+           console.log("add cart Error !!!");
+           return error;
+      });
+   };
 };

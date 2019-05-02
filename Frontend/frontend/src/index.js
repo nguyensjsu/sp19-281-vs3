@@ -12,13 +12,13 @@ import allreducers from "./reducers/index";
 import { composeWithDevTools } from "redux-devtools-extension";
 
 const middlewares = applyMiddleware(logger, thunk);
-// const devTools =
-//   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
+const devTools =
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 const store = createStore(
   allreducers,
   compose(
-    middlewares
-    // devTools
+    middlewares,
+    devTools
   )
 );
 
