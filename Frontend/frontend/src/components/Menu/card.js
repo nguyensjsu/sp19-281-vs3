@@ -19,28 +19,18 @@ class Card extends Component {
       totalamount: 0,
       drinks: []
 		}
-    this.updatePage = this.updatePage.bind(this);
     this.clickHandler = this.clickHandler.bind(this);
-  }
-  updatePage(event){
-    event.preventDefault();
-    this.history.push('/menu');
   }
   clickHandler=(item)=> {
     this.CartItems.drinks = this.props.CartDetails == null ? [] : this.props.CartDetails.drinks
-    console.log("Value of item is : ", item);
     var totalquantity = 0;
     var totalprice = 0;
        this.CartItems._id = item.itemid;
        this.CartItems.username="sojan";
        var quantity= this.props.CartDetails== null ? this.CartItems.totalitems : parseInt(this.props.CartDetails.totalitems);
        this.CartItems.totalitems= quantity + 1;
-       console.log("Quantity:", quantity);
         if(this.props.CartDetails != null) {
-         console.log("In the if condition", this.CartItems.totalitems);
          for(var i = 0 ; i < quantity ; i++) {
-           console.log("For loop: ", item.itemid)
-           // var totalquantity = parseInt(this.props.CartDetails.drinks[i].drink_quantity);
            if(item.itemname == this.props.CartDetails.drinks[i].drink_name) {
               console.log("Same Item added: ", this.props.CartDetails.drinks[i])
               this.props.CartDetails.drinks[i].drink_quantity = this.props.CartDetails.drinks[i].drink_quantity+1;
@@ -49,34 +39,24 @@ class Card extends Component {
               totalquantity = parseInt(this.props.CartDetails.drinks[i].drink_quantity);
               totalprice = parseFloat(this.props.CartDetails.drinks[i].drink_rate);
               this.CartItems.totalamount = this.props.CartDetails.totalamount + (totalquantity * totalprice);
-              console.log("this.CartItems.totalamount", this.CartItems.totalamount);
               break;
            }
-           else {
-             console.log("inner else: ", item.itemname)
-             var cartObject = new Object();
-             this.CartItems.totalamount = item.itemamount;
-             cartObject.drink_name = item.itemname;
-             cartObject.drink_rate = item.itemamount;
-             cartObject.drink_quantity = 1;
-             console.log("Inner else: ", parseFloat(item.itemamount));
-             this.CartItems.totalamount = this.props.CartDetails.totalamount + (1 * parseFloat(item.itemamount));
-
-             this.props.CartDetails.drinks.push(cartObject);
-           }
-
-           //this.props.CartDetails.drink_rate = this.props.CartDetails.drinks[itemid].drink_quantity
          }
+         var cartObject = new Object();
+         this.CartItems.totalamount = item.itemamount;
+         cartObject.drink_name = item.itemname;
+         cartObject.drink_rate = item.itemamount;
+         cartObject.drink_quantity = 1;
+         this.CartItems.totalamount = this.props.CartDetails.totalamount + (1 * parseFloat(item.itemamount));
+         this.props.CartDetails.drinks.push(cartObject);
          this.props.updateCart(this.CartItems);
        }
        else {
-              console.log("outer else: ", item.itemname)
                var cartObject = new Object();
                cartObject.drink_name = item.itemname;
                cartObject.drink_rate = item.itemamount;
                cartObject.drink_quantity = 1;
                this.CartItems.drinks.push(cartObject);
-               // this.CartItems.drinks.concat(cartObject);
                this.CartItems.totalamount = item.itemamount;
                this.props.updateCart(this.CartItems);
        }
