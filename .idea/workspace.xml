@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0f31175b-69a6-4c2b-ba55-cd33b7eee16b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Frontend/frontend/src/components/Payments/Index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/frontend/src/components/Payments/Index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/frontend/src/components/Card/CardPayment.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/frontend/src/components/Card/CardPayment.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Frontend/frontend/src/components/Payments/Payments.css" beforeDir="false" afterPath="$PROJECT_DIR$/Frontend/frontend/src/components/Payments/Payments.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,8 +17,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/server.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1227">
-              <caret line="283" column="30" lean-forward="true" selection-start-line="283" selection-start-column="30" selection-end-line="283" selection-end-column="30" />
+            <state relative-caret-position="44">
+              <caret line="193" column="59" lean-forward="true" selection-start-line="193" selection-start-column="59" selection-end-line="193" selection-end-column="59" />
               <folding>
                 <element signature="n#!!block;n#getOrdersHandler#0" />
                 <element signature="n#!!block;n#addWalletHandler#0" />
@@ -52,6 +53,7 @@
       <find>paymentHandler</find>
       <find>nder</find>
       <find>deletePaymentByIdHandler</find>
+      <find>walle</find>
     </findStrings>
   </component>
   <component name="GOROOT" path="/usr/local/Cellar/go/1.12.1/libexec" />
@@ -72,7 +74,7 @@
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="40" />
-    <option name="y" value="69" />
+    <option name="y" value="60" />
     <option name="width" value="1400" />
     <option name="height" value="802" />
   </component>
@@ -82,7 +84,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -133,6 +134,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -160,10 +162,10 @@
     </option>
   </component>
   <component name="ToolWindowManager">
-    <frame x="40" y="69" width="1400" height="802" extended-state="0" />
+    <frame x="40" y="60" width="1400" height="802" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49859154" visible="true" weight="0.30854198" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49859154" visible="true" weight="0.31296024" />
       <window_info id="Structure" order="1" sideWeight="0.50140846" side_tool="true" weight="0.26067746" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -300,8 +302,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/APIs/Payments/goapi/src/paymentsapi/server.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1227">
-          <caret line="283" column="30" lean-forward="true" selection-start-line="283" selection-start-column="30" selection-end-line="283" selection-end-column="30" />
+        <state relative-caret-position="44">
+          <caret line="193" column="59" lean-forward="true" selection-start-line="193" selection-start-column="59" selection-end-line="193" selection-end-column="59" />
           <folding>
             <element signature="n#!!block;n#getOrdersHandler#0" />
             <element signature="n#!!block;n#addWalletHandler#0" />

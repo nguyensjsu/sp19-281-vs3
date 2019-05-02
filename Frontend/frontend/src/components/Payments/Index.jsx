@@ -12,129 +12,183 @@ class Payment extends Component {
     super(props);
     this.state = {
       orderCount: 0,
-      orderPrice: 0
+      totalAmount: 0,
+      CardAmount: 0,
+      Cart: [],
+      displaylist: false,
+      isPaid: false
     };
   }
 
-  componentDidMount() {
-    // let PAYMENT_HOST_ELB =
-
+  async componentDidMount() {
     let username = "sojan";
+    const [firstResponse, secondResponse] = await Promise.all([
+      axios.get(`http://${PAYMENT_HOST_ELB.Payments_ELB}/wallet/${username}`),
+      axios.get(`http://${PAYMENT_HOST_ELB.Cart_ELB}/${username}`)
+    ]);
+    console.log("firstResponse", firstResponse.data);
+    console.log("secondResponse", secondResponse);
 
-    axios
-      .get(`http://${PAYMENT_HOST_ELB.Payments_ELB}/wallet/${username}`)
-      .then(response => {
-        console.log("Status Code GET Wallet:", response);
-        this.setState({ wallet: response.data[0].amount });
-        console.log(this.state.wallet);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-
-    console.log("component did mount ", this.state);
-    var photos = [];
-    const data = {
-      orderid: this.props.orderid
-    };
-
-    console.log("DATA", data);
-
-    axios
-      .get(`http://${PAYMENT_HOST_ELB.Cart_ELB}/${username}`)
-      .then(async response => {
-        console.log("cart data", JSON.stringify(response.data));
-
-        this.setState({
-          Cart: response.data.drinks,
-          totalAmount: response.data.totalamount,
-          displaylist: true
-        });
-      });
+    this.setState({
+      CardAmount: firstResponse.data[0].amount,
+      Cart: secondResponse.data.drinks,
+      totalAmount: parseInt(secondResponse.data.totalamount)
+    });
   }
 
-  pay() {
+  // async componentDidMount() {
+  //   // let PAYMENT_HOST_ELB =
+
+  //   let username = "sojan";
+  //   //let { data } = await axios.get(url);
+
+  //   try {
+  //     let { data } = await axios.get(
+  //       `http://${PAYMENT_HOST_ELB.Payments_ELB}/wallet/${username}`
+  //     );
+  //     console.log("data", data);
+  //     let { cartdata } = await axios.get(
+  //       `http://${PAYMENT_HOST_ELB.Cart_ELB}/${username}`
+  //     );
+  //     console.log("cartydata", cartdata);
+  //   } catch (error) {
+  //     //
+  //   }
+
+  //   // .then(response => {
+  //   //   console.log("Status Code GET Wallet:", response);
+  //   //   this.setState({ wallet: response.data[0].amount });
+  //   //   console.log(this.state.wallet);
+  //   // })
+  //   // .catch(err => {
+  //   //   console.log(err);
+  //   // });
+
+  //   // console.log("component did mount ", this.state);
+  //   // var photos = [];
+  //   // const data = {
+  //   //   orderid: this.props.orderid
+  //   // };
+
+  //   //  console.log("DATA", data);
+
+  //   // console.log("Carty", cartdata);
+  //   // axios
+  //   //   .get(`http://${PAYMENT_HOST_ELB.Cart_ELB}/${username}`)
+  //   //   .then(async response => {
+  //   //     console.log("cart data", JSON.stringify(response.data));
+
+  //   //     this.setState({
+  //   //       Cart: response.data.drinks,
+  //   //       totalAmount: response.data.totalamount,
+  //   //       displaylist: true
+  //   //     });
+  //   //     console.log("this.state", this.state);
+  //   //   });
+  // }
+
+  pay = async event => {
+    event.preventDefault();
     // let PORT = 3000;
     let data = {
       username: "sojan",
-      amount: this.state.cart_total
+      amount: this.state.totalAmount
     };
-    axios
-      .put(`http://${PAYMENT_HOST_ELB.Payments_ELB}/wallet/pay`, data)
-      .then(response => {
-        console.log("Status Code POST Wallet:", response.status);
-        console.log("response from POST Wallet:", response);
+
+    const paymentResponse = await axios.put(
+      `http://${PAYMENT_HOST_ELB.Payments_ELB}/wallet/pay`,
+      data
+    );
+    console.log("paymentResponse", paymentResponse);
+    if (paymentResponse.status == 200) {
+      window.alert("Payment successfull");
+      const cartclearResp = await axios.delete(
+        `http://${PAYMENT_HOST_ELB.Cart_ELB}/${data.username}`
+      );
+      console.log("cartclearResp", cartclearResp);
+      if (cartclearResp.status == 200) {
         this.setState({
-          wallet: response.data.amount
+          isPaid: true
         });
-      });
-    console.log("cart", this.state.cart);
-    data = {
-      username: sessionStorage.getItem("username"),
-      items: this.state.cart,
-      cart_total: this.state.cart_total
-    };
-  }
+      }
+    }
+
+    // console.log("cart", this.state.cart);
+    // data = {
+    //   username: sessionStorage.getItem("username"),
+    //   items: this.state.cart,
+    //   cart_total: this.state.cart_total
+    // };
+  };
 
   render() {
+    let redirectVar = null;
+    if (this.state.isPaid) {
+      redirectVar = <Redirect to="/cardpay" />;
+    }
     let details = null;
 
     if (this.state.Cart != null && this.state.Cart != undefined) {
       details = this.state.Cart.map((drink, index) => {
         return (
-          <div class="layout-inline row">
-            <div class="col col-pro layout-inline">
+          <div className="layout-inline row">
+            <div className="col col-pro layout-inline">
               <p>{drink.drink_name}</p>
             </div>
 
-            <div class="col col-price col-numeric align-center ">
+            <div className="col col-price col-numeric align-center ">
               <p>${drink.drink_rate}</p>
             </div>
 
-            <div class="col col-qty layout-inline">{drink.drink_quantity}</div>
+            <div className="col col-qty layout-inline">
+              {drink.drink_quantity}
+            </div>
 
-            <div class="col col-total col-numeric">
+            <div className="col col-total col-numeric">
               {" "}
               <p> ${drink.drink_rate * drink.drink_quantity}</p>
             </div>
-            <div class="col col-vat col-numeric" />
+            <div className="col col-vat col-numeric" />
           </div>
         );
       });
     }
 
     return (
-      <div class="container">
-        <div class="heading">
+      <div className="container">
+        {redirectVar}
+        <div className="heading">
           <h1>Your Order</h1>
         </div>
 
-        <div class="cart transition is-open">
-          <div class="table">
-            <div class="layout-inline row th">
-              <div class="col col-pro">DRINK</div>
-              <div class="col col-price align-center ">Price</div>
-              <div class="col col-qty align-center">QTY</div>
-              <div class="col">Total</div>
+        <div className="cart transition is-open">
+          <div className="table">
+            <div className="layout-inline row th">
+              <div className="col col-pro">DRINK</div>
+              <div className="col col-price align-center ">Price</div>
+              <div className="col col-qty align-center">QTY</div>
+              <div className="col">Total</div>
             </div>
 
             {details}
 
-            <div class="tf">
-              <div class="row layout-inline">
-                <div class="col">
+            <div className="tf">
+              <div className="row layout-inline">
+                <div className="col">
                   <p>Total</p>
                 </div>
-                <div class="col">
+                <div className="col">
                   <p>${this.state.totalAmount}</p>
                 </div>
               </div>
             </div>
           </div>
+          <div />
 
-          <button onClick={this.pay} class="btn btn-update">
+          <button onClick={event => this.pay(event)} className="btn btn-update">
             Pay from Card
           </button>
+
           <Link
             to="/cardpay"
             className="btn btn-update"
@@ -144,6 +198,7 @@ class Payment extends Component {
           >
             Reload Card
           </Link>
+          <h1> Card Balance {this.state.CardAmount}</h1>
         </div>
       </div>
     );
