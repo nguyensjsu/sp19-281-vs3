@@ -105,7 +105,7 @@ type User struct {
     User_id string `bson:"user_id" json:"user_id"`
     UserName string `bson:"username" json:"username"`
     Password string `bson:"password" json:"password"`
-		AdminFlag bool
+		AdminFlag bool	`bson:"adminFlag" json:"adminFlag"`
 }
 
 var db *mgo.Database
