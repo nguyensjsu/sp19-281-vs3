@@ -25,6 +25,7 @@ class Card extends Component {
     this.CartItems.drinks = this.props.CartDetails == null ? [] : this.props.CartDetails.drinks
     var totalquantity = 0;
     var totalprice = 0;
+    var flag = false;
        this.CartItems._id = item.itemid;
        this.CartItems.username="sojan";
        var quantity= this.props.CartDetails== null ? this.CartItems.totalitems : parseInt(this.props.CartDetails.totalitems);
@@ -32,6 +33,7 @@ class Card extends Component {
         if(this.props.CartDetails != null) {
          for(var i = 0 ; i < quantity ; i++) {
            if(item.itemname == this.props.CartDetails.drinks[i].drink_name) {
+             flag = true;
               console.log("Same Item added: ", this.props.CartDetails.drinks[i])
               this.props.CartDetails.drinks[i].drink_quantity = this.props.CartDetails.drinks[i].drink_quantity+1;
               this.props.CartDetails.drinks[i].drink_name= item.itemname;
@@ -39,17 +41,20 @@ class Card extends Component {
               totalquantity = parseInt(this.props.CartDetails.drinks[i].drink_quantity);
               totalprice = parseFloat(this.props.CartDetails.drinks[i].drink_rate);
               this.CartItems.totalamount = this.props.CartDetails.totalamount + (totalquantity * totalprice);
+              this.props.updateCart(this.CartItems);
               break;
            }
          }
-         var cartObject = new Object();
-         this.CartItems.totalamount = item.itemamount;
-         cartObject.drink_name = item.itemname;
-         cartObject.drink_rate = item.itemamount;
-         cartObject.drink_quantity = 1;
-         this.CartItems.totalamount = this.props.CartDetails.totalamount + (1 * parseFloat(item.itemamount));
-         this.props.CartDetails.drinks.push(cartObject);
-         this.props.updateCart(this.CartItems);
+         if(!flag) {
+           var cartObject = new Object();
+           this.CartItems.totalamount = item.itemamount;
+           cartObject.drink_name = item.itemname;
+           cartObject.drink_rate = item.itemamount;
+           cartObject.drink_quantity = 1;
+           this.CartItems.totalamount = this.props.CartDetails.totalamount + (1 * parseFloat(item.itemamount));
+           this.props.CartDetails.drinks.push(cartObject);
+           this.props.updateCart(this.CartItems);
+         }
        }
        else {
                var cartObject = new Object();

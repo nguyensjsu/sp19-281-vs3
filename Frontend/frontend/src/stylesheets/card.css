@@ -33,18 +33,20 @@
 .MenuDescription{
   width: 280px;
     text-align: left;
+    font-weight: bold;
+    font-size: 16px;
 }
 .ItemName{
   color: #0C725E;
   text-align: left;
 }
 .MenuDetailsImage1{
-  height: 200px;
+  height: 210px;
   width: 350px;
   float: left;
   display: inline;
   margin-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
   position: relative;
 }
 .menuheading{
@@ -53,12 +55,11 @@
   stretch: 100%;
   font-weight: 400;
   font-family: Verdana, Geneva, sans-serif;
-  margin-left: 180px;
+  margin-left: 250px;
   position: relative;
   text-align: left;
+  font-weight: bold;
 }
-
-
 .table-menu{
   width: 100%;
   border-spacing: 10px;
@@ -72,16 +73,18 @@
 .table-menu th{
   border-bottom: 3px solid #0B6352;
   text-align: center;
-
+font-size: 15px;
 }
 
 .menu-table-header-row{
   min-height: 100px;
+
 }
 
 .menu-table-item-row{
   min-height: 100px;
   padding-left: 100px;
+  font-size: 15px;
 }
 .menu-table-item-col{
   text-align: left;
@@ -226,7 +229,7 @@ span.addspan{
   width: 1000px;
 }
 .price{
-  padding-left: 10px;
+  padding-left: 20px;
   margin-right: -30px;
   padding-top: 10px;
 
