@@ -8,23 +8,28 @@ import ItemSearch from "./components/Menu/itemsearch.js";
 import AdminHomePage from "./components/Menu/adminHomePage.js";
 import AddItem from "./components/Menu/addItem.js";
 import UpdateItem from "./components/Menu/updateItem.js";
+import CardPay from "./components/Card/CardPayment";
 class App extends Component {
   render() {
     return (
       <div className="App">
-          <Switch>
-            <Route exact path="/payments" component={Payments} />
-            <Route exact path="/menu" component={MenuPage} />
-            <Route exact path="/menu/items" component={ItemSearch} />
-            <Route exact path="/admin" component={AdminHomePage} />
-            <Route exact path="/additem" component={AddItem} />
-            <Route exact path="/updateitem" component={UpdateItem} />
-          </Switch>
+        <Switch>
+          <Route exact path="/payments" component={Payments} />
+          <Route exact path="/cardpay" component={CardPay} />
+          <Route exact path="/menu" component={MenuPage} />
+          <Route exact path="/menu/items" component={ItemSearch} />
+          <Route exact path="/admin" component={AdminHomePage} />
+          <Route exact path="/additem" component={AddItem} />
+          <Route exact path="/updateitem" component={UpdateItem} />
+        </Switch>
       </div>
     );
   }
 }
 
 export default withRouter(
-  connect(null,null)(App)
+  connect(
+    null,
+    null
+  )(App)
 );
