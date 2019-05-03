@@ -5,7 +5,7 @@ import axios from "axios";
 import uniqid from "uniqid";
 import Drink from "../Drink/Drink";
 import * as PAYMENT_HOST_ELB from "../../Helpers/helper";
-
+import Navbar from "../../components/Menu/Navbar";
 import "./Payments.css";
 class Payment extends Component {
   constructor(props) {
@@ -26,11 +26,12 @@ class Payment extends Component {
       axios.get(`http://${PAYMENT_HOST_ELB.Payments_ELB}/wallet/${username}`),
       axios.get(`http://${PAYMENT_HOST_ELB.Cart_ELB}/${username}`)
     ]);
-    console.log("firstResponse", firstResponse.data);
+    console.log("firstResponse", firstResponse);
     console.log("secondResponse", secondResponse);
 
     this.setState({
-      CardAmount: firstResponse.data[0].amount,
+      CardAmount:
+        firstResponse.status == 204 ? 0 : firstResponse.data[0].amount,
       Cart: secondResponse.data.drinks,
       totalitems: secondResponse.data.totalitems,
       totalAmount: parseInt(secondResponse.data.totalamount)
@@ -189,6 +190,7 @@ class Payment extends Component {
     return (
       <div className="container">
         {redirectVar}
+
         <div className="heading">
           <h1>Your Order</h1>
         </div>
