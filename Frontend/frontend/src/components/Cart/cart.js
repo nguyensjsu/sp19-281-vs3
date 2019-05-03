@@ -209,7 +209,7 @@ class Cart extends Component {
             // onClick={this.handleSubmit}
           >
             Proceed to Payment
-          </Link>{" "}
+          </Link>
         </div>
       </div>
     );
