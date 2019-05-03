@@ -6,6 +6,11 @@ Purpose : Building an online coffee Web Application using *All Technologies used
 Users Module Architecture
 ![Users Architecture](https://github.com/nguyensjsu/sp19-281-vs3/blob/master/Screenshots/UsersArchitecture.png)
 
+Key Points to the Users Module
+                    
+                    Users can Signup and login to the online coffee store. Login with their respective login credentials to                         order a delicious drink of their choice. 
+
+
 ##### Menu HomePage:
 
 ![menu](Screenshots/MenuPage.png)
