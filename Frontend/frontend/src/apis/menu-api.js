@@ -160,7 +160,7 @@ export const userSignUp = function(userdetails) {
       }).then(result=>{
            console.log("result from signup API",result)
            dispatch(userSignupAction(userdetails));
-           history.push('/menu')
+           // history.push('/menu')
       }).catch(error => {
            console.log("user signup Error !!!");
            return error;
@@ -183,7 +183,7 @@ export const userLogin = function(userdetails) {
       }).then(result=>{
            console.log("result from signup API",result)
            dispatch(userLoginAction(userdetails));
-           history.push('/menu')
+           // history.push('/menu')
       }).catch(error => {
            console.log("user signup Error !!!");
            return error;

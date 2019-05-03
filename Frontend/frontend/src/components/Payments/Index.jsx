@@ -21,7 +21,7 @@ class Payment extends Component {
   }
 
   async componentDidMount() {
-    let username = "sojan";
+    let username = "Srini";
     const [firstResponse, secondResponse] = await Promise.all([
       axios.get(`http://${PAYMENT_HOST_ELB.Payments_ELB}/wallet/${username}`),
       axios.get(`http://${PAYMENT_HOST_ELB.Cart_ELB}/${username}`)
@@ -40,7 +40,7 @@ class Payment extends Component {
   // async componentDidMount() {
   //   // let PAYMENT_HOST_ELB =
 
-  //   let username = "sojan";
+  //   let username = "Srini";
   //   //let { data } = await axios.get(url);
 
   //   try {
@@ -97,11 +97,11 @@ class Payment extends Component {
     } else {
       // let PORT = 3000;
       let data = {
-        username: "sojan",
+        username: "Srini",
         amount: this.state.totalAmount
       };
       let processpayData = {
-        username: "sojan",
+        username: "Srini",
         totalitems: this.state.totalitems,
         totalamount: this.state.totalAmount,
         drinks: this.state.Cart

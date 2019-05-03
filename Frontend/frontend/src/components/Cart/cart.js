@@ -101,7 +101,7 @@ class Cart extends Component {
 
   componentDidMount() {
     let CART_ELB = "cart-elb-662553320.us-east-1.elb.amazonaws.com";
-    let username = "sojan";
+    let username = "Srini";
 
     axios
       .get(`http://${CART_ELB}/cart/${username}`)

@@ -5,7 +5,7 @@ import { Route, withRouter,Redirect } from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {updateMenuItem} from './../../apis/menu-api';
-import './../../stylesheets/card.css';
+import './card.css';
 import 'tachyons';
 
 class UpdateItem extends Component {

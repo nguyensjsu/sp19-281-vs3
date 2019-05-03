@@ -3,7 +3,7 @@ import { Route, withRouter, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { createBrowserHistory } from "history";
-import "./../../stylesheets/card.css";
+import "./card.css";
 import "tachyons";
 import { updateCart } from "./../../apis/menu-api";
 import { updateMenuItem } from "./../../apis/menu-api";
@@ -27,7 +27,7 @@ class Card extends Component {
     var totalprice = 0;
     var flag = false;
        this.CartItems._id = item.itemid;
-       this.CartItems.username="sojan";
+       this.CartItems.username="Srini";
        var quantity= this.props.CartDetails== null ? this.CartItems.totalitems : parseInt(this.props.CartDetails.totalitems);
        this.CartItems.totalitems= quantity + 1;
         if(this.props.CartDetails != null) {

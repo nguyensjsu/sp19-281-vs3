@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux';
 import Navbar from "./Navbar.jsx";
 import Card from './card';
 import 'tachyons';
-import './../../stylesheets/card.css';
+import './card.css';
 
 class ItemSearch extends Component {
   constructor() {

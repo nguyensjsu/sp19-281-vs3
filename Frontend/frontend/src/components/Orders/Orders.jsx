@@ -22,10 +22,10 @@ class Orders extends Component {
   }
 
   async componentDidMount() {
-    let username = "sojan";
+    let username = "Srini";
 
     let userdata = {
-      username: "sojan"
+      username: "Srini"
     };
 
     const [firstResponse, orderResponse] = await Promise.all([

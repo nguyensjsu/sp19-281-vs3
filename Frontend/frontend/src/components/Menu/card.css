@@ -8,7 +8,7 @@
   margin-bottom: 200px;
 }
 
-.MenuDesc{
+.MenuDesc-surabhi{
   float: center;
   padding-left: 60px;
   margin-left: 100px;
@@ -18,44 +18,50 @@
   font-size: 20px;
   display: float;
 }
-.MenuImage{
+.MenuImage-surabhi{
   float: left;
   height: 220px;
   width: 550px;
 }
-.MenuImage-Main{
+.MenuImage-Main-surabhi{
   float: left;
   height: 220px;
   width: 550px;
 }
-.menudetails{
+.menudetails-surabhi{
   margin-top: 100px;
   display: inline;
 }
-.MenuDetailsImage{
-  height: 200px;
-  width: 350px;
+.MenuDetailsImage-surabhi{
+  height: 200px !important;
+  width: 350px !important;
 }
-.MenuDescription{
-  width: 280px;
-    text-align: left;
-    font-weight: bold;
-    font-size: 16px;
+.MenuDescription-surabhi{
+  width: 280px !important;
+    text-align: left !important;
+    font-weight: bold !important;
+    font-size: 16px !important;
 }
-.ItemName{
-  color: #0C725E;
-  text-align: left;
+.ItemName-surabhi{
+  color: #0C725E !important;
+  text-align: left !important;
+  margin-left: 90px !important;
 }
-.MenuDetailsImage1{
-  height: 210px;
-  width: 350px;
-  float: left;
-  display: inline;
-  margin-top: 10px;
-  padding-bottom: 20px;
-  position: relative;
+.ItemName1-surabhi{
+  color: #0C725E!important;
+  text-align: left!important;
+  padding-bottom: 10px!important;
 }
-.menuheading{
+.MenuDetailsImage1-surabhi{
+  height: 210px !important;
+  width: 350px !important;
+  float: left!important;
+  display: inline!important;
+  margin-top: -200px!important;
+  padding-bottom: 20px!important;
+  position: relative!important;
+}
+.menuheading-surabhi{
   color: black;
   font-family: inherit;
   stretch: 100%;

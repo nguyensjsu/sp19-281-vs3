@@ -14,7 +14,7 @@ class CardPayment extends Component {
 
   async componentDidMount() {
     console.log("card pay");
-    let username = "sojan";
+    let username = "Srini";
     const userwalletcheck = await axios.get(
       `http://${PAYMENT_HOST_ELB.Payments_ELB}/wallet/${username}`
     );
@@ -87,7 +87,7 @@ class CardPayment extends Component {
   }
 
   addMoney = async e => {
-    let username = "sojan";
+    let username = "Srini";
     let data = {
       username,
       amount: parseInt(this.state.updatedAmount)
