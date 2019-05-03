@@ -8,7 +8,8 @@ Users Module Architecture
 
 Key Points to the Users Module
                     
-                    Users can Signup and login to the online coffee store. Login with their respective login credentials to                         order a delicious drink of their choice. 
+                    Users can Signup to the online coffee store and create accounts. 
+                    Login with their respective login credentials to order a delicious drink of their choice. 
 
 
 ##### Menu HomePage:
