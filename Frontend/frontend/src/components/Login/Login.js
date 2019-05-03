@@ -8,7 +8,7 @@ import {connect} from 'react-redux';
 import {userLogin} from './../../apis/menu-api';
 
 
-class Signup extends Component {
+class Login extends Component {
 	constructor(props) {
 		super(props);
 		this.userDetails = {
@@ -52,4 +52,4 @@ function matchDispatchToProps(dispatch){
     console.log("Dispatch",dispatch);
     return bindActionCreators({userLogin: userLogin}, dispatch);
 }
-export default connect(null, matchDispatchToProps)(userLogin);
+export default connect(null, matchDispatchToProps)(Login);
