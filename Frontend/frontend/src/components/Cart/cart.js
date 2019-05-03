@@ -201,9 +201,15 @@ class Cart extends Component {
               </div>
             </div>
           </div>
-          <button onClick={this.checkout} class="btn btn-update">
-            Proceed to Checkout
-          </button>
+          <Link
+            to="/payments"
+            className="btn btn-update"
+            data-wdio="nextButton"
+            data-effect="ripple"
+            // onClick={this.handleSubmit}
+          >
+            Proceed to Payment
+          </Link>
         </div>
       </div>
     );
