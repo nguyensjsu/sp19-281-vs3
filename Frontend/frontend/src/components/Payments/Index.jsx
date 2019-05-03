@@ -91,7 +91,7 @@ class Payment extends Component {
 
   pay = async event => {
     event.preventDefault();
-    if (this.state.CardAmount < 0) {
+    if (this.state.CardAmount <= 0) {
       window.alert(
         "Insufficient card balance. Please reload your Starbucks Card"
       );

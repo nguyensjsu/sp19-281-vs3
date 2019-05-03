@@ -40,8 +40,8 @@ class Orders extends Component {
     // const orderResponse = await axios.get(
 
     // );
-    console.log("order", orderResponse.data);
-    console.log("order", orderResponse.data.length);
+    // console.log("order", orderResponse.data);
+    // console.log("order", orderResponse.data.length);
 
     this.setState({
       CardAmount: firstResponse.data[0].amount,

@@ -20,12 +20,17 @@ import (
 
 
 //Mongo config
-var mongodb_server = "127.0.0.1:27017"
+//var mongodb_server = "127.0.0.1:27017"
 
 //var mongodb_server = 	 "admin:cmpe281@10.0.1.14:27017,10.0.1.246:27017,10.0.1.192:27017,10.0.1.148:27017,10.0.1.171:27017"
 
 //VPC Peer
 //var mongodb_server = "admin:cmpe281@10.0.1.167:27017,10.0.1.61:27017,10.0.1.41:27017,172.0.1.66:27017,172.0.1.221:27017"
+
+//EKS
+var mongodb_server = "admin:cmpe281@34.209.212.52:27017,54.191.209.32:27017,54.185.31.34:27017,100.27.36.176:27017,34.200.228.221:27017"
+
+
 var mongodb_database 			= "payments"
 var mongodb_wallet_collection   = "wallet"
 var mongodb_orders_collection = "order"
