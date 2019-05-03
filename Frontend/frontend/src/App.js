@@ -12,6 +12,7 @@ import CardPay from "./components/Card/CardPayment";
 import Signup from "./components/Login/Signup";
 import Login from "./components/Login/Login";
 import Order from "./components/Orders/Orders";
+import Cart from "./components/Cart/cart";
 class App extends Component {
   render() {
     return (
@@ -26,7 +27,8 @@ class App extends Component {
           <Route exact path="/updateitem" component={UpdateItem} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/login" component={Login} />
-          <Route exact path="/order" component={Order} />/
+          <Route exact path="/order" component={Order} />
+          <Route exact path="/cart" component={Cart} />/
         </Switch>
       </div>
     );
