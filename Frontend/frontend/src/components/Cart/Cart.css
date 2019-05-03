@@ -40,12 +40,12 @@ input {
   text-align: center;
 }
 
-img {
+/* img {
   max-width: 9em;
   width: 100%;
   overflow: hidden;
   margin-right: 1em;
-}
+} */
 
 a {
   text-decoration: none;
@@ -234,10 +234,10 @@ a.qty:hover {
     width: 22%;
   }
 
-  img {
+  /* img {
     max-width: 100%;
     margin-bottom: 1em;
-  }
+  } */
 }
 
 @media screen and (max-width: 591px) {

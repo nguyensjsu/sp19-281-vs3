@@ -23,43 +23,47 @@
   height: 220px;
   width: 550px;
 }
-.MenuImage-Main-surabhi{
-  float: left;
-  height: 220px;
-  width: 550px;
-}
+
 .menudetails-surabhi{
   margin-top: 100px;
   display: inline;
 }
 .MenuDetailsImage-surabhi{
-  height: 200px !important;
-  width: 350px !important;
+  height: 200px ;
+  width: 300px ;
+  margin-left: 200px;
 }
 .MenuDescription-surabhi{
-  width: 280px !important;
-    text-align: left !important;
-    font-weight: bold !important;
-    font-size: 16px !important;
+    width: 280px ;
+    text-align: left ;
+    font-weight: bold ;
+    font-size: 16px ;
+    margin-left: 200px;
+    position: relative;
 }
 .ItemName-surabhi{
-  color: #0C725E !important;
-  text-align: left !important;
-  margin-left: 90px !important;
+  color: #0C725E ;
+  text-align: center ;
+  margin-left: 0px ;
+  font-size: 38px;
+  padding-bottom: 20px;
 }
 .ItemName1-surabhi{
-  color: #0C725E!important;
-  text-align: left!important;
-  padding-bottom: 10px!important;
+  color: #0C725E;
+  text-align: left;
+  margin-left: 90px ;
+  margin-top: -3500px;
+
+  position: relative;
 }
 .MenuDetailsImage1-surabhi{
-  height: 210px !important;
-  width: 350px !important;
-  float: left!important;
-  display: inline!important;
-  margin-top: -200px!important;
-  padding-bottom: 20px!important;
-  position: relative!important;
+  height: 210px ;
+  width: 550px ;
+  float: left;
+  display: inline;
+  margin-top: 0px;
+  padding-bottom: 20px;
+  margin-left: 200px;
 }
 .menuheading-surabhi{
   color: black;
@@ -67,7 +71,7 @@
   stretch: 100%;
   font-weight: 400;
   font-family: Verdana, Geneva, sans-serif;
-  margin-left: 350px;
+  margin-left: 200px;
   margin-top: 100px;
   position: relative;
   text-align: left;
@@ -272,4 +276,14 @@ span.addspan{
 .btn.btn-class.add {
   background-color: #0B6352;
 
+}
+.MenuImage-Main-surabhi{
+  float: left;
+  height: 220px;
+  width: 300px !important;
+  display: inline;
+  margin-left: -150px;
+}
+.card-header{
+  margin-top: 100px;
 }

@@ -19,7 +19,6 @@ class Login extends Component {
 	}
 	clickHandler=()=> {
 	     this.props.userLogin(this.userDetails);
-			 alert("Logged IN");
 			 history.push('/login');
 	}
 	render() {
@@ -42,7 +41,7 @@ class Login extends Component {
                       onChange={(userinput) => {
                           this.userDetails.password=userinput.target.value}}/>
                       </td></tr>
-											<Link to='/menu'><button type="button" onClick={(e) =>this.clickHandler()}
+											<Link to={{ pathname: "/menu", state: this.props.UserDetails }}><button type="button" onClick={(e) =>this.clickHandler()}
 											 className="btn btn-primary join">Login</button></Link>
 											 <button type="button" onClick={(e) =>this.props.history.push('/signup')}
  											 className="btn btn-primary join">Sign Up</button>
@@ -52,9 +51,14 @@ class Login extends Component {
 			);
 	}
 }
-
+function mapStateToProps(state) {
+    console.log("State",state);
+      return {
+         UserDetails: state.MenuReducer.UserDetails
+      };
+  }
 function matchDispatchToProps(dispatch){
     console.log("Dispatch",dispatch);
     return bindActionCreators({userLogin: userLogin}, dispatch);
 }
-export default connect(null, matchDispatchToProps)(Login);
+export default connect(mapStateToProps, matchDispatchToProps)(Login);

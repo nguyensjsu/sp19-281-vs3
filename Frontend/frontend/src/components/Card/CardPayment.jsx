@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import * as PAYMENT_HOST_ELB from "../../Helpers/helper";
+import Navbar from "./../Menu/Navbar.jsx";
 class CardPayment extends Component {
   constructor() {
     super();
@@ -166,6 +167,8 @@ class CardPayment extends Component {
 
     return (
       // <React.Fragment>
+      <div class="card-header">
+      <Navbar/>
       <div className="container">
         <div id="title">
           <h2>Starbucks Cards</h2>
@@ -189,6 +192,7 @@ class CardPayment extends Component {
         )}
 
         {showcardoptions}
+      </div>
       </div>
       // </React.Fragment>
     );

@@ -54,6 +54,7 @@ class Navbar extends Component {
             Cart
           </span>
         </Link>
+  
         </nav>
 
       </React.Fragment>
@@ -63,7 +64,8 @@ class Navbar extends Component {
 const mapStateToProps = (state) =>{
     return {
       MenuDetails: state.MenuReducer.MenuDetails,
-      CartDetails: state.MenuReducer.CartDetails
+      CartDetails: state.MenuReducer.CartDetails,
+      UserDetails: state.MenuReducer.UserDetails
     }
 }
 
