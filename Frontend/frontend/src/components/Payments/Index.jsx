@@ -21,9 +21,12 @@ class Payment extends Component {
   }
 
   async componentDidMount() {
+    let PORT = 3000;
     let username = this.props.UserDetails.username;
     const [firstResponse, secondResponse] = await Promise.all([
-      axios.get(`http://${PAYMENT_HOST_ELB.Payments_ELB}/wallet/${username}`),
+      axios.get(
+        `http://${PAYMENT_HOST_ELB.Payments_Eks_Elb}:${PORT}/wallet/${username}`
+      ),
       axios.get(`http://${PAYMENT_HOST_ELB.Cart_ELB}/${username}`)
     ]);
     console.log("firstResponse", firstResponse);
@@ -90,13 +93,13 @@ class Payment extends Component {
   // }
 
   pay = async event => {
+    let PORT = 3000;
     event.preventDefault();
     if (this.state.CardAmount <= 0) {
       window.alert(
         "Insufficient card balance. Please reload your Starbucks Card"
       );
     } else {
-      // let PORT = 3000;
       let data = {
         username: this.props.UserDetails.username,
         amount: this.state.totalAmount
@@ -110,7 +113,7 @@ class Payment extends Component {
       console.log("processpayData", processpayData);
 
       const paymentResponse = await axios.put(
-        `http://${PAYMENT_HOST_ELB.Payments_ELB}/wallet/pay`,
+        `http://${PAYMENT_HOST_ELB.Payments_Eks_Elb}:${PORT}/wallet/pay`,
         data
       );
 
@@ -118,7 +121,7 @@ class Payment extends Component {
       if (paymentResponse.status == 200) {
         const [processPaymentResp, cartclearResp] = await Promise.all([
           axios.post(
-            `http://${PAYMENT_HOST_ELB.Payments_ELB}/payment`,
+            `http://${PAYMENT_HOST_ELB.Payments_Eks_Elb}/payment`,
             processpayData
           ),
           axios.delete(`http://${PAYMENT_HOST_ELB.Cart_ELB}/${data.username}`)
@@ -188,65 +191,71 @@ class Payment extends Component {
     }
 
     return (
-    <div class="card-header">
-      <Navbar/>
-      <div className="container">
-        {redirectVar}
+      <div class="card-header">
+        <Navbar />
+        <div className="container">
+          {redirectVar}
 
-        <div className="heading">
-          <h1>Your Order</h1>
-        </div>
+          <div className="heading">
+            <h1>Your Order</h1>
+          </div>
 
-        <div className="cart transition is-open">
-          <div className="table">
-            <div className="layout-inline row th">
-              <div className="col col-pro">DRINK</div>
-              <div className="col col-price align-center ">Price</div>
-              <div className="col col-qty align-center">QTY</div>
-              <div className="col">Total</div>
-            </div>
+          <div className="cart transition is-open">
+            <div className="table">
+              <div className="layout-inline row th">
+                <div className="col col-pro">DRINK</div>
+                <div className="col col-price align-center ">Price</div>
+                <div className="col col-qty align-center">QTY</div>
+                <div className="col">Total</div>
+              </div>
 
-            {details}
+              {details}
 
-            <div className="tf">
-              <div className="row layout-inline">
-                <div className="col">
-                  <p>Total</p>
-                </div>
-                <div className="col">
-                  <p>${this.state.totalAmount}</p>
+              <div className="tf">
+                <div className="row layout-inline">
+                  <div className="col">
+                    <p>Total</p>
+                  </div>
+                  <div className="col">
+                    <p>${this.state.totalAmount}</p>
+                  </div>
                 </div>
               </div>
             </div>
+            <div />
+
+            <button
+              onClick={event => this.pay(event)}
+              className="btn btn-update"
+            >
+              Pay from Card
+            </button>
+
+            <Link
+              to="/cardpay"
+              className="btn btn-update"
+              data-wdio="nextButton"
+              data-effect="ripple"
+              // onClick={this.handleSubmit}
+            >
+              Reload Card
+            </Link>
+            <h1> Card Balance {this.state.CardAmount}</h1>
           </div>
-          <div />
-
-          <button onClick={event => this.pay(event)} className="btn btn-update">
-            Pay from Card
-          </button>
-
-          <Link
-            to="/cardpay"
-            className="btn btn-update"
-            data-wdio="nextButton"
-            data-effect="ripple"
-            // onClick={this.handleSubmit}
-          >
-            Reload Card
-          </Link>
-          <h1> Card Balance {this.state.CardAmount}</h1>
-        </div>
         </div>
       </div>
     );
   }
 }
 function mapStateToProps(state) {
-    console.log("State",state);
-      return {
-         MenuDetails: state.MenuReducer.MenuDetails,
-         UserDetails: state.MenuReducer.UserDetails,
-         CartDetails: state.MenuReducer.CartDetails
-      };
-  }
-export default connect(mapStateToProps, null)(Payment);
+  console.log("State", state);
+  return {
+    MenuDetails: state.MenuReducer.MenuDetails,
+    UserDetails: state.MenuReducer.UserDetails,
+    CartDetails: state.MenuReducer.CartDetails
+  };
+}
+export default connect(
+  mapStateToProps,
+  null
+)(Payment);
