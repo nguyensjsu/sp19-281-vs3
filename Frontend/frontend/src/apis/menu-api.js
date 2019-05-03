@@ -8,6 +8,8 @@ import {updateMenu} from './../actions/index';
 import {deleteMenu} from './../actions/index';
 import {getMenuType} from './../actions/index';
 import {addCart} from './../actions/index';
+import {userSignupAction} from './../actions/index';
+import {userLoginAction} from './../actions/index';
 import {kongAPI} from '../actions/urlConstant';
 
 
@@ -138,6 +140,52 @@ export const updateCart = function(cartdetails) {
            // history.push('/menu')
       }).catch(error => {
            console.log("add cart Error !!!");
+           return error;
+      });
+   };
+};
+
+export const userSignUp = function(userdetails) {
+  console.log("user details in signupAPI", userdetails)
+  return (dispatch) => {
+    fetch(`http://Project281ELB-117855841.us-west-2.elb.amazonaws.com:8000/signup`, {
+          method: 'POST',
+          headers: {
+              ...headers,
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(userdetails)
+      }).then(res => {
+          return res.json();
+      }).then(result=>{
+           console.log("result from signup API",result)
+           dispatch(userSignupAction(userdetails));
+           history.push('/menu')
+      }).catch(error => {
+           console.log("user signup Error !!!");
+           return error;
+      });
+   };
+};
+
+export const userLogin = function(userdetails) {
+  console.log("user details in signupAPI", userdetails)
+  return (dispatch) => {
+    fetch(`http://Project281ELB-117855841.us-west-2.elb.amazonaws.com:8000/login`, {
+          method: 'POST',
+          headers: {
+              ...headers,
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(userdetails)
+      }).then(res => {
+          return res.json();
+      }).then(result=>{
+           console.log("result from signup API",result)
+           dispatch(userLoginAction(userdetails));
+           history.push('/menu')
+      }).catch(error => {
+           console.log("user signup Error !!!");
            return error;
       });
    };

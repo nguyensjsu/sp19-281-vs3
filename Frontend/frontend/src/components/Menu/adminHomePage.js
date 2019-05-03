@@ -36,7 +36,7 @@ clickHandler=()=> {
 				  <table>
 						<tbody>
 						<tr>
-						 <label>Enter Item Id</label>
+						 <label className="adminlabel">Enter Item Id</label>
 						 </tr>
 						 <tr>
 							 <input className="itemInputText" type="text" id="amount" name="amount"

@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Route, withRouter,Redirect } from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import Navbar from "./Navbar.jsx";
 import {getMenuItemList} from './../../apis/menu-api';
 import './../../stylesheets/card.css';
 import 'tachyons';
@@ -19,6 +20,7 @@ class MenuPage extends Component {
 	render() {
 		return (
       <div className="card-container">
+			<Navbar/>
       <h1 className="menuheading"> Starbucks Menu </h1>
         <div className='bg-light-orange dib br1 pa1 ma1  bw1'>
             <img className="MenuImage" alt = "home" src= "https://globalassets.starbucks.com/assets/2c9907d928474436a533e2fe4e42b8f5.jpg" />

@@ -14,7 +14,7 @@
   margin-left: 300px;
   width: 800px;
   margin-top: 50px;
-  font-family: "Lato",cursive , Helvetica,Arial,sans-serif;
+  font-family: Lato,Helvetica,Arial,sans-serif;
   font-size: 20px;
 }
 .MenuImage{
@@ -73,7 +73,7 @@
 .table-menu th{
   border-bottom: 3px solid #0B6352;
   text-align: center;
-font-size: 15px;
+  font-size: 15px;
 }
 
 .menu-table-header-row{
@@ -189,18 +189,23 @@ span.addspan{
   stretch: 100%;
   font-weight: 400;
   font-family: Verdana, Geneva, sans-serif;
-  margin-left: 150px;
+  margin-left: 250px;
   position: relative;
   text-align: left;
+  font-weight: bold;
 }
 .itemInputText {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
+  font-size: 15px;
+  font-weight: bold;
+  color: #0B6352;
 }
 .itemLabel{
   font-weight: bold;
+  font-size: 15px;
 }
 .item_button {
   background-color: #0B6352;
@@ -235,4 +240,12 @@ span.addspan{
 
   width: 100%;
   float: right;
+}
+.adminlabel{
+  font-size: 15px;
+  font-weight: bold;
+}
+.updatelabel{
+  font-size: 18px;
+  font-weight: bold;
 }

@@ -1,6 +1,7 @@
 const initialState = {
         MenuDetails:{},
-        CartDetails:null
+        CartDetails:null,
+        UserDetails: {}
 };
 
 export default function (state = initialState, action) {
@@ -34,6 +35,16 @@ export default function (state = initialState, action) {
               console.log("Add item to cart", action.data);
               return Object.assign({}, state, {
               CartDetails : action.data
+            })
+            case 'ADD_USER':
+              console.log("Add user", action.data);
+              return Object.assign({}, state, {
+              UserDetails : action.data
+            })
+            case 'LOGIN_USER':
+              console.log("Login user", action.data);
+              return Object.assign({}, state, {
+              UserDetails : action.data
             })
           default:
             return state;

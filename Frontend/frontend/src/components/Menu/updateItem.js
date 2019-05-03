@@ -39,7 +39,7 @@ clickHandler=()=> {
 	render() {
 		return (
       <div className="card-container">
-        <h3>Enter Menu Item Details</h3>
+        <h3 className="updatelabel">Enter Menu Item Details</h3>
           <form>
             <label className="itemLabel">Item Name</label>
             <input className="itemInputText" type="text" id="name" name="name" defaultValue={this.props.MenuDetails.itemname!='' ? this.props.MenuDetails.itemname:''}

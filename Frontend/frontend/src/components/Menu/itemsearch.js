@@ -2,7 +2,7 @@ import React,{ Component } from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'react-bootstrap';
 import {bindActionCreators} from 'redux';
-// import {userlogin} from './../api/Api';
+import Navbar from "./Navbar.jsx";
 import Card from './card';
 import 'tachyons';
 import './../../stylesheets/card.css';

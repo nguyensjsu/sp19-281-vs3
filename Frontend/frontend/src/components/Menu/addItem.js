@@ -1,6 +1,7 @@
 import React,{ Component } from 'react';
 import { Button } from 'reactstrap';
 import axios from 'axios';
+import Navbar from "./Navbar.jsx";
 import { Route, withRouter,Redirect } from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';

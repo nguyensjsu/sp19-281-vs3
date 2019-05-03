@@ -35,3 +35,15 @@ export const addCart = (menudetails) => {
         data: menudetails
     }
 };
+export const userSignupAction = (userdetails) => {
+    return {
+        type: 'ADD_USER',
+        data: userdetails
+    }
+};
+export const userLoginAction = (userdetails) => {
+    return {
+        type: 'LOGIN_USER',
+        data: userdetails
+    }
+};

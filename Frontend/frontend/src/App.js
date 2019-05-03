@@ -9,6 +9,8 @@ import AdminHomePage from "./components/Menu/adminHomePage.js";
 import AddItem from "./components/Menu/addItem.js";
 import UpdateItem from "./components/Menu/updateItem.js";
 import CardPay from "./components/Card/CardPayment";
+import Signup from "./components/Login/Signup";
+import Login from "./components/Login/Login";
 class App extends Component {
   render() {
     return (
@@ -21,6 +23,8 @@ class App extends Component {
           <Route exact path="/admin" component={AdminHomePage} />
           <Route exact path="/additem" component={AddItem} />
           <Route exact path="/updateitem" component={UpdateItem} />
+          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/login" component={Login} />
         </Switch>
       </div>
     );
