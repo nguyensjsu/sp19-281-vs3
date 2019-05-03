@@ -23,7 +23,7 @@ class MenuPage extends Component {
 			<Navbar/>
       <h1 className="menuheading"> Starbucks Menu </h1>
         <div className='bg-light-orange dib br1 pa1 ma1  bw1'>
-            <img className="MenuImage" alt = "home" src= "https://globalassets.starbucks.com/assets/2c9907d928474436a533e2fe4e42b8f5.jpg" />
+            <img className="MenuImage-Main" alt = "home" src= "https://globalassets.starbucks.com/assets/2c9907d928474436a533e2fe4e42b8f5.jpg" />
             <h2 className="MenuDesc">Choose your espresso, love your drink</h2>
             <h5 className="MenuDesc">Enjoy all your favorites with Starbucks® smooth Blonde espresso or bold signature espresso.</h5>
          </div>
