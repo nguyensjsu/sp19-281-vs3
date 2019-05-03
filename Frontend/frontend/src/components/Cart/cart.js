@@ -14,6 +14,10 @@ class Cart extends Component {
     };
   }
 
+  checkout = e => {
+    console.log("Checking out");
+  };
+
   updateCart = e => {
     console.log("Update Cart");
     console.log(this.state.cart);
@@ -35,6 +39,26 @@ class Cart extends Component {
 
   deleteItem = index => {
     console.log(index);
+    let UpdatedCart = this.state.cart;
+    let indexTemp = index;
+    let newtotalAmt = 0;
+
+    var updatedDrinks = UpdatedCart.drinks.filter(function(value, index) {
+      return index != indexTemp;
+    });
+    UpdatedCart.drinks = updatedDrinks;
+
+    UpdatedCart.drinks.map(drink => {
+      newtotalAmt += drink.drink_rate * drink.drink_quantity;
+    });
+
+    UpdatedCart.totalamount = newtotalAmt;
+    console.log(UpdatedCart);
+
+    this.setState({
+      cart: UpdatedCart,
+      totalAmount: newtotalAmt
+    });
   };
 
   decrement = index => {
@@ -105,10 +129,6 @@ class Cart extends Component {
         return (
           <div class="layout-inline row">
             <div class="col col-pro layout-inline">
-              <img
-                src="http://static.ddmcdn.com/gif/10-kitten-cuteness-1.jpg"
-                alt="kitten"
-              />
               <p>{drink.drink_name}</p>
             </div>
 
@@ -120,7 +140,11 @@ class Cart extends Component {
               <a onClick={() => this.decrement(index)} class="qty qty-minus">
                 -
               </a>
-              <input type="numeric" value={drink.drink_quantity} />
+              <input
+                type="numeric"
+                class="col-numeric"
+                value={drink.drink_quantity}
+              />
               <a onClick={() => this.increment(index)} class="qty qty-plus">
                 +
               </a>
@@ -134,10 +158,10 @@ class Cart extends Component {
               <button
                 type="button"
                 onClick={() => this.deleteItem(index)}
-                class="close"
+                class="btn-x"
                 aria-label="Close"
               >
-                <span aria-hidden="true">&times;</span>
+                x
               </button>
             </div>
           </div>
@@ -152,6 +176,9 @@ class Cart extends Component {
         </div>
 
         <div class="cart transition is-open">
+          <button onClick={this.updateCart} class="btn btn-update">
+            Update Cart
+          </button>
           <div class="table">
             <div class="layout-inline row th">
               <div class="col col-pro">DRINK</div>
@@ -174,9 +201,8 @@ class Cart extends Component {
               </div>
             </div>
           </div>
-
-          <button onClick={this.updateCart} class="btn btn-update">
-            Update cart
+          <button onClick={this.checkout} class="btn btn-update">
+            Proceed to Checkout
           </button>
         </div>
       </div>

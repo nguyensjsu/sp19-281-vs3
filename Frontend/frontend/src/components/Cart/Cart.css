@@ -29,7 +29,7 @@ h1 {
 
 p {
   font-size: 1.5em;
-  color: #939794;
+  color: #2d2926;
 }
 
 input {
@@ -141,7 +141,7 @@ a {
 }
 
 .col-total p {
-  color: #12c8b1;
+  color: #00a862;
 }
 
 .tf .col {
@@ -182,12 +182,12 @@ a.qty {
   font-size: 2.5em;
   font-weight: bold;
   text-align: center;
-  background: #43ace3;
+  background: #c2a661;
   color: #fff;
 }
 
 a.qty:hover {
-  background: #3b9ac6;
+  background: #00653e;
 }
 
 .btn {
@@ -195,9 +195,17 @@ a.qty:hover {
   border-radius: 0.3em;
   font-size: 1.4em;
   font-weight: bold;
-  background: #43ace3;
+  background: #00653e;
   color: #fff;
-  box-shadow: 0 3px 0 rgba(59, 154, 198, 1);
+}
+
+.btn-x {
+  padding: 5px 15px;
+  font-size: 1.3em;
+
+  font-weight: bold;
+  background: #00653e;
+  color: #fff;
 }
 
 .btn:hover {
