@@ -1,4 +1,4 @@
-/* 
+/*
 .home-login {
 	background-color: rgba(192,192,192,0.3);
 	background-image: url('http://www.escali.com/blog/wp-content/uploads/2013/09/coffee.jpg');
@@ -52,7 +52,7 @@
 	 font-style: 12px;
 	 text-align: left;
 }
-.btn-primary {
+.btn-primary.join {
 	background-color: #0B6352;
   border: none;
   color: white;

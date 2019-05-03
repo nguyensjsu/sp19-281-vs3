@@ -67,8 +67,8 @@ class ItemSearch extends Component {
                <ul id="page-numbers" className="pagination-style">
                  {renderPageNumbers}
                </ul>
-               <button type="button" onClick={() =>this.props.history.push('/menu')} className="btn btn-class">Menu</button>
-               <button type="button" onClick={() =>this.props.history.push('/cart')} className="btn btn-class">Checkout</button>
+               <button type="button" onClick={() =>this.props.history.push('/menu')} className="btn btn-class join">Menu</button>
+               <button type="button" onClick={() =>this.props.history.push('/cart')} className="btn btn-class join">Checkout</button>
            </div>
           </div>
         );

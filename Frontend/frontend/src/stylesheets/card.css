@@ -121,7 +121,7 @@ span {
   padding-right: 40px;
 
 }
-.btn-class {
+.btn-class.join {
   background-color: #0B6352;
   border: none;
   color: white;
@@ -142,6 +142,7 @@ span {
 }
 .update {
   margin-left: 180px;
+  color: #0D9582;
 }
 .minus-button{
   color:black;
@@ -248,4 +249,14 @@ span.addspan{
 .updatelabel{
   font-size: 18px;
   font-weight: bold;
+}
+.btn.btn-class.update {
+  background-color: #0B6352;
+}
+.btn.btn-class.delete {
+  background-color: #0B6352;
+}
+.btn.btn-class.add {
+  background-color: #0B6352;
+
 }
