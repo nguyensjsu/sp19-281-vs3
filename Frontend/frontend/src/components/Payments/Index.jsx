@@ -22,7 +22,7 @@ class Payment extends Component {
 
   async componentDidMount() {
     let PORT = 3000;
-    // let username = this.props.UserDetails.username;
+    //let username = this.props.UserDetails.username;
     let username = "sojan";
     const [firstResponse, secondResponse] = await Promise.all([
       axios.get(
@@ -122,7 +122,7 @@ class Payment extends Component {
       if (paymentResponse.status == 200) {
         const [processPaymentResp, cartclearResp] = await Promise.all([
           axios.post(
-            `http://${PAYMENT_HOST_ELB.Payments_Eks_Elb}/payment`,
+            `http://${PAYMENT_HOST_ELB.Payments_Eks_Elb}:${PORT}/payment`,
             processpayData
           ),
           axios.delete(`http://${PAYMENT_HOST_ELB.Cart_ELB}/${data.username}`)
@@ -192,7 +192,7 @@ class Payment extends Component {
     }
 
     return (
-      <div class="card-header">
+      <div className="card-header">
         <Navbar />
         <div className="container">
           {redirectVar}
