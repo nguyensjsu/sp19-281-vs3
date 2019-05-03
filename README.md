@@ -1,4 +1,12 @@
 # sp19-281-vs3
+Purpose : Building an online coffee Web Application using *All Technologies used*
+
+          
+# Microservices 
+Users Module Architecture
+![Users Architecture](https://github.com/nguyensjsu/sp19-281-vs3/blob/master/Screenshots/UsersArchitecture.png)
+
+
 
 ##### Menu HomePage:
 

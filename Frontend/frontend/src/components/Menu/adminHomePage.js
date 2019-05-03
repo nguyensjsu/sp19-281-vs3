@@ -5,7 +5,7 @@ import { Route, withRouter,Redirect,Link } from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {deleteMenuItem} from './../../apis/menu-api';
-import './../../stylesheets/card.css';
+import './card.css';
 import AddItem from './updateItem';
 import UpdateItem from './addItem';
 import {getMenuItem} from './../../apis/menu-api';

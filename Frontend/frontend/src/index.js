@@ -17,8 +17,8 @@ const devTools =
 const store = createStore(
   allreducers,
   compose(
-    middlewares
-    //   devTools
+    middlewares,
+    devTools
   )
 );
 

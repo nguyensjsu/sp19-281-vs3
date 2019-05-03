@@ -5,7 +5,7 @@ import axios from "axios";
 import uniqid from "uniqid";
 import Drink from "../Drink/Drink";
 import Order from "./Order";
-import Navbar from "../../components/Menu/Navbar";
+import Navbar from "./../Menu/Navbar.jsx";
 import * as PAYMENT_HOST_ELB from "../../Helpers/helper";
 
 import "./Orders.css";
@@ -23,10 +23,10 @@ class Orders extends Component {
   }
 
   async componentDidMount() {
-    let username = "sojan";
+    let username = this.props.UserDetails.username;
 
     let userdata = {
-      username: "sojan"
+      username: this.props.UserDetails.username
     };
 
     const [firstResponse, orderResponse] = await Promise.all([
@@ -44,7 +44,7 @@ class Orders extends Component {
     // console.log("order", orderResponse.data.length);
 
     this.setState({
-      CardAmount: firstResponse.data[0].amount,
+      CardAmount: orderResponse.data[0].amount,
       Cart: orderResponse.data
       //  // totalAmount: parseInt(secondResponse.data.totalamount)
     });
@@ -77,6 +77,8 @@ class Orders extends Component {
     }
 
     return (
+      <div class="card-header">
+      <Navbar/>
       <div className="container">
         {redirectVar}
         <div className="heading">
@@ -106,15 +108,17 @@ class Orders extends Component {
           </Link>
           <h1> Card Balance {this.state.CardAmount}</h1>
         </div>
+        </div>
       </div>
     );
   }
 }
-const mapStateToProps = state => {
-  return {};
-};
-
-export default connect(
-  mapStateToProps,
-  null
-)(Orders);
+function mapStateToProps(state) {
+    console.log("State",state);
+      return {
+         MenuDetails: state.MenuReducer.MenuDetails,
+         UserDetails: state.MenuReducer.UserDetails,
+         CartDetails: state.MenuReducer.CartDetails
+      };
+  }
+export default connect(mapStateToProps, null)(Orders);

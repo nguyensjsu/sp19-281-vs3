@@ -5,7 +5,7 @@ import axios from "axios";
 import uniqid from "uniqid";
 import Drink from "../Drink/Drink";
 import * as PAYMENT_HOST_ELB from "../../Helpers/helper";
-import Navbar from "../../components/Menu/Navbar";
+import Navbar from "./../Menu/Navbar.jsx";
 import "./Payments.css";
 class Payment extends Component {
   constructor(props) {
@@ -21,7 +21,7 @@ class Payment extends Component {
   }
 
   async componentDidMount() {
-    let username = "Srini";
+    let username = this.props.UserDetails.username;
     const [firstResponse, secondResponse] = await Promise.all([
       axios.get(`http://${PAYMENT_HOST_ELB.Payments_ELB}/wallet/${username}`),
       axios.get(`http://${PAYMENT_HOST_ELB.Cart_ELB}/${username}`)
@@ -41,7 +41,7 @@ class Payment extends Component {
   // async componentDidMount() {
   //   // let PAYMENT_HOST_ELB =
 
-  //   let username = "sojan";
+  //   let username = "Srini";
   //   //let { data } = await axios.get(url);
 
   //   try {
@@ -98,11 +98,11 @@ class Payment extends Component {
     } else {
       // let PORT = 3000;
       let data = {
-        username: "sojan",
+        username: this.props.UserDetails.username,
         amount: this.state.totalAmount
       };
       let processpayData = {
-        username: "sojan",
+        username: this.props.UserDetails.username,
         totalitems: this.state.totalitems,
         totalamount: this.state.totalAmount,
         drinks: this.state.Cart
@@ -188,6 +188,8 @@ class Payment extends Component {
     }
 
     return (
+    <div class="card-header">
+      <Navbar/>
       <div className="container">
         {redirectVar}
 
@@ -234,15 +236,17 @@ class Payment extends Component {
           </Link>
           <h1> Card Balance {this.state.CardAmount}</h1>
         </div>
+        </div>
       </div>
     );
   }
 }
-const mapStateToProps = state => {
-  return {};
-};
-
-export default connect(
-  mapStateToProps,
-  null
-)(Payment);
+function mapStateToProps(state) {
+    console.log("State",state);
+      return {
+         MenuDetails: state.MenuReducer.MenuDetails,
+         UserDetails: state.MenuReducer.UserDetails,
+         CartDetails: state.MenuReducer.CartDetails
+      };
+  }
+export default connect(mapStateToProps, null)(Payment);

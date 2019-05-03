@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux';
 import Navbar from "./Navbar.jsx";
 import Card from './card';
 import 'tachyons';
-import './../../stylesheets/card.css';
+import './card.css';
 
 class ItemSearch extends Component {
   constructor() {
@@ -48,7 +48,9 @@ class ItemSearch extends Component {
     });
     return (
     		  <div className="card-header">
+          <Navbar/>
           <div className = "menu-item-div">
+
              <table className="table-menu">
                <tbody>
                  <tr className = "menu-table-header-row">
@@ -77,7 +79,8 @@ class ItemSearch extends Component {
 function mapStateToProps(state) {
     console.log("State",state);
       return {
-         MenuDetails: state.MenuReducer.MenuDetails
+         MenuDetails: state.MenuReducer.MenuDetails,
+         UserDetails: state.MenuReducer.UserDetails
       };
   }
 export default connect(mapStateToProps, null)(ItemSearch);

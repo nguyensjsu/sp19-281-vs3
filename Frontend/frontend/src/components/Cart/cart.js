@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import axios from "axios";
-
+import Navbar from "./../Menu/Navbar.jsx";
 import uniqid from "uniqid";
 import "./Cart.css";
 
@@ -101,7 +101,7 @@ class Cart extends Component {
 
   componentDidMount() {
     let CART_ELB = "cart-elb-662553320.us-east-1.elb.amazonaws.com";
-    let username = "sojan";
+    let username = this.props.UserDetails.username;
 
     axios
       .get(`http://${CART_ELB}/cart/${username}`)
@@ -170,6 +170,8 @@ class Cart extends Component {
     }
 
     return (
+      <div class="card-header">
+      <Navbar/>
       <div class="container">
         <div class="heading">
           <h1>Shopping Cart</h1>
@@ -211,15 +213,17 @@ class Cart extends Component {
             Proceed to Payment
           </Link>
         </div>
+        </div>
       </div>
     );
   }
 }
-const mapStateToProps = state => {
-  return {};
-};
-
-export default connect(
-  mapStateToProps,
-  null
-)(Cart);
+function mapStateToProps(state) {
+    console.log("State",state);
+      return {
+         MenuDetails: state.MenuReducer.MenuDetails,
+         UserDetails: state.MenuReducer.UserDetails,
+         CartDetails: state.MenuReducer.CartDetails
+      };
+  }
+export default connect(mapStateToProps, null)(Cart);

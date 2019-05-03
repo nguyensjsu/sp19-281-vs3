@@ -11,7 +11,7 @@ import {addCart} from './../actions/index';
 import {userSignupAction} from './../actions/index';
 import {userLoginAction} from './../actions/index';
 import {kongAPI} from '../actions/urlConstant';
-
+import {Payments_ELB, Cart_ELB, Login_ELB, Menu_ELB} from './../Helpers/helper.js';
 
 // const api = kongAPI;
 const api = "http://localhost:3001";
@@ -22,7 +22,7 @@ export const history = createBrowserHistory();
 export const createMenuItem = function(menudetails){
   console.log("Payload sent to backend",menudetails)
   return (dispatch) => {
-    fetch(`${api}/menu/item`, {
+    fetch(`http://${Menu_ELB}:8080/menu/item`, {
         method: 'POST',
         headers: {
             ...headers,
@@ -45,7 +45,7 @@ export const createMenuItem = function(menudetails){
 
 export const getMenuItem = function(menuID) {
   return (dispatch) => {
-    fetch(`${api}/menu/item/${menuID}`, {
+    fetch(`http://${Menu_ELB}:8080/menu/item/${menuID}`, {
         method: 'GET',
         headers: headers,
     }).then(res => {
@@ -62,7 +62,7 @@ export const getMenuItem = function(menuID) {
 export const getMenuItemList = function(itemType) {
   console.log("Payload sent to backend",itemType)
   return (dispatch) => {
-        fetch(`${api}/menu/items/${itemType}`, {
+        fetch(`http://${Menu_ELB}:8080/menu/items/${itemType}`, {
             method: 'GET',
             headers: headers,
         }).then(res => {
@@ -80,7 +80,7 @@ export const getMenuItemList = function(itemType) {
 export const updateMenuItem = function(menudetails) {
   console.log("menuId in update API", menudetails)
   return (dispatch) => {
-    fetch(`${api}/menu/item/${menudetails.itemId}`, {
+    fetch(`http://${Menu_ELB}:8080/menu/item/${menudetails.itemId}`, {
           method: 'PUT',
           headers: {
               ...headers,
@@ -102,7 +102,7 @@ export const updateMenuItem = function(menudetails) {
 export const deleteMenuItem = function(menuId) {
   console.log("menuId in delete API",menuId)
   return (dispatch) => {
-    fetch(`${api}/menu/item/${menuId}`, {
+    fetch(`http://${Menu_ELB}:8080/menu/item/${menuId}`, {
          method: 'DELETE',
          headers: {
             ...headers,
@@ -148,7 +148,7 @@ export const updateCart = function(cartdetails) {
 export const userSignUp = function(userdetails) {
   console.log("user details in signupAPI", userdetails)
   return (dispatch) => {
-    fetch(`http://Project281ELB-117855841.us-west-2.elb.amazonaws.com:8000/signup`, {
+    fetch(`http://${Login_ELB}:8000/signup`, {
           method: 'POST',
           headers: {
               ...headers,
@@ -160,7 +160,7 @@ export const userSignUp = function(userdetails) {
       }).then(result=>{
            console.log("result from signup API",result)
            dispatch(userSignupAction(userdetails));
-           history.push('/menu')
+           // history.push('/menu')
       }).catch(error => {
            console.log("user signup Error !!!");
            return error;
@@ -171,7 +171,7 @@ export const userSignUp = function(userdetails) {
 export const userLogin = function(userdetails) {
   console.log("user details in signupAPI", userdetails)
   return (dispatch) => {
-    fetch(`http://Project281ELB-117855841.us-west-2.elb.amazonaws.com:8000/login`, {
+    fetch(`http://${Login_ELB}:8000/login`, {
           method: 'POST',
           headers: {
               ...headers,
@@ -183,7 +183,7 @@ export const userLogin = function(userdetails) {
       }).then(result=>{
            console.log("result from signup API",result)
            dispatch(userLoginAction(userdetails));
-           history.push('/menu')
+           // history.push('/menu')
       }).catch(error => {
            console.log("user signup Error !!!");
            return error;
