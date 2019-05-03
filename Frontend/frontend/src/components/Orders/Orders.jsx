@@ -5,6 +5,7 @@ import axios from "axios";
 import uniqid from "uniqid";
 import Drink from "../Drink/Drink";
 import Order from "./Order";
+import Navbar from "../../components/Menu/Navbar";
 import * as PAYMENT_HOST_ELB from "../../Helpers/helper";
 
 import "./Orders.css";
