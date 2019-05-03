@@ -9,6 +9,7 @@ import AdminHomePage from "./components/Menu/adminHomePage.js";
 import AddItem from "./components/Menu/addItem.js";
 import UpdateItem from "./components/Menu/updateItem.js";
 import CardPay from "./components/Card/CardPayment";
+import Order from "./components/Orders/Orders";
 class App extends Component {
   render() {
     return (
@@ -21,6 +22,7 @@ class App extends Component {
           <Route exact path="/admin" component={AdminHomePage} />
           <Route exact path="/additem" component={AddItem} />
           <Route exact path="/updateitem" component={UpdateItem} />
+          <Route exact path="/order" component={Order} />/
         </Switch>
       </div>
     );

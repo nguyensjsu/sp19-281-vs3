@@ -32,6 +32,7 @@ class Payment extends Component {
     this.setState({
       CardAmount: firstResponse.data[0].amount,
       Cart: secondResponse.data.drinks,
+      totalitems: secondResponse.data.totalitems,
       totalAmount: parseInt(secondResponse.data.totalamount)
     });
   }
@@ -89,30 +90,57 @@ class Payment extends Component {
 
   pay = async event => {
     event.preventDefault();
-    // let PORT = 3000;
-    let data = {
-      username: "sojan",
-      amount: this.state.totalAmount
-    };
-
-    const paymentResponse = await axios.put(
-      `http://${PAYMENT_HOST_ELB.Payments_ELB}/wallet/pay`,
-      data
-    );
-    console.log("paymentResponse", paymentResponse);
-    if (paymentResponse.status == 200) {
-      window.alert("Payment successfull");
-      const cartclearResp = await axios.delete(
-        `http://${PAYMENT_HOST_ELB.Cart_ELB}/${data.username}`
+    if (this.state.CardAmount < 0) {
+      window.alert(
+        "Insufficient card balance. Please reload your Starbucks Card"
       );
-      console.log("cartclearResp", cartclearResp);
-      if (cartclearResp.status == 200) {
-        this.setState({
-          isPaid: true
-        });
+    } else {
+      // let PORT = 3000;
+      let data = {
+        username: "sojan",
+        amount: this.state.totalAmount
+      };
+      let processpayData = {
+        username: "sojan",
+        totalitems: this.state.totalitems,
+        totalamount: this.state.totalAmount,
+        drinks: this.state.Cart
+      };
+      console.log("processpayData", processpayData);
+
+      const paymentResponse = await axios.put(
+        `http://${PAYMENT_HOST_ELB.Payments_ELB}/wallet/pay`,
+        data
+      );
+
+      console.log("paymentResponse", paymentResponse);
+      if (paymentResponse.status == 200) {
+        const [processPaymentResp, cartclearResp] = await Promise.all([
+          axios.post(
+            `http://${PAYMENT_HOST_ELB.Payments_ELB}/payment`,
+            processpayData
+          ),
+          axios.delete(`http://${PAYMENT_HOST_ELB.Cart_ELB}/${data.username}`)
+        ]);
+        console.log("processPaymentResp", processPaymentResp.data);
+        console.log("cartclearResp", cartclearResp);
+
+        if (processPaymentResp.status == 200) {
+          localStorage.setItem("orderid", processPaymentResp.data._id);
+        }
+
+        window.alert("Payment successfull");
+        // const cartclearResp = await axios.delete(
+        //   `http://${PAYMENT_HOST_ELB.Cart_ELB}/${data.username}`
+        // );
+        console.log("cartclearResp", cartclearResp);
+        if (cartclearResp.status == 200) {
+          this.setState({
+            isPaid: true
+          });
+        }
       }
     }
-
     // console.log("cart", this.state.cart);
     // data = {
     //   username: sessionStorage.getItem("username"),
@@ -124,10 +152,14 @@ class Payment extends Component {
   render() {
     let redirectVar = null;
     if (this.state.isPaid) {
-      redirectVar = <Redirect to="/cardpay" />;
+      redirectVar = <Redirect to="/order" />;
     }
     let details = null;
-
+    // let details = (
+    //   <div>
+    //     <h2>No Payments Pending</h2>
+    //   </div>
+    // );
     if (this.state.Cart != null && this.state.Cart != undefined) {
       details = this.state.Cart.map((drink, index) => {
         return (
