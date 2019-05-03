@@ -11,16 +11,22 @@
 .MenuDesc{
   float: center;
   padding-left: 60px;
-  margin-left: 300px;
+  margin-left: 100px;
   width: 800px;
   margin-top: 50px;
   font-family: Lato,Helvetica,Arial,sans-serif;
   font-size: 20px;
+  display: float;
 }
 .MenuImage{
   float: left;
   height: 220px;
-  width: 350px;
+  width: 550px;
+}
+.MenuImage-Main{
+  float: left;
+  height: 220px;
+  width: 550px;
 }
 .menudetails{
   margin-top: 100px;
@@ -55,7 +61,8 @@
   stretch: 100%;
   font-weight: 400;
   font-family: Verdana, Geneva, sans-serif;
-  margin-left: 250px;
+  margin-left: 350px;
+  margin-top: 100px;
   position: relative;
   text-align: left;
   font-weight: bold;
