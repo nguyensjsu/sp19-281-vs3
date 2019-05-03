@@ -14,10 +14,11 @@ class CardPayment extends Component {
   }
 
   async componentDidMount() {
+    let PORT = 3000;
     console.log("card pay");
     let username = "Srini";
     const userwalletcheck = await axios.get(
-      `http://${PAYMENT_HOST_ELB.Payments_ELB}/wallet/${username}`
+      `http://${PAYMENT_HOST_ELB.Payments_Eks_Elb}/wallet/${username}`
     );
 
     console.log("userwalletcheck", userwalletcheck);
@@ -29,7 +30,7 @@ class CardPayment extends Component {
       };
 
       const insertnewWalletResponse = await axios.post(
-        `http://${PAYMENT_HOST_ELB.Payments_ELB}/wallet`,
+        `http://${PAYMENT_HOST_ELB.Payments_Eks_Elb}:${PORT}/wallet`,
         data
       );
       console.log("insertnewWalletResponse", insertnewWalletResponse);
@@ -88,6 +89,7 @@ class CardPayment extends Component {
   }
 
   addMoney = async e => {
+    let PORT = 3000;
     let username = "Srini";
     let data = {
       username,
@@ -95,7 +97,7 @@ class CardPayment extends Component {
     };
     console.log("add money:", data);
     const addmoneyResponse = await axios.put(
-      `http://${PAYMENT_HOST_ELB.Payments_ELB}/wallet/add`,
+      `http://${PAYMENT_HOST_ELB.Payments_Eks_Elb}:${PORT}/wallet/add`,
       data
     );
 
@@ -168,31 +170,31 @@ class CardPayment extends Component {
     return (
       // <React.Fragment>
       <div class="card-header">
-      <Navbar/>
-      <div className="container">
-        <div id="title">
-          <h2>Starbucks Cards</h2>
-          <hr />
-        </div>
-        <span style={{ margin: 20, fontSize: 25, fontWeight: 500 }}>
-          Card Amount:{" "}
-          <span style={{ fontWeight: 700 }}>${this.state.card}</span>
-        </span>
-        {!this.state.showPaymentOptions ? (
-          <span style={{ margin: 20 }}>
-            <button
-              onClick={this.enablePaymentOptions}
-              className="btn btn-primary"
-            >
-              Add Money
-            </button>
+        <Navbar />
+        <div className="container">
+          <div id="title">
+            <h2>Starbucks Cards</h2>
+            <hr />
+          </div>
+          <span style={{ margin: 20, fontSize: 25, fontWeight: 500 }}>
+            Card Amount:{" "}
+            <span style={{ fontWeight: 700 }}>${this.state.card}</span>
           </span>
-        ) : (
-          ""
-        )}
+          {!this.state.showPaymentOptions ? (
+            <span style={{ margin: 20 }}>
+              <button
+                onClick={this.enablePaymentOptions}
+                className="btn btn-primary"
+              >
+                Add Money
+              </button>
+            </span>
+          ) : (
+            ""
+          )}
 
-        {showcardoptions}
-      </div>
+          {showcardoptions}
+        </div>
       </div>
       // </React.Fragment>
     );
