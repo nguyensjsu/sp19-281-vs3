@@ -65,3 +65,21 @@
 - Discussed and checked various APIs and their working.
 - Tested all API modules and tried to identify potential bugs while integrating.
 - Debated on load balancing and front end enhancements.
+
+## Meeting 5:
+
+**Date** : 03-May-19
+
+**Time** : 11:00 A.M. - 6:00 P.M.
+
+**Place** : MLK Library
+
+**Attendees**: All team members.
+
+## Summary
+
+- Tested end to end UI.
+- Dockerized all containers on AWS.
+- Carried out Final Integration and deployed application on Heroku.
+- Implemented EKS and Route 53 as a part of Wow Factor.
+- Debugged and fixed bugs.
