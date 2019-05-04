@@ -92,3 +92,25 @@ We have setup Riak Nodes across different regions. On every client request, resp
 
 ### Payments API
 ![image](https://user-images.githubusercontent.com/42900784/57173318-ae8ca480-6de2-11e9-8722-6f1daead1aff.png)
+
+## Screenshots
+
+Login
+
+![login](https://user-images.githubusercontent.com/13406071/57174907-6e392080-6dfa-11e9-9775-bd874fc1a880.jpeg)
+
+Menu
+
+![menu](https://user-images.githubusercontent.com/13406071/57174923-78f3b580-6dfa-11e9-86e7-a0774b5f8a52.jpeg)
+
+Cart
+
+![cart](https://user-images.githubusercontent.com/13406071/57174926-8ad55880-6dfa-11e9-8b80-816edfeb5566.jpeg)
+
+Payment
+
+![payment-successfull](https://user-images.githubusercontent.com/13406071/57174928-9759b100-6dfa-11e9-92c7-13be2ac4a7e7.jpeg)
+
+Order List
+
+![order-list](https://user-images.githubusercontent.com/13406071/57174934-a50f3680-6dfa-11e9-9570-8ee937f9ff61.jpeg)
