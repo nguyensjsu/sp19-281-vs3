@@ -13,6 +13,10 @@ Purpose : Building an online coffee Web Application using *All Technologies used
 
 ![Payments](https://github.com/nguyensjsu/sp19-281-vs3/blob/master/Screenshots/Payments.png)
 
+# Carts Module Architecture
+
+![Carts](https://github.com/nguyensjsu/sp19-281-vs3/blob/master/Screenshots/cart281.png)
+
 ##### Menu HomePage:
 
 ![menu](Screenshots/MenuPage.png)
