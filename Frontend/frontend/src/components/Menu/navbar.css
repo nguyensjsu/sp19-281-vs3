@@ -22,42 +22,50 @@ navbarlogo {
 }
 .menu-navbar{
 position: absolute;
-  margin-left: 500px;
+  margin-left: 300px;
   margin-top: 20px;
   font-size: 20px;
-  color: black;
+  color: white;
   font-family: Verdana, Geneva, sans-serif;
 }
 .menu-navbar1{
 position: absolute;
-  margin-left: 700px;
+  margin-left: 500px;
   margin-top: 20px;
   font-size: 20px;
-  color: black;
+  color: white;
   font-family: Verdana, Geneva, sans-serif;
 }
 
 .menu-navbar2{
 position: absolute;
-  margin-left: 900px;
+  margin-left: 700px;
   margin-top: 20px;
   font-size: 20px;
-  color: black;
+  color: white;
   font-family: Verdana, Geneva, sans-serif;
 }
 .menu-navbar3{
 position: absolute;
-  margin-left: 1100px;
+  margin-left: 900px;
   margin-top: 20px;
   font-size: 20px;
-  color: black;
+  color: white;
   font-family: Verdana, Geneva, sans-serif;
 }
 .menu-navbar4{
 position: absolute;
+  margin-left: 1100px;
+  margin-top: 20px;
+  font-size: 20px;
+  color: white;
+  font-family: Verdana, Geneva, sans-serif;
+}
+.menu-navbar5{
+  position: absolute;
   margin-left: 1300px;
   margin-top: 20px;
   font-size: 20px;
-  color: black;
+  color: white;
   font-family: Verdana, Geneva, sans-serif;
 }

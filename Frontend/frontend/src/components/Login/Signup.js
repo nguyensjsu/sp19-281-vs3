@@ -1,5 +1,5 @@
 import React,{ Component } from 'react';
-import { Route, Redirect,withRouter } from 'react-router-dom';
+import { Route, Redirect,withRouter,Link } from 'react-router-dom';
 import './login.css';
 import Navbar from "./../Menu/Navbar.jsx";
 import { Button,Modal,Checkbox } from 'react-bootstrap';
@@ -17,6 +17,7 @@ class Signup extends Component {
 			adminFlag: false
 		};
 		this.handleInputChange = this.handleInputChange.bind(this);
+		this.clickHandler = this.clickHandler.bind(this);
 	}
 	handleInputChange(event) {
     const target = event.target;
@@ -26,6 +27,9 @@ class Signup extends Component {
 		if(name == "Admin")
 			this.userDetails.adminFlag = true;
   }
+	clickHandler=()=> {
+			 this.props.userSignUp(this.userDetails);
+	}
 	render() {
 		return(
 			<div className="signup-container">
@@ -49,8 +53,8 @@ class Signup extends Component {
 											<tr>
 													<input onChange={this.handleInputChange} type="checkbox" name="Admin" value="Admin" />Admin
 											</tr>
-											<button type="button" onClick={(e) =>this.props.userSignUp(this.userDetails)}
-											 className="btn btn-primary join">Sign Up</button>
+											<Link to={{ pathname: "/menu", state: this.props.UserDetails }}><button type="button" onClick={(e) =>this.clickHandler()}
+											 className="btn btn-primary join">Sign Up</button></Link>
 											 <button type="button" onClick={(e) =>this.props.history.push('/login')}
  											 className="btn btn-primary join">Login</button>
     							</table>

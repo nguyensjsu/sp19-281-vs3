@@ -23,6 +23,7 @@ class Orders extends Component {
   }
 
   async componentDidMount() {
+    let PORT = 3000;
     let username = this.props.UserDetails.username;
 
     let userdata = {
@@ -30,11 +31,11 @@ class Orders extends Component {
     };
 
     const [firstResponse, orderResponse] = await Promise.all([
-      axios.get(`http://${PAYMENT_HOST_ELB.Payments_ELB}/wallet/${username}`),
-      axios.get(`http://${PAYMENT_HOST_ELB.Payments_ELB}/orders/${username}`)
+      axios.get(`http://${PAYMENT_HOST_ELB.Payments_Eks_Elb}:${PORT}/wallet/${username}`),
+      axios.get(`http://${PAYMENT_HOST_ELB.Payments_Eks_Elb}:${PORT}/orders/${username}`)
     ]);
     // const orderResponse = await axios.delete(
-    //   `http://${PAYMENT_HOST_ELB.Payments_ELB}/order/user`,
+    //   `http://${PAYMENT_HOST_ELB.Payments_Eks_Elb}:${PORT}/order/user`,
     //   userdata
     // );
     // const orderResponse = await axios.get(

@@ -54,9 +54,19 @@ class Navbar extends Component {
             Cart
           </span>
         </Link>
-  
+        <Link to="/">
+          <span className="menu-navbar4">
+            Logout
+          </span>
+        </Link>
+        {console.log("this.props.UserDetails.adminFlag ", this.props.UserDetails.adminFlag )}
+        {this.props.UserDetails.adminFlag == true ?
+          <Link to="/admin">
+            <span className="menu-navbar5">
+              Admin
+            </span>
+          </Link> : ''}
         </nav>
-
       </React.Fragment>
     );
   }

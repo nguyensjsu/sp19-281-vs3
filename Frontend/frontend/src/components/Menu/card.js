@@ -27,7 +27,7 @@ class Card extends Component {
     var totalprice = 0;
     var flag = false;
        this.CartItems._id = item.itemid;
-       this.CartItems.username="Srini";
+       this.CartItems.username=this.props.UserDetails.username;
        var quantity= this.props.CartDetails== null ? this.CartItems.totalitems : parseInt(this.props.CartDetails.totalitems);
        this.CartItems.totalitems= quantity + 1;
         if(this.props.CartDetails != null) {
@@ -102,7 +102,8 @@ function mapStateToProps(state) {
     console.log("State",state);
       return {
          MenuDetails: state.MenuReducer.MenuDetails,
-         CartDetails: state.MenuReducer.CartDetails
+         CartDetails: state.MenuReducer.CartDetails,
+         UserDetails: state.MenuReducer.UserDetails
       };
   }
 function matchDispatchToProps(dispatch){

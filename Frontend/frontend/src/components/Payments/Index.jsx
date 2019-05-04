@@ -21,9 +21,10 @@ class Payment extends Component {
   }
 
   async componentDidMount() {
+    let PORT = 3000;
     let username = this.props.UserDetails.username;
     const [firstResponse, secondResponse] = await Promise.all([
-      axios.get(`http://${PAYMENT_HOST_ELB.Payments_ELB}/wallet/${username}`),
+      axios.get(`http://${PAYMENT_HOST_ELB.Payments_Eks_Elb}:${PORT}/wallet/${username}`),
       axios.get(`http://${PAYMENT_HOST_ELB.Cart_ELB}/${username}`)
     ]);
     console.log("firstResponse", firstResponse);
@@ -46,7 +47,7 @@ class Payment extends Component {
 
   //   try {
   //     let { data } = await axios.get(
-  //       `http://${PAYMENT_HOST_ELB.Payments_ELB}/wallet/${username}`
+  //       `http://${PAYMENT_HOST_ELB.Payments_Eks_Elb}:${PORT}/wallet/${username}`
   //     );
   //     console.log("data", data);
   //     let { cartdata } = await axios.get(
@@ -90,6 +91,7 @@ class Payment extends Component {
   // }
 
   pay = async event => {
+    let PORT = 3000;
     event.preventDefault();
     if (this.state.CardAmount < 0) {
       window.alert(
@@ -110,7 +112,7 @@ class Payment extends Component {
       console.log("processpayData", processpayData);
 
       const paymentResponse = await axios.put(
-        `http://${PAYMENT_HOST_ELB.Payments_ELB}/wallet/pay`,
+        `http://${PAYMENT_HOST_ELB.Payments_Eks_Elb}:${PORT}/wallet/pay`,
         data
       );
 
@@ -118,7 +120,7 @@ class Payment extends Component {
       if (paymentResponse.status == 200) {
         const [processPaymentResp, cartclearResp] = await Promise.all([
           axios.post(
-            `http://${PAYMENT_HOST_ELB.Payments_ELB}/payment`,
+            `http://${PAYMENT_HOST_ELB.Payments_Eks_Elb}:${PORT}/payment`,
             processpayData
           ),
           axios.delete(`http://${PAYMENT_HOST_ELB.Cart_ELB}/${data.username}`)

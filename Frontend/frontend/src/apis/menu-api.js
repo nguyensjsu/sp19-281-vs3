@@ -135,7 +135,7 @@ export const updateCart = function(cartdetails) {
       }).then(res => {
           return res.json();
       }).then(result=>{
-           console.log("result",result)
+           console.log("response from update cart",result)
            dispatch(addCart(cartdetails));
            // history.push('/menu')
       }).catch(error => {
@@ -158,7 +158,7 @@ export const userSignUp = function(userdetails) {
       }).then(res => {
           return res.json();
       }).then(result=>{
-           console.log("result from signup API",result)
+           console.log("result from login API",result)
            dispatch(userSignupAction(userdetails));
            // history.push('/menu')
       }).catch(error => {
@@ -169,7 +169,7 @@ export const userSignUp = function(userdetails) {
 };
 
 export const userLogin = function(userdetails) {
-  console.log("user details in signupAPI", userdetails)
+  console.log("user details in login API", userdetails)
   return (dispatch) => {
     fetch(`http://${Login_ELB}:8000/login`, {
           method: 'POST',
@@ -181,9 +181,8 @@ export const userLogin = function(userdetails) {
       }).then(res => {
           return res.json();
       }).then(result=>{
-           console.log("result from signup API",result)
-           dispatch(userLoginAction(userdetails));
-           // history.push('/menu')
+           console.log("result from login API",result)
+           dispatch(userLoginAction(result));
       }).catch(error => {
            console.log("user signup Error !!!");
            return error;

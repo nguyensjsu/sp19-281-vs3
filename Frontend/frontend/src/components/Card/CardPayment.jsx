@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import axios from "axios";
 import * as PAYMENT_HOST_ELB from "../../Helpers/helper";
 import Navbar from "./../Menu/Navbar.jsx";
+import { Route, withRouter,Redirect } from 'react-router-dom';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+
 class CardPayment extends Component {
   constructor() {
     super();
@@ -15,9 +19,10 @@ class CardPayment extends Component {
 
   async componentDidMount() {
     console.log("card pay");
-    let username = "Srini";
+    let username = this.props.UserDetails.username;
+
     const userwalletcheck = await axios.get(
-      `http://${PAYMENT_HOST_ELB.Payments_ELB}/wallet/${username}`
+      `http://${PAYMENT_HOST_ELB.Payments_Eks_Elb}/wallet/${username}`
     );
 
     console.log("userwalletcheck", userwalletcheck);
@@ -29,7 +34,7 @@ class CardPayment extends Component {
       };
 
       const insertnewWalletResponse = await axios.post(
-        `http://${PAYMENT_HOST_ELB.Payments_ELB}/wallet`,
+        `http://${PAYMENT_HOST_ELB.Payments_Eks_Elb}/wallet`,
         data
       );
       console.log("insertnewWalletResponse", insertnewWalletResponse);
@@ -52,7 +57,7 @@ class CardPayment extends Component {
     //       wallet_amount: this.state.card
     //     };
     //     axios
-    //       .post(`http://${PAYMENT_HOST_ELB.Payments_ELB}/wallet`, data)
+    //       .post(`http://${PAYMENT_HOST_ELB.Payments_Eks_Elb}/wallet`, data)
     //       .then(response => {
     //         console.log("Status Code POST Wallet:", response.status);
     //         console.log(
@@ -88,14 +93,14 @@ class CardPayment extends Component {
   }
 
   addMoney = async e => {
-    let username = "Srini";
+    let username = this.props.UserDetails.username;
     let data = {
       username,
       amount: parseInt(this.state.updatedAmount)
     };
     console.log("add money:", data);
     const addmoneyResponse = await axios.put(
-      `http://${PAYMENT_HOST_ELB.Payments_ELB}/wallet/add`,
+      `http://${PAYMENT_HOST_ELB.Payments_Eks_Elb}/wallet/add`,
       data
     );
 
@@ -199,4 +204,12 @@ class CardPayment extends Component {
   }
 }
 
-export default CardPayment;
+function mapStateToProps(state) {
+    console.log("State",state);
+      return {
+         MenuDetails: state.MenuReducer.MenuDetails,
+         UserDetails: state.MenuReducer.UserDetails,
+         CartDetails: state.MenuReducer.CartDetails
+      };
+  }
+export default connect(mapStateToProps, null)(CardPayment);

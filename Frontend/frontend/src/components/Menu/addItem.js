@@ -40,22 +40,22 @@ clickHandler=()=> {
       <div className="card-container">
         <h3>Enter Menu Item Details</h3>
           <form>
-            <label>Item Name</label>
+            <label className="itemLabel">Item Name</label>
             <input className="itemInputText" type="text" id="name" name="name"
                 onChange={(event) => { this.itemDetails.ItemName = event.target.value}}/>
-            <label>Item Summary</label>
+            <label className="itemLabel">Item Summary</label>
             <input className="itemInputText" type="text" id="summary" name="summary"
                 onChange={(event) => { this.itemDetails.ItemSummary= event.target.value}}/>
-            <label>Item Description</label>
+            <label className="itemLabel">Item Description</label>
             <input className="itemInputText" type="text" id="description" name="description"
                 onChange={(event) => { this.itemDetails.ItemDescription= event.target.value}}/>
-            <label>Calorie Content</label>
+            <label className="itemLabel">Calorie Content</label>
             <input className="itemInputText" type="text" id="calorie" name="calorie"
                 onChange={(event) => {this.calorie= event.target.value}}/>
-            <label>Item Amount</label>
+            <label className="itemLabel">Item Amount</label>
             <input className="itemInputText" type="text" id="amount" name="amount"
                 onChange={(event) => { this.itemDetails.ItemAmount= event.target.value}}/>
-            <label>Item Type</label>
+            <label className="itemLabel">Item Type</label>
             <input className="itemInputText" type="text" id="type" name="type"
                 onChange={(event) => { this.itemDetails.ItemType= event.target.value}}/>
           </form>
