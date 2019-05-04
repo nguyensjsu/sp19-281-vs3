@@ -11,7 +11,7 @@
 
 ## Architecture Diagram
 
-![architecture](/architecture.png)
+![architecture](https://user-images.githubusercontent.com/13406071/57175261-7dba6880-6dfe-11e9-9b3e-cccc85999057.png)
 
 ## Description
 
