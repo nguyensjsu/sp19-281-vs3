@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import * as PAYMENT_HOST_ELB from "../../Helpers/helper";
+import { connect } from "react-redux";
 import Navbar from "./../Menu/Navbar.jsx";
 class CardPayment extends Component {
   constructor() {
@@ -16,15 +17,16 @@ class CardPayment extends Component {
   async componentDidMount() {
     let PORT = 3000;
     console.log("card pay");
-    let username = "Srini";
+    // let username = "Srini";
+    let username = this.props.UserDetails.username;
     const userwalletcheck = await axios.get(
-      `http://${PAYMENT_HOST_ELB.Payments_Eks_Elb}/wallet/${username}`
+      `http://${PAYMENT_HOST_ELB.Payments_Eks_Elb}:${PORT}/wallet/${username}`
     );
 
     console.log("userwalletcheck", userwalletcheck);
     if (userwalletcheck.status === 204) {
       let data = {
-        username,
+        username: username,
         // sessionStorage.getItem("username"),
         wallet_amount: this.state.card
       };
@@ -44,37 +46,6 @@ class CardPayment extends Component {
         card: userwalletcheck.data[0].amount
       });
     }
-    // .then(response => {
-    //   console.log("Status Code GET Wallet:", response);
-    //   if (response.status === 204) {
-    //     // user wallet doesn't exist
-    //     let data = {
-    //       username: sessionStorage.getItem("username"),
-    //       wallet_amount: this.state.card
-    //     };
-    //     axios
-    //       .post(`http://${PAYMENT_HOST_ELB.Payments_ELB}/wallet`, data)
-    //       .then(response => {
-    //         console.log("Status Code POST Wallet:", response.status);
-    //         console.log(
-    //           "response from POST Wallet:",
-    //           response.data[0].amount
-    //         );
-    //         this.setState({
-    //           card: response.data.wallet_amount
-    //         });
-    //       });
-    //   } else if (response.status === 200) {
-    //     console.log("Status Code amount Wallet:", response.data[0].amount);
-    //     console.log("here");
-    //     this.setState({
-    //       card: response.data[0].amount
-    //     });
-    //   }
-    // })
-    // .catch(err => {
-    //   console.log(err);
-    // });
   }
   enablePaymentOptions = () => {
     this.setState({ showPaymentOptions: true });
@@ -90,7 +61,7 @@ class CardPayment extends Component {
 
   addMoney = async e => {
     let PORT = 3000;
-    let username = "Srini";
+    let username = this.props.UserDetails.username;
     let data = {
       username,
       amount: parseInt(this.state.updatedAmount)
@@ -200,5 +171,14 @@ class CardPayment extends Component {
     );
   }
 }
-
-export default CardPayment;
+function mapStateToProps(state) {
+  console.log("State", state);
+  return {
+    UserDetails: state.MenuReducer.UserDetails
+  };
+}
+// export default CardPayment;
+export default connect(
+  mapStateToProps,
+  null
+)(CardPayment);

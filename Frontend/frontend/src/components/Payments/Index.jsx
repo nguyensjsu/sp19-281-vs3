@@ -22,8 +22,8 @@ class Payment extends Component {
 
   async componentDidMount() {
     let PORT = 3000;
-    //let username = this.props.UserDetails.username;
-    let username = "sojan";
+    let username = this.props.UserDetails.username;
+    //let username = "sojan";
     const [firstResponse, secondResponse] = await Promise.all([
       axios.get(
         `http://${PAYMENT_HOST_ELB.Payments_Eks_Elb}:${PORT}/wallet/${username}`
