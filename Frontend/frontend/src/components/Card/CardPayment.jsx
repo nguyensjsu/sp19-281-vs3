@@ -2,10 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import * as PAYMENT_HOST_ELB from "../../Helpers/helper";
 import Navbar from "./../Menu/Navbar.jsx";
-import { Route, withRouter,Redirect } from 'react-router-dom';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-
 class CardPayment extends Component {
   constructor() {
     super();
@@ -18,9 +16,9 @@ class CardPayment extends Component {
   }
 
   async componentDidMount() {
+    let PORT = 3000;
     console.log("card pay");
     let username = this.props.UserDetails.username;
-
     const userwalletcheck = await axios.get(
       `http://${PAYMENT_HOST_ELB.Payments_Eks_Elb}/wallet/${username}`
     );
@@ -34,7 +32,7 @@ class CardPayment extends Component {
       };
 
       const insertnewWalletResponse = await axios.post(
-        `http://${PAYMENT_HOST_ELB.Payments_Eks_Elb}/wallet`,
+        `http://${PAYMENT_HOST_ELB.Payments_Eks_Elb}:${PORT}/wallet`,
         data
       );
       console.log("insertnewWalletResponse", insertnewWalletResponse);
@@ -57,7 +55,7 @@ class CardPayment extends Component {
     //       wallet_amount: this.state.card
     //     };
     //     axios
-    //       .post(`http://${PAYMENT_HOST_ELB.Payments_Eks_Elb}/wallet`, data)
+    //       .post(`http://${PAYMENT_HOST_ELB.Payments_ELB}/wallet`, data)
     //       .then(response => {
     //         console.log("Status Code POST Wallet:", response.status);
     //         console.log(
@@ -93,6 +91,7 @@ class CardPayment extends Component {
   }
 
   addMoney = async e => {
+    let PORT = 3000;
     let username = this.props.UserDetails.username;
     let data = {
       username,
@@ -100,7 +99,7 @@ class CardPayment extends Component {
     };
     console.log("add money:", data);
     const addmoneyResponse = await axios.put(
-      `http://${PAYMENT_HOST_ELB.Payments_Eks_Elb}/wallet/add`,
+      `http://${PAYMENT_HOST_ELB.Payments_Eks_Elb}:${PORT}/wallet/add`,
       data
     );
 
@@ -173,31 +172,31 @@ class CardPayment extends Component {
     return (
       // <React.Fragment>
       <div class="card-header">
-      <Navbar/>
-      <div className="container">
-        <div id="title">
-          <h2>Starbucks Cards</h2>
-          <hr />
-        </div>
-        <span style={{ margin: 20, fontSize: 25, fontWeight: 500 }}>
-          Card Amount:{" "}
-          <span style={{ fontWeight: 700 }}>${this.state.card}</span>
-        </span>
-        {!this.state.showPaymentOptions ? (
-          <span style={{ margin: 20 }}>
-            <button
-              onClick={this.enablePaymentOptions}
-              className="btn btn-primary"
-            >
-              Add Money
-            </button>
+        <Navbar />
+        <div className="container">
+          <div id="title">
+            <h2>Starbucks Cards</h2>
+            <hr />
+          </div>
+          <span style={{ margin: 20, fontSize: 25, fontWeight: 500 }}>
+            Card Amount:{" "}
+            <span style={{ fontWeight: 700 }}>${this.state.card}</span>
           </span>
-        ) : (
-          ""
-        )}
+          {!this.state.showPaymentOptions ? (
+            <span style={{ margin: 20 }}>
+              <button
+                onClick={this.enablePaymentOptions}
+                className="btn btn-primary"
+              >
+                Add Money
+              </button>
+            </span>
+          ) : (
+            ""
+          )}
 
-        {showcardoptions}
-      </div>
+          {showcardoptions}
+        </div>
       </div>
       // </React.Fragment>
     );
