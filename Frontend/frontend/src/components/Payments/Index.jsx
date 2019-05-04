@@ -22,13 +22,13 @@ class Payment extends Component {
 
   async componentDidMount() {
     let PORT = 3000;
-    //let username = this.props.UserDetails.username;
-    let username = this.props.UserDetails.username;
+    let username = localStorage.getItem('username');
+    //let username = "sojan";
     const [firstResponse, secondResponse] = await Promise.all([
       axios.get(
         `http://${PAYMENT_HOST_ELB.Payments_Eks_Elb}:${PORT}/wallet/${username}`
       ),
-      axios.get(`http://${PAYMENT_HOST_ELB.Cart_ELB}/${username}`)
+      axios.get(`${PAYMENT_HOST_ELB.Cart_ELB}/cart/${username}`)
     ]);
     console.log("firstResponse", firstResponse);
     console.log("secondResponse", secondResponse);
@@ -102,11 +102,11 @@ class Payment extends Component {
       );
     } else {
       let data = {
-        username: this.props.UserDetails.username,
+        username: localStorage.getItem('username'),
         amount: this.state.totalAmount
       };
       let processpayData = {
-        username: this.props.UserDetails.username,
+        username: localStorage.getItem('username'),
         totalitems: this.state.totalitems,
         totalamount: this.state.totalAmount,
         drinks: this.state.Cart
@@ -125,7 +125,7 @@ class Payment extends Component {
             `http://${PAYMENT_HOST_ELB.Payments_Eks_Elb}:${PORT}/payment`,
             processpayData
           ),
-          axios.delete(`http://${PAYMENT_HOST_ELB.Cart_ELB}/${data.username}`)
+          axios.delete(`${PAYMENT_HOST_ELB.Cart_ELB}/cart/${data.username}`)
         ]);
         console.log("processPaymentResp", processPaymentResp.data);
         console.log("cartclearResp", cartclearResp);

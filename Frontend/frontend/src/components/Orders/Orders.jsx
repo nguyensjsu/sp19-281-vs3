@@ -24,7 +24,8 @@ class Orders extends Component {
 
   async componentDidMount() {
     let PORT = 3000;
-    let username = this.props.UserDetails.username;
+    var username=localStorage.getItem('username'); 
+    // let username = this.props.UserDetails.username;
 
     let userdata = {
       username: this.props.UserDetails.username

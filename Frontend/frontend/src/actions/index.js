@@ -36,6 +36,7 @@ export const addCart = (menudetails) => {
     }
 };
 export const userSignupAction = (userdetails) => {
+  console.log("Value in action", userdetails)
     return {
         type: 'ADD_USER',
         data: userdetails

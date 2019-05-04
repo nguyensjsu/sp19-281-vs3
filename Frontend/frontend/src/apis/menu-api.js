@@ -125,7 +125,7 @@ export const deleteMenuItem = function(menuId) {
 export const updateCart = function(cartdetails) {
   console.log("cart details in update cart API", cartdetails)
   return (dispatch) => {
-    fetch(`http://cart-elb-662553320.us-east-1.elb.amazonaws.com/cart/add`, {
+    fetch(`${Cart_ELB}/cart/add`, {
           method: 'PUT',
           headers: {
               ...headers,
@@ -158,9 +158,19 @@ export const userSignUp = function(userdetails) {
       }).then(res => {
           return res.json();
       }).then(result=>{
-           console.log("result from login API",result)
-           dispatch(userSignupAction(userdetails));
-           // history.push('/menu')
+           console.log("result from signup API",result)
+           if(result.error != undefined && result.error.includes("E11000 duplicate key error collection")) {
+             console.log("User Signup failed , duplicate entry !!!");
+             alert("User Signup failed , duplicate entry")
+             history.push('/');
+           }
+           else {
+             if(localStorage.getItem('username')==null) {
+                      localStorage.setItem('username',(result.username));
+                  }
+             dispatch(userSignupAction(result));
+           }
+
       }).catch(error => {
            console.log("user signup Error !!!");
            return error;
@@ -182,9 +192,19 @@ export const userLogin = function(userdetails) {
           return res.json();
       }).then(result=>{
            console.log("result from login API",result)
-           dispatch(userLoginAction(result));
+           if(result.error == "UserName doesnot exist") {
+             alert("User login failed , wrong entry")
+             history.push('/');
+           }
+           else {
+             if(localStorage.getItem('username')==null) {
+                      localStorage.setItem('username',(result.username));
+                  }
+                  dispatch(userLoginAction(result));
+           }
       }).catch(error => {
-           console.log("user signup Error !!!");
+           console.log("user login Error !!!");
+           alert("User login failed , wrong entry")
            return error;
       });
    };

@@ -29,7 +29,22 @@ class Signup extends Component {
   }
 	clickHandler=()=> {
 			 this.props.userSignUp(this.userDetails);
+			 console.log("this.userDetails", this.props);
+			 if(this.props.UserDetails != undefined) {
+				 console.log("this.userDetails inside if", this.props);
+				 this.props.history.push('/menu');
+			 }
+
 	}
+componentWillReceiveProps(nextProps){
+		console.log("nextProps.error",nextProps.UserDetails.error);
+	if(nextProps.UserDetails.error.includes("E11000 duplicate key error collection")){
+		this.props.history.push('/')
+	}
+	else {
+		this.props.history.push('/menu')
+	}
+}
 	render() {
 		return(
 			<div className="signup-container">
@@ -53,8 +68,8 @@ class Signup extends Component {
 											<tr>
 													<input onChange={this.handleInputChange} type="checkbox" name="Admin" value="Admin" />Admin
 											</tr>
-											<Link to={{ pathname: "/menu", state: this.props.UserDetails }}><button type="button" onClick={(e) =>this.clickHandler()}
-											 className="btn btn-primary join">Sign Up</button></Link>
+											<button type="button" onClick={(e) =>this.clickHandler()}
+											 className="btn btn-primary join">Sign Up</button>
 											 <button type="button" onClick={(e) =>this.props.history.push('/login')}
  											 className="btn btn-primary join">Login</button>
     							</table>
@@ -68,4 +83,4 @@ function matchDispatchToProps(dispatch){
     console.log("Dispatch",dispatch);
     return bindActionCreators({userSignUp: userSignUp}, dispatch);
 }
-export default connect(null, matchDispatchToProps)(Signup);
+export default withRouter(connect(null, matchDispatchToProps)(Signup));

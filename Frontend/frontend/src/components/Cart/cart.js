@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import axios from "axios";
 import Navbar from "./../Menu/Navbar.jsx";
 import uniqid from "uniqid";
+import {Payments_ELB, Cart_ELB, Login_ELB, Menu_ELB} from './../../Helpers/helper.js';
 import "./Cart.css";
 
 class Cart extends Component {
@@ -22,12 +23,12 @@ class Cart extends Component {
     console.log("Update Cart");
     console.log(this.state.cart);
 
-    let CART_ELB = "cart-elb-662553320.us-east-1.elb.amazonaws.com";
+    // let CART_ELB = "cart-elb-662553320.us-east-1.elb.amazonaws.com";
 
     let UpdatedCart = this.state.cart;
 
     axios
-      .put(`http://${CART_ELB}/cart/add`, UpdatedCart)
+      .put(`${Cart_ELB}/cart/add`, UpdatedCart)
       .then(response => {
         console.log("Status Code :", response);
         console.log("Data updated");
@@ -100,11 +101,11 @@ class Cart extends Component {
   };
 
   componentDidMount() {
-    let CART_ELB = "cart-elb-662553320.us-east-1.elb.amazonaws.com";
+    // let CART_ELB = "cart-elb-662553320.us-east-1.elb.amazonaws.com";
     let username = this.props.UserDetails.username;
 
     axios
-      .get(`http://${CART_ELB}/cart/${username}`)
+      .get(`${Cart_ELB}/cart/${username}`)
       .then(response => {
         console.log("Status Code :", response);
 

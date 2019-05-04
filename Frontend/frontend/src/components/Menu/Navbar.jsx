@@ -55,9 +55,11 @@ class Navbar extends Component {
           </span>
         </Link>
         <Link to="/">
+        <a href ="/" onClick={() => localStorage.clear()}>
           <span className="menu-navbar4">
             Logout
           </span>
+        </a>
         </Link>
         {console.log("this.props.UserDetails.adminFlag ", this.props.UserDetails.adminFlag )}
         {this.props.UserDetails.adminFlag == true ?

@@ -19,8 +19,17 @@ class Login extends Component {
 	}
 	clickHandler=()=> {
 	     this.props.userLogin(this.userDetails);
-			 history.push('/login');
 	}
+	componentWillReceiveProps(nextProps){
+		console.log("nextProps.error",nextProps.UserDetails.error);
+  if(nextProps.UserDetails.error !== "UserName doesnot exist"){
+		this.props.history.push('/menu')
+  }
+	else {
+		this.props.history.push('/')
+	}
+}
+
 	render() {
 		return(
 			<div className="signup-container">
@@ -41,8 +50,8 @@ class Login extends Component {
                       onChange={(userinput) => {
                           this.userDetails.password=userinput.target.value}}/>
                       </td></tr>
-											<Link to={{ pathname: "/menu", state: this.props.UserDetails }}><button type="button" onClick={(e) =>this.clickHandler()}
-											 className="btn btn-primary join">Login</button></Link>
+										<button type="button" onClick={(e) =>this.clickHandler()}
+											 className="btn btn-primary join">Login</button>
 											 <button type="button" onClick={(e) =>this.props.history.push('/signup')}
  											 className="btn btn-primary join">Sign Up</button>
     							</table>
