@@ -15,3 +15,30 @@
 ![DNS endpoints](record-set-1.PNG)
 
 ![NameSpace](namespace.PNG)
+
+## Route DNS Traffic for Your Domain to Your Load Balancers
+
+ I have two public load balancers in two different aws regions. So I have to create seperate A records for different regions.
+
+- Click create record set option , fill in the following details and create record set option.
+
+```
+name : append www
+Type : A
+Alias : 
+YES - If you want to point the domain name to any load balancers, s3 or cloud front enpoints.
+NO -  if you want to point the domain name to the servers ip.
+
+In my case, i'm selecting no because am pointing the domian name directly to the servers ip address.
+
+Value : address of your Load Address which is hosting your application
+Routing Policy : latency 
+There are four routing policies: simple , latency, weighted and failover.
+
+Region : region where you have the instance.
+Set ID : description for the record (eg : oregon data center)
+```
+![record1](record-set-2.PNG)
+
+![record2](record-set-3.PNG)
+
