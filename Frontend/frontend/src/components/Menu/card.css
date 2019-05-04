@@ -30,8 +30,9 @@
 }
 .MenuDetailsImage-surabhi{
   height: 200px ;
-  width: 200px ;
-  margin-left: 150px;
+  width: 250px ;
+  margin-left: 190px;
+  position: relative;
 }
 .MenuDescription-surabhi{
     width: 280px ;
@@ -47,6 +48,7 @@
   margin-left: 0px ;
   font-size: 30px;
   padding-bottom: 20px;
+  margin-top: 20px;
 }
 .ItemName1-surabhi{
   color: #0C725E;
@@ -280,9 +282,9 @@ span.addspan{
 .MenuImage-Main-surabhi{
   float: left;
   height: 220px;
-  width: 150px !important;
+  width: 250px !important;
   display: inline;
-  margin-left: -10px;
+  margin-left: -130px;
 }
 .card-header{
   margin-top: 100px;

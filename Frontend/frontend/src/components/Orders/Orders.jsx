@@ -24,7 +24,7 @@ class Orders extends Component {
 
   async componentDidMount() {
     let PORT = 3000;
-    var username=localStorage.getItem('username'); 
+    var username=localStorage.getItem('username');
     // let username = this.props.UserDetails.username;
 
     let userdata = {
@@ -42,11 +42,11 @@ class Orders extends Component {
     // const orderResponse = await axios.get(
 
     // );
-    console.log("order", orderResponse.data);
-    console.log("order", orderResponse.data.length);
+    // console.log("order", orderResponse.data);
+    // console.log("order", orderResponse.data.length);
 
     this.setState({
-      CardAmount: orderResponse.data[0].amount,
+      CardAmount: firstResponse.data[0].amount,
       Cart: orderResponse.data
       //  // totalAmount: parseInt(secondResponse.data.totalamount)
     });
@@ -80,47 +80,50 @@ class Orders extends Component {
 
     return (
       <div class="card-header">
-      <Navbar/>
-      <div className="container">
-        {redirectVar}
-        <div className="heading">
-          <h1>Your Order</h1>
-        </div>
-
-        <div className="cart transition is-open">
-          <div className="table">
-            <div className="layout-inline row th">
-              <div className="col col-pro">ORDER ID</div>
-              <div className="col col-qty align-center">QTY</div>
-              <div className="col">Total</div>
-            </div>
-
-            {details}
+        <Navbar />
+        <div className="container">
+          {redirectVar}
+          <div className="heading">
+            <h1>Your Order</h1>
           </div>
-          <div />
 
-          <Link
-            to="/cardpay"
-            className="btn btn-update"
-            data-wdio="nextButton"
-            data-effect="ripple"
-            // onClick={this.handleSubmit}
-          >
-            Reload Card
-          </Link>
-          <h1> Card Balance {this.state.CardAmount}</h1>
-        </div>
+          <div className="cart transition is-open">
+            <div className="table">
+              <div className="layout-inline row th">
+                <div className="col col-pro">ORDER ID</div>
+                <div className="col col-qty align-center">QTY</div>
+                <div className="col">Total</div>
+              </div>
+
+              {details}
+            </div>
+            <div />
+
+            <Link
+              to="/cardpay"
+              className="btn btn-update"
+              data-wdio="nextButton"
+              data-effect="ripple"
+              // onClick={this.handleSubmit}
+            >
+              Reload Card
+            </Link>
+            <h1> Card Balance {this.state.CardAmount}</h1>
+          </div>
         </div>
       </div>
     );
   }
 }
 function mapStateToProps(state) {
-    console.log("State",state);
-      return {
-         MenuDetails: state.MenuReducer.MenuDetails,
-         UserDetails: state.MenuReducer.UserDetails,
-         CartDetails: state.MenuReducer.CartDetails
-      };
-  }
-export default connect(mapStateToProps, null)(Orders);
+  console.log("State", state);
+  return {
+    MenuDetails: state.MenuReducer.MenuDetails,
+    UserDetails: state.MenuReducer.UserDetails,
+    CartDetails: state.MenuReducer.CartDetails
+  };
+}
+export default connect(
+  mapStateToProps,
+  null
+)(Orders);
