@@ -42,3 +42,41 @@ Set ID : description for the record (eg : oregon data center)
 
 ![record2](record-set-3.PNG)
 
+## Setup Routing Policy
+
+When you create a record, you choose a routing policy, which determines how Amazon Route 53 responds to queries:
+
+-Simple routing policy – Use for a single resource that performs a given function for your domain, for example, a web server that serves content for the example.com website.
+
+-Failover routing policy – Use when you want to configure active-passive failover.
+
+-Geolocation routing policy – Use when you want to route traffic based on the location of your users.
+
+-Geoproximity routing policy – Use when you want to route traffic based on the location of your resources and, optionally, shift traffic from resources in one location to resources in another.
+
+-Latency routing policy – Use when you have resources in multiple AWS Regions and you want to route traffic to the region that provides the best latency.
+
+-Multivalue answer routing policy – Use when you want Route 53 to respond to DNS queries with up to eight healthy records selected at random.
+
+-Weighted routing policy – Use to route traffic to multiple resources in proportions that you specify.
+
+
+
+Note: <b>We'll be using Latency Policy since we have two seperate regions and this policy will make sure the user gets the lowest latency by redirecting him to closest region.</b>
+
+
+
+![nvirginia](nvirginia.PNG)
+
+![oregon](oregon.PNG)
+
+
+## Test Your URL
+
+-Your Hosted Zone should have Four Record Sets as below:
+
+![hostedzonefinal](record-set-4.PNG)
+
+-We'll test the URL using PostMan
+
+![postman](postman.PNG)
