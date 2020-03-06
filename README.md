@@ -1,7 +1,7 @@
 # Team VS3
 
 <h2>Coffee on Cloud</h2>
-Built an online coffee ordering **cloud scaled SaaS service** on Amazon Cloud and Heroku.
+Built an online coffee ordering **highly scalable SaaS service** in Golang and deployed it on Amazon Cloud and Heroku.
 
 Technologies used: ReactJS, Go, Riak KV database, MongoDB database, AWS, Heroku.
 
